@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.slick-prev, .slick-next {
+  border: solid 1px #ff6347 !important;
+  border-radius: 20px !important;
+  width: 40px !important;
+  height: 40px !important;
+  background-color: aliceblue !important;
+  padding: 10px !important;
+}
+
+
+
+
+  .slick-dots li.slick-active button:before {
+    color: #ff6347 !important;
+    border: solid 1px #ff6347 !important;
+    border-radius: 10px !important;
+
+  }
+  
+  .slick-dots li button:before {
+    color: #ff6347 !important;
+  }
+  
+  .slick-dots {
+    bottom: -40px !important;
+  }
+ 
