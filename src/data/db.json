@@ -1,14 +1,14 @@
 {
   "books": [
     {
-      "name": "myLove",
+      "name": "my Love",
       "description": "Ugly Love by Colleen Hoover is an emotional romance novel that explores themes of love, loss, and healing. The story revolves around Tate Collins, a nursing student, and Miles Archer, a pilot with a troubled past. When Tate moves in with her brother, she meets Miles, and they agree to a physical relationship with two rules: no questions about his past and no expectations for the future. However, their arrangement becomes complicated as deeper feelings develop.",
       "author": "hazem",
       "price": "20",
       "category": "love",
       "image": "https://m.media-amazon.com/images/I/61IKJckL1YL._AC_UL480_FMwebp_QL65_.jpg",
-      "id": "5b34",
-      "favourite": "no"
+      "favourite": "no",
+      "id": "5b34"
     },
     {
       "name": "The Psychology of Money",
@@ -48,8 +48,8 @@
       "author": "larry nyhoff",
       "price": "70",
       "category": "programming",
-      "favourite": "false",
       "image": "https://m.media-amazon.com/images/I/61Ea0Wo7LkL._SY466_.jpg",
+      "favourite": "false",
       "id": "dc64"
     },
     {
@@ -58,9 +58,9 @@
       "author": "lorren robertson",
       "price": "25",
       "category": "love",
-      "favourite": "false",
-      "profile": "true",
       "image": "https://m.media-amazon.com/images/I/71Hjo1JeEoL.__AC_SX300_SY300_QL70_ML2_.jpg",
+      "favourite": "",
+      "profile": "no",
       "id": "43b4"
     },
     {
@@ -70,6 +70,7 @@
       "price": "12",
       "category": "success",
       "image": "https://m.media-amazon.com/images/I/41AnbvGOT3L._SY445_SX342_.jpg",
+      "profile": "no",
       "id": "90ee"
     },
     {
@@ -141,14 +142,14 @@
       "id": "e65f"
     },
     {
-      "name": "Diary of wimpy kid",
+      "name": "Diary of wimpy kids",
       "description": " The first book in the global phenomenon from international bestselling author Jeff Kinney 250 million copies of the series sold worldwide!  'Let me get something straight: this is a JOURNAL not a diary... The other thing I want to clear up right away is that this was MOM's idea, not mine.'",
       "author": "Jeff Kinney",
       "price": "10",
       "category": "kids",
       "image": "https://m.media-amazon.com/images/I/51+ny7zH1-L._SY445_SX342_.jpg",
-      "id": "4a98",
-      "profile": "yes"
+      "profile": "yes",
+      "id": "4a98"
     },
     {
       "id": "e4da",
@@ -247,13 +248,13 @@
     },
     {
       "name": "7 Steps toliving your best life",
-      "description": "MANIFEST is the essential guide for anyone and everyone wanting to feel more empowered in their lives. Self-development coach and 'Queen of Manifesting' Roxie Nafousi will show you how in just seven simple steps you can understand the true art of manifestation and learn how to create the life you have always dreamed of.  Whether you want to attract your soulmate, find the perfect job or your dream home, or simply discover more inner-peace and confidence, MANIFEST will teach you exactly how to get there in just 7 steps . . .  1. Be clear in your vision 2. Remove fear and doubt 3. Align your behaviour 4. Overcome tests from the universe 5. Embrace gratitude without caveats 6. Turn envy into inspiration 7. Trust in the universe  A meeting of science and wisdom, manifesting is a philosophy and a self-development practice to help you reach for your goals, cultivate self-love and live your best life.  Unlock the magic for yourself and begin your journey to turning your dreams into reality. ________  'The face of manifesting in Britain' THE TIMES 'The essential guide to anyone and everyone wanting to feel more empowered in their lives' GLAMOUR UK 'Buy the book, do the work, and watch your life change' ***** Reader Review 'The 'go-to' manifesting handbook'",
+      "description": "MANIFEST is the essential guide for anyone and everyone wanting to feel more empowered in their lives. Self-development coach and 'Queen of Manifesting' Roxie Nafousi will show you how in just seven simple steps you can understand the true art of manifestation and learn how to create the life you have always dreamed of.  Whether you want to attract your soulmate, find the perfect job or your dream home, or simply discover more inner-peace and confidence, MANIFEST will teach you exactly how to get there in just 7 steps . . .  1. Be clear in your vision 2. Remove fear and doubt 3. Align your behaviour 4. Overcome tests from the universe 5. Embrace gratitude without caveats 6. Turn envy into inspiration 7. Trust in the universe  A meeting of science and wisdom, manifesting is a philosophy and a self-development practice to help you reach for your goals, cultivate self-love and live your best life.  Unlock the magic for yourself and begin your journey to turning your dreams into reality. ________  'The face of manifesting in Britain THE TIMES ",
       "author": "Roxie Nafousi",
       "price": "15",
       "category": "success",
-      "favourite": "",
-      "profile": "",
       "image": "https://m.media-amazon.com/images/I/715u7p+38+L._SY466_.jpg",
+      "favourite": "",
+      "profile": "no",
       "id": "fe91"
     },
     {

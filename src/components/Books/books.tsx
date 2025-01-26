@@ -9,6 +9,7 @@ import { addToCart, addToFavorite } from "../../redux/counter";
 import { toast, ToastContainer } from "react-toastify";
 import React from "react";
 import { MdFavoriteBorder } from "react-icons/md";
+import { useQuery } from "react-query";
 
 
 
@@ -20,7 +21,6 @@ interface Book {
 
 
 const Books = () => {
-  const [books, setBooks] = useState([]);
   const [showPrice, setShowPrice] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
   const [selectedDelete, setSelectedDelete] = useState(null);
@@ -29,15 +29,13 @@ const Books = () => {
   const [displayCount, setDisplayCount] = useState(8);
   const [sortOption, setSortOption] = useState("alphabetical");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   
   const [current, setCurrent] = useState(1);
   const itemsPerPage = 8;
   const lastIndex = current * itemsPerPage;
   const startIndex = lastIndex - itemsPerPage;
-  const totalPages = Math.ceil(books.length / itemsPerPage);
-  const currentBooks = books.slice(startIndex, lastIndex);
+ 
 
   
   const [open, setOpen] = React.useState(false);
@@ -77,25 +75,30 @@ const changeIconColor = (id: any) => {
   };
 
   const role = localStorage.getItem("role");
-  
 
   const getBooks = async () => {
-    try {
-      let response = await axios.get("http://localhost:5000/books");
-      setBooks(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-    }
-  };
+    
+    return await axios.get("http://localhost:5000/books");
+  }
+ const {data,isLoading} = useQuery('allBooks',getBooks,{
+   refetchInterval: 1000
+ });
 
+ const books = data?.data;
+
+ console.log(books);
+
+
+
+ const totalPages = Math.ceil(books?.length / itemsPerPage);
+ const currentBooks = books?.slice(startIndex, lastIndex);
   const handleDelete = async () => {
 
     try {
       await axios.delete(`http://localhost:5000/books/${selectedDelete}`);
       toast('Delete is successful!');
       getBooks();
+    
     } catch (errors) {
       console.log(errors);
     }
@@ -116,7 +119,7 @@ const changeIconColor = (id: any) => {
     setSelectedCategories((prev: any) => checked ? [...prev, name] : prev.filter((category: any) => category !== name));
   };
 
-  const filteredBooks = currentBooks.filter((book:{  category: string, price: string}) => {
+  const filteredBooks = currentBooks?.filter((book:{  category: string, price: string}) => {
       const price = parseFloat(book.price);
       const min = parseFloat(minPrice) || 0;
       const max = parseFloat(maxPrice) || Infinity;
@@ -150,12 +153,12 @@ const changeIconColor = (id: any) => {
   return (
 
     <>
+      {isLoading? <Load />:
     <div className="flex flex-col p-2">
       <ToastContainer />
-      {loading ? (
-        <div className="flex justify-center"><Load /></div>
-        
-      ) : (
+    
+    
+         
         <div className="flex gap-4">
           <div className="hidden sm:hidden md:hidden lg:block xl:block">
             <div className="flex flex-col gap-2 w-80 p-2">
@@ -230,7 +233,7 @@ const changeIconColor = (id: any) => {
 
            
                 <h1 className="text-indigo-800 text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl mt-2 font-semibold">
-                  Showing {filteredBooks.length} books
+                  Showing {filteredBooks?.length} books
                 </h1> 
               
 
@@ -252,7 +255,7 @@ const changeIconColor = (id: any) => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
-              {filteredBooks.map((book: any) => (
+              {filteredBooks?.map((book: any) => (
                 <div key={book.id} className="text-center relative group">
                   <div className="shadow-xl mx-16 sm:mx-16 md:mx-12 lg:mx-8 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
                   <div className="transform hover:scale-105 transition duration-300">
@@ -385,7 +388,7 @@ const changeIconColor = (id: any) => {
 
           </div>
       
-      )}
+      
 
        
      
@@ -393,6 +396,7 @@ const changeIconColor = (id: any) => {
 
 
     </div>
+    }
     </>
   );
 };

@@ -24,7 +24,6 @@ const home = () => {
             <Offer/>
             <Subscribe/>
             <Latest/>
-
             </div>
     )
 

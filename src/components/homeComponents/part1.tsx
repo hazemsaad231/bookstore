@@ -2,13 +2,13 @@ import Slider from "react-slick";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css"; 
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useQuery } from "react-query";
 import React from "react";
+import Load from "../Books/load";
 
 function bookSlide() {
 
-  const [Data, setData] = useState([]);
 
   {/*silder*/}
   const settings = {
@@ -23,40 +23,37 @@ function bookSlide() {
     prevArrow: <GoArrowLeft size={30} color="#ff6347"/>,
   };
 
-
   const getData = async () => {
-    try {
-      let response = await axios.get("http://localhost:5000/books");
-      const Book = response.data.filter((book: any) => book.profile === "yes").slice(0, 6);
-      console.log(response.data);
-      setData(Book);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    return await axios.get("http://localhost:5000/books");
+    
+  }
+ const {data, isLoading: isloading} = useQuery('books', getData);
+ console.log(data?.data);
 
-  useEffect(() => {
-    getData();
-  }, []);
-
+ const Data = data?.data?.filter((book: any) => book.profile === "yes").slice(0, 6)
+ console.log(Data);
 
  
   return (
-    <div className="flex justify-center bg-gradient-to-l from-red-100 to-white-100 py-16">
-      <div className="slider-container w-[96%] py-10 px-8 sm:px-8 md:px-4">
-        <Slider {...settings}>
+    <>
+    
+    {isloading ? <Load /> : (
+    
+    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-4" style={{fontFamily: "sans-serif"}}>
+   
+       <div className="slider-container w-[96%] py-10 px-8 sm:px-8 md:px-4">         <Slider {...settings}>
 
           {/* الشريحة الأولى */}
-          {Data.map((book: any, index) => (
+          {Data?.map((book: any, index:any) => (
             
           <div key={index}>
 
           <div className="flex justify-center items-center space-x-0 sm:space-x-20  md:space-x-16 lg:space-x-40 xl:space-x-80"> 
               <div className="hidden sm:hidden md:block lg:block xl:block">
              <div className="flex flex-col gap-3 justify-center ">
-            <h1 className="text-5xl font-semibold text-orange-500 text-center">{book.name}</h1>
-            <p className="text-gray-500 w-96 p-6"> {book.description}</p>
-          <button className="border border-orange-500 px-4 py-2 rounded-lg w-max m-auto text-orange-500 hover:bg-orange-300 ">Read more</button>
+            <h1 className="text-5xl font-semibold text-indigo-900 text-center">{book.name}</h1>
+            <p className="text-indigo-800 w-[400px] p-6"> {book.description}</p>
+          <button className="border border-indigo-700 px-4 py-2 rounded-lg w-max m-auto text-indigo-500 hover:bg-indigo-500 hover:text-white transition duration-300 ">Read more</button>
                 
                 </div>
                 </div>  
@@ -65,7 +62,7 @@ function bookSlide() {
   <img
     src={book.image}
     alt="book"
-    className="rounded-lg h-80 w-full sm:h-52 md:h-72 lg:h-80 xl:h-96 xl:w-64 m-auto object-cover"
+    className="rounded-lg h-80 w-full sm:h-52 md:h-72 lg:h-80 xl:h-[420px] xl:w-64 m-auto object-cover"
     loading="lazy"
   />
   {/* الوصف يظهر عند hover */}
@@ -89,6 +86,9 @@ function bookSlide() {
         </Slider>
       </div>
     </div>
+)}
+
+  </>
   );
 }
 

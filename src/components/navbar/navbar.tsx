@@ -81,7 +81,7 @@ console.log(userId)
         </div>
       </div>
 
-      <div className="flex justify-between items-center w-full shadow-lg border-2 p-2 bg-gray-100">
+      <div className="flex justify-around items-center w-full shadow-lg border-2 p-1" style={{fontFamily: "sans-serif"}}>
         <div>
           <h1 className="text-md sm:text-md md:text-lg lg:text-xl xl:text-xl font-semibold text-indigo-900">
             <span className="text-indigo-700">Welcome </span>
@@ -90,20 +90,20 @@ console.log(userId)
         </div>
 
         <div>
-          <img src={logo} alt="" className="w-16 hidden sm:hidden md:block lg:block xl:block" />
+          <img src={logo} alt="" className="w-12 hidden sm:hidden md:block lg:block xl:block" />
         </div>
 
 
 
 
 {role === 'Customer' ? (
-  <ul className="hidden md:flex gap-4 p-4 text-lg cursor-pointer">
+  <ul className="hidden md:flex gap-x-4 p-3 text-lg cursor-pointer">
     <li><Link to="/home">HOME</Link></li>
     <li className="border-x-2 border-gray-300 px-4"><Link to="book">BOOKS</Link></li>
     <li className=" px-4"><Link to={`/home/myOrders/${userId}`} >my orders</Link></li>
   </ul>
 ) : (
-  <ul className="hidden md:flex gap-4 p-4 text-lg cursor-pointer">
+  <ul className="hidden md:flex gap-4 p-2 text-lg cursor-pointer">
     <li><Link to="/home">HOME</Link></li>
     <li className="border-x-2 border-gray-300 px-4"><Link to="book">BOOKS</Link></li>
     <li className=" px-4"><Link to="addBook">Add book</Link></li>
@@ -113,7 +113,7 @@ console.log(userId)
 
 
 
-        <ul className="flex gap-4 px-6 py-4 cursor-pointer">
+        <ul className="flex gap-4 px-6 py-2 mt-2 cursor-pointer ">
           <li><Link to="profile"><FaUser size={25} /></Link></li>
           {role === 'Customer' ? <li className="border-x-2 border-gray-300 px-4"><Link to="all"><BiClipboard size={25} /></Link>
           <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">

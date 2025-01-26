@@ -16,7 +16,7 @@ const Latest = () => {
 
     return(
         <>
-        <div>
+        <div style={{fontFamily:"sans-serif"}}>
             <div className="flex flex-col gap-5 justify-center items-center p-10">
                 <p className="text-gray-400">READ OUR ARTICLES</p>
               

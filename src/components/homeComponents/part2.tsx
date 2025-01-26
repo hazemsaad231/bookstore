@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import { GoArrowLeft } from "react-icons/go";
 import 'aos/dist/aos.css';
-import {data2} from './data';
+import {data} from './data';
 import React from "react";
 
 
@@ -14,7 +14,7 @@ function Category() {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     speed: 5000,
@@ -32,19 +32,19 @@ function Category() {
   };
 
   return (
-    <div className="py-16">
+    <div className="py-16" style={{fontFamily:"sans-serif"}}>
       <div className="slider-container">
         <div className="m-12">
           <div className="flex gap-2">
             <GoArrowLeft size={25} color="#ff6347"/>
-            <h1 className="text-orange-500 font-bold text-xl">Categories</h1>
+            <h1 className="text-orange-600 font-bold text-xl">Categories</h1>
           </div>
           <div>
-          <h1 className="text-3xl font-bold text-indigo-500">Explore our Top Categories</h1>
+          <h1 className="text-3xl font-bold text-indigo-800">Explore our Top Categories</h1>
           </div>
         </div>
         <Slider {...settings} className="py-4">
-{data2.map((item, index) => (
+{data.map((item, index) => (
           <div key={index}>
             <div className="flex flex-col w-[95%]">
               <img src={item.img} alt="Category 1" className="h-60  rounded-xl" loading="lazy" />

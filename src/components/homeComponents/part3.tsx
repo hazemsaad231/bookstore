@@ -60,15 +60,15 @@ function New() {
  
 
   return (
-    <div className={`py-10`} style={{ backgroundColor: 'rgb(250, 245, 239)'  }}>
+    <div className={`py-10`} style={{ backgroundColor: 'rgb(250, 245, 239)', fontFamily:"sans-serif"  }}>
       <ToastContainer />
       <div className="slider flex flex-col gap-4 justify-center items-center px-4">
         <div className="text-center">
           <h2 className="text-lg text-gray-500 font-bold tracking-wider">SOME QUALITY ITEMS</h2>
           <div className="flex items-center gap-6">
-            <hr style={{ width: "10%", border: "1px solid #ff6347" }} />
+            <hr style={{ width: "50%", border: "1px solid #ff6347" }} />
             <h1 className="text-5xl font-bold text-indigo-900 mb-4 w-max">New Release Books</h1>
-            <hr style={{ width: "10%", border: "1px solid #ff6347" }} />
+            <hr style={{ width: "50%", border: "1px solid #ff6347" }} />
           </div>
         </div>
         
