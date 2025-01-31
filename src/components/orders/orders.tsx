@@ -5,7 +5,6 @@ import { updateOrder } from "../../redux/counter";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import Loading from "./loading";
-import React from "react";
 
 interface Order {
   email: string;

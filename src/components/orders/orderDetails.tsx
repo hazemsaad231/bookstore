@@ -3,7 +3,6 @@ import { doc, getDoc } from 'firebase/firestore';
 import { useQuery } from 'react-query';
 import { db } from '../customer/firebase';
 import Loading from './loading';
-import React from 'react';
 
 interface Details {
   cartItems: {

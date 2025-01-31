@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { useEffect } from "react";
 import { setUserData } from "../../redux/counter";
-import React from "react";
 
 const Profile = () => {
   const dispatch = useDispatch();
