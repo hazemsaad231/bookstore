@@ -51,7 +51,7 @@ try{
       <div> 
          
            <div>
-            <div className='p-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
+            <div className='py-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
            
             <h3 className='text-gray-500 text-lg text-center'>Create new account</h3>
             <h1 className='font-bold text-2xl text-center mb-4'>Register</h1>
@@ -131,7 +131,9 @@ try{
 <Autocomplete
         id="controllable-states-demo"
         options={options}
-        sx={{ width: 300 }}
+        sx={{
+         m: 2, width: '35ch' ,margin:"0 auto",
+        }}
         renderInput={(params) =>
         <TextField {...params}
          label="role" 

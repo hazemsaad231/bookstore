@@ -47,7 +47,7 @@ try{
       <div> 
          
            <div>
-            <div className='p-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
+            <div className='py-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
            
             <h3 className='text-gray-500 text-lg text-start'>Welcome back!</h3>
             <h1 className='font-bold text-2xl mb-4'>Login to your account</h1>
@@ -56,9 +56,9 @@ try{
     <form onSubmit={handleSubmit(onSubmit)}>
     <Box
       component="form"
-      sx={{
-        '& > :not(style)': { m: 2, width: '24ch' },
-      }}
+    sx={{
+      '& > :not(style)': { m: 2, width: '25ch' , display: 'flex', flexDirection: 'column', gap: 2, justifyContent: 'center', alignItems: 'center' },
+    }}
       noValidate
       autoComplete="off"
     >
@@ -78,7 +78,7 @@ try{
       />
 
       {errors.email && <span className='text-red-400 text-start text-sm'>email is required</span>}
-      <div className='mt-4'><TextField
+      <div><TextField
         id="outlined-basic"
         label="Password"
         type="password"
@@ -97,7 +97,7 @@ try{
 
 
 
-      <div className='flex gap-12 text-sm mt-4'>
+      <div className='flex gap-10 text-sm mt-4'>
 
     <div className='flex'>
         <input type="checkbox"  className='mt-1'/>
