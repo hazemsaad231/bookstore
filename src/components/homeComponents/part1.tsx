@@ -24,7 +24,7 @@ function bookSlide() {
   };
 
   const getData = async () => {
-    return await axios.get("http://localhost:5000/books");
+    return await axios.get("https://backend-production-65d5.up.railway.app/books");
     
   }
  const {data, isLoading: isloading} = useQuery('books', getData);

@@ -21,7 +21,7 @@ function Feature() {
 
   const getData = async () => {
     try {
-      let response = await axios.get("http://localhost:5000/books");
+      let response = await axios.get("https://backend-production-65d5.up.railway.app/books");
       const Book = response.data.filter((book: any) => book.favourite === "yes").slice(0, 6);
       console.log(response.data);
       setBooks(Book);
