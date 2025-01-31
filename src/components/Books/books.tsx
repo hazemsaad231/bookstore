@@ -255,7 +255,7 @@ const changeIconColor = (id: any) => {
               </Box>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-6 ">
               {filteredBooks?.map((book: any) => (
                 <div key={book.id} className="text-center relative group">
                   <div className="shadow-xl mx-16 sm:mx-16 md:mx-12 lg:mx-8 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
