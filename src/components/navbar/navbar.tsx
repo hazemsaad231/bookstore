@@ -16,6 +16,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
+import React from "react";
 interface UserData {
   cartAmount: ReactNode;
   userData: {

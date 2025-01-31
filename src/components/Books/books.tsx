@@ -78,7 +78,8 @@ const changeIconColor = (id: any) => {
 
   const getBooks = async () => {
     
-    return await axios.get("http://localhost:5000/books");
+    return await axios.get("https://backend-production-65d5.up.railway.app/books");
+
   }
  const {data,isLoading} = useQuery('allBooks',getBooks,{
    refetchInterval: 1000
@@ -95,7 +96,7 @@ const changeIconColor = (id: any) => {
   const handleDelete = async () => {
 
     try {
-      await axios.delete(`http://localhost:5000/books/${selectedDelete}`);
+      await axios.delete(`https://backend-production-65d5.up.railway.app/books/${selectedDelete}`);
       toast('Delete is successful!');
       getBooks();
     

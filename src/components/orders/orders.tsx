@@ -5,6 +5,7 @@ import { updateOrder } from "../../redux/counter";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import Loading from "./loading";
+import React from "react";
 
 interface Order {
   email: string;
@@ -40,10 +41,12 @@ const Orders = () => {
   if (!isLoading) dispatch(updateOrder(orders));
 
   return (
-    <div className="bg-gradient-to-r from-red-100 to-white pb-40 pt-20">
-      {isLoading ? (
+    <>
+   
+      {isLoading ? 
         <Loading />
-      ) : (
+       : 
+        <div className="bg-gradient-to-r from-red-100 to-white pb-40 pt-20">
         <div className="m-4">
           <div className="overflow-x-auto mt-12 rounded-xl shadow-xl bg-white m-auto p-4 w-full sm:w-full md:w-5/6 lg:w-2/3 xl:w-2/3">
             <h1 className="text-xl font-semibold text-center mb-8 tracking-[0.2em]">Orders list</h1>
@@ -83,8 +86,9 @@ const Orders = () => {
             </table>
           </div>
         </div>
-      )}
-    </div>
+      </div>}
+  
+    </>
   );
 };
 

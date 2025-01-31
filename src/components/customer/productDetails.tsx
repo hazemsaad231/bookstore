@@ -5,6 +5,9 @@ import { Rings } from "react-loader-spinner";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/counter";
 import { ToastContainer } from "react-toastify";
+
+
+
 function Details() {
   const { id } = useParams();
 
@@ -25,7 +28,7 @@ function Details() {
 
   const getProductDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/books/${id}`,{
+      const response = await axios.get(`https://backend-production-65d5.up.railway.app/books/${id}`,{
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}` // استبدل yourToken بالـ Token الصحيح
       }}
@@ -54,7 +57,7 @@ function Details() {
 
   return (
 
-    <div className="bg-gradient-to-t from-red-100 to-white-100 h-full p-6">
+    <div className="bg-gradient-to-t from-red-100 to-white-100 h-full p-6" style={{fontFamily: "serif"}}>
       <ToastContainer/>
         <div className="flex justify-center flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row  md:space-x-60 lg:space-x-60 xl:space-x-80 p-16 ">
 

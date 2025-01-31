@@ -6,6 +6,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/counter";
 import { ToastContainer } from "react-toastify";
+
+
 function New() {
 
   const [books, setBooks] = useState<any>([]);

@@ -23,6 +23,7 @@ import OrderDetails from './components/orders/orderDetails'
 import MyOrder from './components/customer/myOrder'
 import MyFavourate from './components/customer/myFavourate'
 import {QueryClientProvider, QueryClient} from 'react-query'
+import React from 'react'
 
 function App() {
 

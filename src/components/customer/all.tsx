@@ -1,4 +1,3 @@
-
 import { ToastContainer } from "react-toastify"
 import Cart from "./cart"
 import Payment from "./payment"

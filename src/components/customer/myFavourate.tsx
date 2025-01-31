@@ -3,6 +3,8 @@ import { RootState } from "../../redux/store";
 import { MdDelete } from "react-icons/md";
 import { ToastContainer } from "react-toastify";
 import { DeleteFromFavorite } from "../../redux/counter";
+
+
 const MyFavourate = () => {
 
   const favourateBooks = useSelector((state: RootState) => state.counter.favoriteItems);
@@ -16,7 +18,7 @@ const dispatch = useDispatch();
     return (
 
       
-      <div className="bg-gradient-to-r from-red-100 to-white py-20">
+      <div className="bg-gradient-to-r from-red-100 to-white py-40">
         
         <ToastContainer/>
         <div className="shadow-2xl rounded-xl bg-white w-[80%] sm:w-[80%] m-auto md:w-[70%] lg:w-[60%] xl:w-[60%] tracking-[1px] ">

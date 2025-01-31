@@ -47,8 +47,9 @@ const MyOrders = () => {
   });
 
   return (
+    <>
+{isLoading && <Loading />}
     <div className="bg-gradient-to-l from-red-100 to-white py-40 h-full" style={{fontFamily: 'sans-serif'}}>
-      {isLoading && <Loading />}
       <div>
         <div className="w-[100%] sm:w-[80%] md:w-[60%] lg:w-[60%] xl:w-[60%] m-auto bg-white shadow-xl rounded-xl">
           <h1 className="text-lg text-center mb-8 tracking-[0.2em]">
@@ -113,6 +114,7 @@ const MyOrders = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

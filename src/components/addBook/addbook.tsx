@@ -17,7 +17,7 @@ const AddBook = () => {
             const Update = async () => {
                 try {
 
-                    const res = await axios.get(`http://localhost:5000/books/${id}`);
+                    const res = await axios.get(`https://backend-production-65d5.up.railway.app/books/${id}`);
                     const book = res.data;
                     setValue("name", book.name);
                     setValue("description", book.description);
@@ -44,7 +44,7 @@ const AddBook = () => {
         try {
             if (id) {
                
-                const response = await axios.put(`http://localhost:5000/books/${id}`, data);
+                const response = await axios.put(`https://backend-production-65d5.up.railway.app/books/${id}`, data);
                 console.log(response,'updated');
                 setTimeout(() => {
                     navigate("/home/book")
@@ -52,7 +52,7 @@ const AddBook = () => {
                
                 toast("Update is successful");
             } else {
-                const response = await axios.post("http://localhost:5000/books", data);
+                const response = await axios.post("https://backend-production-65d5.up.railway.app/books", data);
                 console.log(response);
                 setTimeout(() => {
                     navigate("/home/book")
