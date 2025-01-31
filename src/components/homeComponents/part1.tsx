@@ -2,10 +2,8 @@ import Slider from "react-slick";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css"; 
-import axios from "axios";
-import { useQuery } from "react-query";
 import React from "react";
-import Load from "../Books/load";
+import data1 from "./data";
 
 function bookSlide() {
 
@@ -23,28 +21,19 @@ function bookSlide() {
     prevArrow: <GoArrowLeft size={30} color="#ff6347"/>,
   };
 
-  const getData = async () => {
-    return await axios.get("https://backend-production-65d5.up.railway.app/books");
-    
-  }
- const {data, isLoading: isloading} = useQuery('books', getData);
- console.log(data?.data);
-
- const Data = data?.data?.filter((book: any) => book.profile === "yes").slice(0, 6)
- console.log(Data);
 
  
   return (
     <>
     
-    {isloading ? <Load /> : (
+  
     
     <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-4" style={{fontFamily: "sans-serif"}}>
    
        <div className="slider-container w-[96%] py-10 px-8 sm:px-8 md:px-4">         <Slider {...settings}>
 
           {/* الشريحة الأولى */}
-          {Data?.map((book: any, index:any) => (
+          {data1?.map((book: any, index:any) => (
             
           <div key={index}>
 
@@ -86,7 +75,7 @@ function bookSlide() {
         </Slider>
       </div>
     </div>
-)}
+
 
   </>
   );
