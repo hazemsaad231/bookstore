@@ -114,7 +114,7 @@ console.log(userId)
 
 
 
-        <ul className="flex gap-4 px-6 cursor-pointer relative top-1 ">
+        <ul className="flex gap-4 px-6 cursor-pointer relative top-1 p-1 ">
           <li><Link to="profile"><FaUser size={25} /></Link></li>
           {role === 'Customer' ? <li className="border-x-2 border-gray-300 px-4"><Link to="all"><BiClipboard size={25} /></Link>
           <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">
