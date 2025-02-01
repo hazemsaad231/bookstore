@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import offer from "../../assets/img/offer.jpg"
+import React from "react";
+
+
 
 const Offer = () => {
-
-
-
- 
-
-
 
 
     const targetDate = new Date("2025-12-31T23:59:59").getTime();
@@ -77,4 +74,4 @@ const Offer = () => {
 }
 
 
-export default Offer
+export default React.memo(Offer);    
