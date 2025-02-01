@@ -24,7 +24,7 @@ const Close = ()=>{
 
       <Dialog open={isOpen}  className="relative z-10" onClose={close}>
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center  ml-24 p-4">
+          <div className="flex w-screen h-screen items-center justify-center">
             <DialogPanel
               transition
               className="w-max p-5  duration-300 ease-out bg-white  shadow-2xl rounded-lg data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
