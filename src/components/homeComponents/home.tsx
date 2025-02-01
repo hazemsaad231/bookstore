@@ -5,7 +5,7 @@ import New from "./part3"
 import Feature from "./part4"
 import Offer from "./part5"
 import Subscribe from "./part6"
-// import Latest from "./part7"
+import Latest from "./part7"
 
 
 const home = () => {
@@ -23,7 +23,7 @@ const home = () => {
             <Feature/>
             <Offer/>
             <Subscribe/>
-            {/* <Latest/> */}
+            <Latest/>
             </div>
     )
 

@@ -265,6 +265,7 @@ const changeIconColor = (id: any) => {
                       src={book.image || 'default_image_url'} // إضافة صورة افتراضية إذا لم توجد صورة
                       alt={book.name}
                       className="w-full h-60 mb-4 m-auto rounded-xl shadow-lg"
+                      loading="lazy"
                     />
 
 <div className="absolute inset-0 flex flex-col justify-end mb-8 items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
