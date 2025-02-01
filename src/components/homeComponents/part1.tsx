@@ -28,9 +28,9 @@ function bookSlide() {
     
   
     
-    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-4" style={{fontFamily: "sans-serif"}}>
+    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-12" style={{fontFamily: "sans-serif"}}>
    
-       <div className="slider-container w-[96%] py-10 px-8 sm:px-8 md:px-4">         <Slider {...settings}>
+       <div className="slider-container w-full">         <Slider {...settings}>
 
           {/* الشريحة الأولى */}
           {data1?.map((book: any, index:any) => (
@@ -47,7 +47,7 @@ function bookSlide() {
                 </div>
                 </div>  
           
-<div className="relative rounded-xl transform hover:scale-105 transition duration-300 group">
+<div className="relative rounded-xl transform hover:scale-105 transition duration-300 m-6 group">
   <img
     src={book.image}
     alt="book"

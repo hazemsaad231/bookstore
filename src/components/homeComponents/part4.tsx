@@ -41,7 +41,7 @@ function Feature() {
           {books.map((book: any, index) => (
             <div key={index}>
                 <div className="flex justify-between sm:justify-between md:justify-around lg:justify-around xl:justify-around m-5 gap-8">
-                    <div className="p-4 bg-white shadow-lg rounded-lg"><img src={book.image} alt={book.name} className="rounded-xl m-auto h-96" loading="lazy" /></div>
+                    <div className="p-4 bg-white shadow-lg rounded-lg"><img src={book.image} alt={book.name} className="rounded-xl m-auto h-60 sm:h-60 md:h-72 lg:h-80 xl:h-96" loading="lazy" /></div>
                     <div className="text-center gap-3 flex flex-col justify-center items-center text-md sm:text-md md:text-lg lg:text-xl xl:text-xl" >
                         <h1 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-indigo-800 font-semibold">Featured Books</h1>
                         <h1 className="text-lg font-semibold text-gray-400">{book.author}</h1>

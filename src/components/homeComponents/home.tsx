@@ -16,14 +16,14 @@ const home = () => {
 
     return(
         <div>
-           <ToastContainer/>
-            <Slide/>
-            <Category/>
-            <New/>
-            <Feature/>
+         <ToastContainer/>
+        <Slide/>
+        <Category/>
+        <New/>
+            {/* <Feature/>
             <Offer/>
             <Subscribe/>
-            <Latest/>
+            <Latest/> */}
             </div>
     )
 

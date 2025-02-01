@@ -64,6 +64,7 @@ console.log(userId)
       <div className="flex justify-between items-center w-full p-4 bg-indigo-900 text-white">
         {/* تظهر فقط على الشاشات الصغيرة */}
         <GiHamburgerMenu
+          size={25}
           className="block md:hidden"
           color="white"
           onClick={toggleNavbar}

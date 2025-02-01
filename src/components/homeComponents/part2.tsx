@@ -44,7 +44,7 @@ function Category() {
           </div>
         </div>
         <Slider {...settings} className="py-4">
-{data.map((item, index) => (
+      {data.map((item, index) => (
           <div key={index}>
             <div className="flex flex-col w-[95%]">
               <img src={item.img} alt="Category 1" className="h-60  rounded-xl" loading="lazy" />

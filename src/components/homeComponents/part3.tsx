@@ -11,8 +11,6 @@ import { ToastContainer } from "react-toastify";
 function New() {
 
   const [books, setBooks] = useState<any>([]);
-
-
   const dispatch = useDispatch();
   const handleAddToCart = (book: any) => {
     console.log(book)
@@ -62,14 +60,14 @@ function New() {
  
 
   return (
-    <div className={`py-10`} style={{ backgroundColor: 'rgb(250, 245, 239)', fontFamily:"sans-serif"  }}>
+    <div className="py-16" style={{ backgroundColor: 'rgb(250, 245, 239)', fontFamily:"sans-serif"  }}>
       <ToastContainer />
       <div className="slider flex flex-col gap-4 justify-center items-center px-4">
         <div className="text-center">
           <h2 className="text-lg text-gray-500 font-bold tracking-wider">SOME QUALITY ITEMS</h2>
           <div className="flex items-center gap-6">
             <hr style={{ width: "50%", border: "1px solid #ff6347" }} />
-            <h1 className="text-5xl font-bold text-indigo-900 mb-4 w-max">New Release Books</h1>
+            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-indigo-900 mb-4 w-max">New Release Books</h1>
             <hr style={{ width: "50%", border: "1px solid #ff6347" }} />
           </div>
         </div>
@@ -79,28 +77,28 @@ function New() {
           {books.map((book: any, index: number) => (
             <div>
               <div key={index} className="text-center relative group">
-                <div className="shadow-lg p-1 m-6 rounded-xl bg-white">
+                <div className="relative rounded-xl transform hover:scale-105 transition duration-300 m-6 group">
                   <img
                     src={book.image}
-                    alt=""
-                    className="rounded-lg p-2 h-80 m-auto object-cover"
+                    alt="img"
+                    className="h-72 w-48 sm:h-72 md:h-80 lg:h-80 xl:h-80 m-auto object-center"
                     loading="lazy"
                   />
                   {/* زرارين يظهران عند hover */}
                   <div className="absolute inset-0 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   { role === 'Customer' ?
-              <button className="bg-orange-600 text-white  px-4 py-3">
+              <button className="bg-orange-700 text-white w-1/2 py-3">
                 <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>:
                  <div></div>}
                     { role === 'Customer' ?
-              <button className="bg-indigo-600 text-white px-12  py-3">
-                <FaShoppingCart size={25} onClick={() => handleAddToCart(book)} /></button>:
+              <button className="bg-indigo-800 text-white w-1/2  py-3">
+                <FaShoppingCart size={25} onClick={() => handleAddToCart(book)} className="m-auto" /></button>:
                 <div></div>}
                   </div>
                 </div>
                 <h1 className="mt-4 text-lg font-semibold">{book.name}</h1>
                 <h1 className="text-gray-500">{book.author}</h1>
-                <h1 className="text-indigo-500 font-bold mb-4">${book.price}</h1>
+                <h1 className="text-indigo-800 font-bold mb-4">${book.price}</h1>
               </div>
               </div>
             ))}
