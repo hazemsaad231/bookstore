@@ -22,22 +22,30 @@ interface Order {
   };
 }
 
-const fetchOrders = async (userId: string) => {
-  const ordersRef = collection(db, "orders");
-  const q = query(ordersRef, where("userId", "==", userId));
-  const querySnapshot = await getDocs(q);
 
-  if (querySnapshot.empty) {
-    return [];
-  }
-
-  return querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  })) as Order[];
-};
 
 const MyOrders = () => {
+
+
+  const fetchOrders = async (userId: string) => {
+    const ordersRef = collection(db, "orders");
+    const q = query(ordersRef, where("userId", "==", userId));
+    const querySnapshot = await getDocs(q);
+  
+    if (querySnapshot.empty) {
+      return [];
+    }
+  
+    return querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    })) as Order[];
+  };
+
+
+
+
+
   const { id: userId } = useParams();
 
   const { data: orders = [], isLoading } = useQuery({

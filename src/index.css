@@ -4,7 +4,7 @@
 
 
 body{
-  font-family: 'Roboto', sans-serif;
+  font-family: poppins !important;
   font-display: swap;
 }
 .slick-prev, .slick-next {
