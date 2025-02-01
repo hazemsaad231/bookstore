@@ -92,7 +92,7 @@ console.log(userId)
         </div>
 
         <div>
-          <img src={logo} alt="" className="w-12 hidden sm:hidden md:block lg:block xl:block" />
+          <img src={logo} alt="" className="w-16 hidden sm:hidden md:block lg:block xl:block" />
         </div>
 
 
