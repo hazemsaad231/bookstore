@@ -20,11 +20,11 @@ const home = () => {
         <Slide/>
         <Category/>
         <New/>
-            <Feature/>
-            <Offer/>
-            <Subscribe/>
-            <Latest/>
-            </div>
+        <Feature/>
+        <Offer/>
+        <Subscribe/>
+        <Latest/>
+        </div>
     )
 
 }

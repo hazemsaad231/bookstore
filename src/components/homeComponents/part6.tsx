@@ -5,7 +5,7 @@ const Subscribe = () => {
 return(
 
     <>
-    <div className=" bg-rose-100 my-10 w-[100%] flex justify-center" style={{fontFamily: "sans-serif"}}>
+    <div className=" bg-rose-100 my-10 w-full flex justify-center">
 
         <div className="bg-orange-700 flex flex-col gap-3 justify-center items-center w-[80%] m-auto p-20 mx-10 mb-20">
 

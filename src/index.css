@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 
-
+body{
+  font-family: 'Roboto', sans-serif;
+  font-display: swap;
+}
 .slick-prev, .slick-next {
   border: solid 1px #ff6347 !important;
   border-radius: 20px !important;

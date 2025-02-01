@@ -35,7 +35,7 @@ function Feature() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center py-12" style={{fontFamily:"sans-serif"}}>
+    <div className="flex flex-col items-center py-12">
       <div className="w-full mb-4">
         <Slider {...settings}>
           {books.map((book: any, index) => (

@@ -83,7 +83,7 @@ console.log(userId)
         </div>
       </div>
 
-      <div className="flex justify-around items-center w-full border-2 p-1" style={{fontFamily: "sans-serif"}}>
+      <div className="flex justify-around items-center w-full border-2 p-1">
         <div>
           <h1 className="text-md sm:text-md md:text-lg lg:text-xl xl:text-xl font-semibold text-indigo-900">
             <span className="text-indigo-700">Welcome </span>

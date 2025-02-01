@@ -32,7 +32,7 @@ function Category() {
   };
 
   return (
-    <div className="py-16" style={{fontFamily:"sans-serif"}}>
+    <div className="py-16">
       <div className="slider-container">
         <div className="m-12">
           <div className="flex gap-2">

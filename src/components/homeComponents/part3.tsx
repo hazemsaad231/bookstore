@@ -60,7 +60,7 @@ function New() {
  
 
   return (
-    <div className="py-16" style={{ backgroundColor: 'rgb(250, 245, 239)', fontFamily:"sans-serif"  }}>
+    <div className="py-16" style={{ backgroundColor: 'rgb(250, 245, 239)' }}>
       <ToastContainer />
       <div className="slider flex flex-col gap-4 justify-center items-center px-4">
         <div className="text-center">

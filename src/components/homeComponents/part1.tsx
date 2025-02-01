@@ -28,7 +28,7 @@ function bookSlide() {
     
   
     
-    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-12" style={{fontFamily: "sans-serif"}}>
+    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-12">
    
        <div className="slider-container w-full">         <Slider {...settings}>
 
