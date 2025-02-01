@@ -20,8 +20,8 @@ const home = () => {
         <Slide/>
         <Category/>
         <New/>
-            {/* <Feature/>
-            <Offer/>
+            <Feature/>
+            {/* <Offer/>
             <Subscribe/>
             <Latest/> */}
             </div>

@@ -35,13 +35,13 @@ function Feature() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center p-2" style={{fontFamily:"sans-serif"}}>
-      <div className="w-[100%] mb-4">
+    <div className="flex flex-col items-center py-12" style={{fontFamily:"sans-serif"}}>
+      <div className="w-full mb-4">
         <Slider {...settings}>
           {books.map((book: any, index) => (
             <div key={index}>
                 <div className="flex justify-between sm:justify-between md:justify-around lg:justify-around xl:justify-around m-5 gap-8">
-                    <div className="p-4 bg-white shadow-lg rounded-lg"><img src={book.image} alt={book.name} className="rounded-xl m-auto h-60 sm:h-60 md:h-72 lg:h-80 xl:h-96" loading="lazy" /></div>
+                    <div className="p-4 bg-white shadow-lg rounded-lg"><img src={book.image} alt={book.name} className="rounded-xl m-auto h-60 w-60 sm:h-60 md:h-72 lg:h-80 xl:h-96 object-center" loading="lazy" /></div>
                     <div className="text-center gap-3 flex flex-col justify-center items-center text-md sm:text-md md:text-lg lg:text-xl xl:text-xl" >
                         <h1 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-indigo-800 font-semibold">Featured Books</h1>
                         <h1 className="text-lg font-semibold text-gray-400">{book.author}</h1>
