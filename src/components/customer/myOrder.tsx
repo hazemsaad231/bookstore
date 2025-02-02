@@ -4,6 +4,9 @@ import { useQuery } from "react-query";
 import { db } from "./firebase";
 import Loading from "../orders/loading";
 import { toast, ToastContainer } from "react-toastify";
+import { useState } from "react";
+import { FaDeleteLeft } from "react-icons/fa6";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 
 interface Order {
   id: string;
@@ -44,15 +47,31 @@ const MyOrders = () => {
   };
 
 
-const handleDeleteOrder = async (orderId: string) => {
-  try {
-    await deleteDoc(doc(db, "orders", orderId));
-    toast.success("Order deleted successfully.", { autoClose: 2000 });
-    console.log("Order deleted successfully.");
-  } catch (error) {
-    console.error("Error deleting order:", error);
-  }
-};
+const [open, setOpen] = useState(false);
+  const [selectedDelete, setSelectedDelete] = useState(null);
+
+  const handleClickOpen = (id: any) => {
+    setOpen(true);
+    setSelectedDelete(id);
+  };
+
+  const handleClose = () => {
+
+    setOpen(false);
+  };
+
+  const handleDelete = async () => {
+    if (!selectedDelete) {
+      return;
+    }
+    try {
+      await deleteDoc(doc(db, "orders", selectedDelete));
+      toast.success("Order deleted successfully.", { autoClose: 2000 });
+      console.log("Order deleted successfully.");
+    } catch (error) {
+      console.error("Error deleting order:", error);
+    }
+  };
 
 
   const { id: userId } = useParams();
@@ -98,8 +117,7 @@ const handleDeleteOrder = async (orderId: string) => {
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Total Price</th>
-                        <th colSpan={2} className="bg-red-500 cursor-pointer text-white text-center"onClick={() => handleDeleteOrder(order.id)}>X</th>
-
+<th><button className="my-2"><FaDeleteLeft size={20} onClick={() => handleClickOpen(order.id)}/></button></th>
                       </tr>
                     </thead>
                     <tbody className="text-center">
@@ -137,6 +155,35 @@ const handleDeleteOrder = async (orderId: string) => {
         </div>
       </div>
     </div>
+
+    <Dialog
+        open={open}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+        sx={{
+          "& .MuiDialog-paper": {
+            boxShadow: "20px", // لإزالة الظل من المربع
+            backgroundColor: "white", // تغيير لون خلفية الحوار
+          },
+          "& .MuiBackdrop-root": {
+            backgroundColor: "rgba(0, 0, 0, 0)", // تغيير لون خلفية التعتيم للشفافية
+          },
+        }}
+       >
+        <DialogTitle>{"Are you sure you want to delete this order?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>close</Button>
+          <Button onClick={() =>{ handleDelete();
+            handleClose()
+          }}>Delete</Button>
+        </DialogActions>
+      </Dialog>
+
     </>
   );
 };
