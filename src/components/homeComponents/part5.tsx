@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import offer from "../../assets/img/offer.jpg"
+import offer from "../../assets/img/offer.webp"
 import React from "react";
 
 

@@ -7,7 +7,6 @@ import Load from "./load";
 import { useDispatch } from "react-redux";
 import { addToCart, addToFavorite } from "../../redux/counter";
 import { toast, ToastContainer } from "react-toastify";
-import React from "react";
 import { MdFavoriteBorder } from "react-icons/md";
 import { useQuery } from "react-query";
 
@@ -38,7 +37,7 @@ const Books = () => {
  
 
   
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = (id: any) => {
     setOpen(true);
@@ -50,6 +49,17 @@ const Books = () => {
     setOpen(false);
   };
 
+  const handleDelete = async () => {
+
+    try {
+      await axios.delete(`https://backend-production-65d5.up.railway.app/books/${selectedDelete}`);
+      toast('Delete is successful!');
+      getBooks();
+    
+    } catch (errors) {
+      console.log(errors);
+    }
+  };
 
 
 const [clicked, setClicked] = useState(null);
@@ -87,23 +97,14 @@ const changeIconColor = (id: any) => {
 
  const books = data?.data;
 
+ 
  console.log(books);
 
 
 
  const totalPages = Math.ceil(books?.length / itemsPerPage);
  const currentBooks = books?.slice(startIndex, lastIndex);
-  const handleDelete = async () => {
-
-    try {
-      await axios.delete(`https://backend-production-65d5.up.railway.app/books/${selectedDelete}`);
-      toast('Delete is successful!');
-      getBooks();
-    
-    } catch (errors) {
-      console.log(errors);
-    }
-  };
+ 
 
  
 

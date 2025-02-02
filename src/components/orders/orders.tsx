@@ -1,10 +1,14 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { db } from "../customer/firebase";
 import { useDispatch } from "react-redux";
 import { updateOrder } from "../../redux/counter";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import Loading from "./loading";
+import { FaDeleteLeft } from "react-icons/fa6";
+import { toast, ToastContainer } from "react-toastify";
+import { useState } from "react";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 
 interface Order {
   email: string;
@@ -34,14 +38,42 @@ const fetchOrders = async () => {
 const Orders = () => {
   const dispatch = useDispatch();
 
-  const { data: orders = [], isLoading } = useQuery( "orders", fetchOrders);
+  const { data: orders = [], isLoading } = useQuery( "orders", fetchOrders,{
+    refetchInterval: 500,
+  });
 
   // إرسال الطلبات إلى Redux عند تحميل البيانات
   if (!isLoading) dispatch(updateOrder(orders));
 
+  const [open, setOpen] = useState(false);
+  const [selectedDelete, setSelectedDelete] = useState(null);
+
+  const handleClickOpen = (id: any) => {
+    setOpen(true);
+    setSelectedDelete(id);
+  };
+
+  const handleClose = () => {
+
+    setOpen(false);
+  };
+
+  const handleDelete = async () => {
+    if (!selectedDelete) {
+      return;
+    }
+    try {
+      await deleteDoc(doc(db, "orders", selectedDelete));
+      toast.success("Order deleted successfully.", { autoClose: 2000 });
+      console.log("Order deleted successfully.");
+    } catch (error) {
+      console.error("Error deleting order:", error);
+    }
+  };
+
   return (
     <>
-   
+   <ToastContainer/>
       {isLoading ? 
         <Loading />
        : 
@@ -78,6 +110,7 @@ const Orders = () => {
                           <Link to={`/home/orderDetails/${order.id}`}>View</Link>
                         </button>
                       </td>
+                      <td className="p-3"><button className="py-1" onClick={() => handleClickOpen(order.id)}><FaDeleteLeft size={20} className="text-red-700"/></button></td>
                     </tr>
                   );
                 })}
@@ -86,7 +119,33 @@ const Orders = () => {
           </div>
         </div>
       </div>}
-  
+      <Dialog
+        open={open}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+        sx={{
+          "& .MuiDialog-paper": {
+            boxShadow: "20px", // لإزالة الظل من المربع
+            backgroundColor: "white", // تغيير لون خلفية الحوار
+          },
+          "& .MuiBackdrop-root": {
+            backgroundColor: "rgba(0, 0, 0, 0)", // تغيير لون خلفية التعتيم للشفافية
+          },
+        }}
+       >
+        <DialogTitle>{"Are you sure you want to delete this order?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>close</Button>
+          <Button onClick={() =>{ handleDelete();
+            handleClose()
+          }}>Delete</Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };

@@ -1,5 +1,5 @@
 
-import img from '../../assets/img/img.jpg'
+import img from '../../assets/img/img.webp'
 const Image = () => {
     
 

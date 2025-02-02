@@ -1,8 +1,9 @@
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { db } from "./firebase";
 import Loading from "../orders/loading";
+import { toast, ToastContainer } from "react-toastify";
 
 interface Order {
   id: string;
@@ -43,7 +44,15 @@ const MyOrders = () => {
   };
 
 
-
+const handleDeleteOrder = async (orderId: string) => {
+  try {
+    await deleteDoc(doc(db, "orders", orderId));
+    toast.success("Order deleted successfully.", { autoClose: 2000 });
+    console.log("Order deleted successfully.");
+  } catch (error) {
+    console.error("Error deleting order:", error);
+  }
+};
 
 
   const { id: userId } = useParams();
@@ -52,10 +61,12 @@ const MyOrders = () => {
     queryKey: ["orders", userId], // مفتاح التخزين المؤقت
     queryFn: () => fetchOrders(userId!), // الدالة التي تجلب البيانات
     enabled: !!userId, // تأكد من عدم تنفيذ الجلب إلا إذا كان هناك userId
+    refetchInterval: 500
   });
 
   return (
     <>
+    <ToastContainer/>
 {isLoading && <Loading />}
     <div className="bg-gradient-to-l from-red-100 to-white py-40 h-full p-4">
       <div>
@@ -87,6 +98,8 @@ const MyOrders = () => {
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Total Price</th>
+                        <th colSpan={2} className="bg-red-500 cursor-pointer text-white text-center"onClick={() => handleDeleteOrder(order.id)}>X</th>
+
                       </tr>
                     </thead>
                     <tbody className="text-center">
@@ -111,6 +124,8 @@ const MyOrders = () => {
                               ${totalPrice}
                             </td>
                           )}
+
+
                         </tr>
                       ))}
                     </tbody>

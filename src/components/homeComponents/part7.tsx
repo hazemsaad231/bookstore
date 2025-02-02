@@ -1,10 +1,9 @@
-import latest1 from "../../assets/img/latest1.jpg"
-import latest2 from "../../assets/img/latest2.jpg"
-import latest3 from "../../assets/img/latest3.jpg"
+import latest1 from "../../assets/img/latest1.webp"
+import latest2 from "../../assets/img/latest2.webp"
+import latest3 from "../../assets/img/latest3.webp"
 import { CiFacebook } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
-import React from "react";
 
 
 
@@ -70,4 +69,4 @@ const Latest = () => {
     )
 }
 
-export default React.memo(Latest); 
+export default Latest; 

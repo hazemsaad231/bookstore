@@ -1,14 +1,14 @@
 import cate1 from '../../assets/img/cate1.webp'; 
-import ps from '../../assets/img/ps.jpg'; 
-import cate2 from '../../assets/img/cate2.jpg';
-import cate5 from '../../assets/img/cate5.jpg';
-import history from '../../assets/img/history.jpg';
-import cooking from '../../assets/img/cooking.jpg';
-import sports from '../../assets/img/sports.jpg';
-import bg1 from '../../assets/img/bg1.jpg';
-import bg3 from '../../assets/img/bg3.jpg';
-import bg4 from '../../assets/img/bg4.jpg';
-import bg2 from '../../assets/img/bg2.png';
+import ps from '../../assets/img/ps.webp'; 
+import cate2 from '../../assets/img/cate2.webp';
+import cate5 from '../../assets/img/cate5.webp';
+import history from '../../assets/img/history.webp';
+import cooking from '../../assets/img/cooking.webp';
+import sports from '../../assets/img/sports.webp';
+import bg1 from '../../assets/img/bg1.webp';
+import bg3 from '../../assets/img/bg3.webp';
+import bg4 from '../../assets/img/bg4.webp';
+import bg2 from '../../assets/img/bg2.webp';
 
 
 
