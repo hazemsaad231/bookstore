@@ -2,7 +2,6 @@ import Slider from "react-slick";
 import { GoArrowLeft } from "react-icons/go";
 import 'aos/dist/aos.css';
 import {data} from './data';
-import React from "react";
 
 
 
@@ -16,9 +15,6 @@ function Category() {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
-    speed: 5000,
-    autoplaySpeed: 1000,
     cssEase: "linear",
     arrows: false,
     responsive: [
@@ -58,4 +54,4 @@ function Category() {
   );
 }
 
-export default React.memo(Category); 
+export default Category

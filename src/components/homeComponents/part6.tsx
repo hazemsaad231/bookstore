@@ -1,4 +1,3 @@
-import React from "react";
 
 const Subscribe = () => {
 
@@ -25,4 +24,4 @@ return(
 
 }
 
-export default React.memo(Subscribe) ;
+export default Subscribe
