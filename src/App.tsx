@@ -15,7 +15,6 @@ import { ToastContainer } from 'react-toastify'
 import Profile from './components/profile/profile'
 import  Register  from './components/login/register'
 import AddBook from './components/addBook/addbook'
-import Carts from './components/recarts/carts'
 import PrivateRoute from './components/login/protected'
 import Orders from './components/orders/orders'
 import Order from './components/customer/paymentOrder'
@@ -59,7 +58,6 @@ const route = createBrowserRouter([
       {path:'addBook/:id',element:<AddBook/>},
       {path: 'all/:id', element: <All/>},
       {path: 'details/:id', element: <Details/>},
-      {path: 'carts', element: <Carts/>},
       {path: 'orders', element: <Orders/>},
       {path: 'orderDetails/:id', element: <OrderDetails/>},
       {path: 'myOrders/:id', element: <MyOrder/>},

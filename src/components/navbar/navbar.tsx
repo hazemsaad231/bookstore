@@ -13,7 +13,6 @@ import { RootState } from "../../redux/store";
 import { ReactNode, useEffect, useState } from "react";
 import { setUserData } from "../../redux/counter";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
 import React from "react";
@@ -121,7 +120,7 @@ console.log(userId)
           <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">
               {userData.cartAmount}
             </span>
-          </li>:  <li className="border-x-2 border-gray-300 px-2"><Link to="carts"><TbLayoutDashboardFilled size={28} /></Link></li>}
+          </li>: null}
         {role !== 'Customer' ? <li className=" "><Link to="orders"><MdOutlineBookmarkBorder size={28} /></Link>
         <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">
               {orderItems.length.toString()}
