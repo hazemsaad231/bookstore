@@ -6,6 +6,8 @@ const Offer = () => {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
+        let animationFrameId: number;
+
         const updateTimer = () => {
             const now = new Date().getTime();
             const distance = targetDate - now;
@@ -21,12 +23,13 @@ const Offer = () => {
                 minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
                 seconds: Math.floor((distance % (1000 * 60)) / 1000),
             });
+
+            animationFrameId = requestAnimationFrame(updateTimer);
         };
 
-        updateTimer(); // تحديث فوري عند تحميل المكون
-        const interval = setInterval(updateTimer, 1000);
+        updateTimer(); // تشغيل التايمر فورًا
 
-        return () => clearInterval(interval); // تنظيف عند تفكيك المكون
+        return () => cancelAnimationFrame(animationFrameId); // تنظيف عند إزالة المكون
     }, [targetDate]);
 
     return (

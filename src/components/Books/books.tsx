@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Box, Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, FormControlLabel, FormGroup, InputLabel, NativeSelect, TextField } from "@mui/material";
 import { FaArrowDown, FaArrowUp,FaShoppingCart } from "react-icons/fa";
 import { Link} from "react-router-dom";
@@ -49,17 +49,18 @@ const Books = () => {
     setOpen(false);
   };
 
-  const handleDelete = async () => {
+  const handleDelete = useCallback(  async () => {
 
     try {
       await axios.delete(`https://backend-production-65d5.up.railway.app/books/${selectedDelete}`);
       toast('Delete is successful!');
       getBooks();
+      handleClose();
     
     } catch (errors) {
       console.log(errors);
     }
-  };
+  }, [selectedDelete]);
 
 
 const [clicked, setClicked] = useState(null);
@@ -92,13 +93,13 @@ const changeIconColor = (id: any) => {
 
   }
  const {data,isLoading} = useQuery('allBooks',getBooks,{
-   refetchInterval: 1000
+   refetchInterval: false,
+   refetchOnWindowFocus: true
  });
 
  const books = data?.data;
 
  
- console.log(books);
 
 
 
@@ -107,10 +108,6 @@ const changeIconColor = (id: any) => {
  
 
  
-
-  useEffect(() => {
-    getBooks();
-  }, []);
 
   const togglePrice = () => setShowPrice(!showPrice);
   const toggleCategory = () => setShowCategory(!showCategory);
@@ -320,10 +317,6 @@ const changeIconColor = (id: any) => {
                  
                    </div>
 
-
-
-
-                  
       <Dialog
         open={open}
         keepMounted
@@ -390,13 +383,6 @@ const changeIconColor = (id: any) => {
           </div>
 
           </div>
-      
-      
-
-       
-     
-
-
 
     </div>
     }
