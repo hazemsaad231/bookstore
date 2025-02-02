@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Box, Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, FormControlLabel, FormGroup, InputLabel, NativeSelect, TextField } from "@mui/material";
 import { FaArrowDown, FaArrowUp,FaShoppingCart } from "react-icons/fa";
 import { Link} from "react-router-dom";
-import Load from "./load";
+import Load from "../load/load";
 import { useDispatch } from "react-redux";
 import { addToCart, addToFavorite } from "../../redux/counter";
 import { toast, ToastContainer } from "react-toastify";

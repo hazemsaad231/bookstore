@@ -57,7 +57,7 @@ function Details() {
 
   return (
 
-    <div className="bg-gradient-to-t from-red-100 to-white-100 h-full p-6" style={{fontFamily: "serif"}}>
+    <div className="bg-gradient-to-t from-red-100 to-white-100 h-full p-6">
       <ToastContainer/>
         <div className="flex justify-center flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row  md:space-x-60 lg:space-x-60 xl:space-x-80 p-16 ">
 

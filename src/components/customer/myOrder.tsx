@@ -2,7 +2,7 @@ import { collection, query, where, getDocs, deleteDoc, doc } from "firebase/fire
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { db } from "./firebase";
-import Loading from "../orders/loading";
+import Load from "../load/load";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { FaDeleteLeft } from "react-icons/fa6";
@@ -86,7 +86,7 @@ const [open, setOpen] = useState(false);
   return (
     <>
     <ToastContainer/>
-{isLoading && <Loading />}
+{isLoading && <Load />}
     <div className="bg-gradient-to-l from-red-100 to-white py-40 h-full p-4">
       <div>
         <div className="p-4 w-[100%] sm:w-[80%] md:w-[60%] lg:w-[60%] xl:w-[60%] m-auto bg-white shadow-2xl rounded-xl">

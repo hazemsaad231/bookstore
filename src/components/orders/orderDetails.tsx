@@ -2,7 +2,8 @@ import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { useQuery } from 'react-query';
 import { db } from '../customer/firebase';
-import Loading from './loading';
+import Load from '../load/load';
+
 
 interface Details {
   cartItems: {
@@ -36,7 +37,7 @@ const OrderDetails = () => {
     enabled: !!id, // فقط اجلب البيانات عندما يكون هناك id
   });
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Load />;
 
   return (
     <div className="bg-gradient-to-r from-red-100 to-white pb-40 pt-20">

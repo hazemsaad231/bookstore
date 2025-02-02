@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { updateOrder } from "../../redux/counter";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
-import Loading from "./loading";
+import Load from "../load/load";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
@@ -75,7 +75,7 @@ const Orders = () => {
     <>
    <ToastContainer/>
       {isLoading ? 
-        <Loading />
+        <Load />
        : 
         <div className="bg-gradient-to-r from-red-100 to-white pb-40 pt-20">
         <div className="m-4">
