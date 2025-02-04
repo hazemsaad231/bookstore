@@ -114,11 +114,11 @@ const [open, setOpen] = useState(false);
                   <table className="w-full border-collapse text-sm sm:text-base md:text-md lg:text-md xl:text-md">
                     <thead>
                       <tr>
-                        <th>Order ID</th>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total Price</th>
+                        <th className="px-4">Order ID</th>
+                        <th className="px-3">Product Name</th>
+                        <th className="px-3">Quantity</th>
+                        <th className="px-3">Price</th>
+                        <th className="px-3">Total Price</th>
 <th><button className="my-2"><FaDeleteLeft size={20} onClick={() => handleClickOpen(order.id)}/></button></th>
                       </tr>
                     </thead>
