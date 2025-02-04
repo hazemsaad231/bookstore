@@ -117,6 +117,7 @@ const changeIconColor = (id: any) => {
     const { name, checked } = event.target;
     setSelectedCategories((prev: any) => checked ? [...prev, name] : prev.filter((category: any) => category !== name));
   };
+  
 
   const filteredBooks = currentBooks?.filter((book:{  category: string, price: string}) => {
       const price = parseFloat(book.price);

@@ -9,10 +9,9 @@
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import compression from "vite-plugin-compression";
 
 export default defineConfig({
-  plugins: [react(), compression()],
+  plugins: [react()],
   build: {
     minify: 'esbuild', // استخدام minifier سريع
     chunkSizeWarningLimit: 1000, // تجنب تحذيرات الملفات الضخمة
