@@ -25,15 +25,12 @@ const Books = () => {
   const [selectedDelete, setSelectedDelete] = useState(null);
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
-  const [displayCount, setDisplayCount] = useState(8);
+
   const [sortOption, setSortOption] = useState("alphabetical");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const dispatch = useDispatch();
+
   
-  const [current, setCurrent] = useState(1);
-  const itemsPerPage = 8;
-  const lastIndex = current * itemsPerPage;
-  const startIndex = lastIndex - itemsPerPage;
  
 
   
@@ -93,19 +90,37 @@ const changeIconColor = (id: any) => {
 
   }
  const {data,isLoading} = useQuery('allBooks',getBooks,{
-   refetchInterval: false,
+   refetchInterval: 500,
    refetchOnWindowFocus: true
  });
 
  const books = data?.data;
+ const [displayCount, setDisplayCount] = useState(8);
 
- 
+ const filteredBooks = books?.filter((book:{  category: string, price: string}) => {
+  const price = parseFloat(book.price);
+  const min = parseFloat(minPrice) || 0;
+  const max = parseFloat(maxPrice) || Infinity;
+  const isPriceValid = price >= min && price <= max;
+  const isCategoryValid = selectedCategories.length === 0 || selectedCategories.includes(book.category);
+  return isPriceValid && isCategoryValid;
+})
+.sort((a:Book, b:Book) => {
+  if (sortOption === "alphabetical") return a.name.localeCompare(b.name);
+  if (sortOption === "priceLowToHigh") return a.price - b.price;
+  if (sortOption === "priceHighToLow") return b.price - a.price;
+  return 0;
+})
+
+const search = filteredBooks ;
 
 
-
- const totalPages = Math.ceil(books?.length / itemsPerPage);
- const currentBooks = books?.slice(startIndex, lastIndex);
- 
+ const [current, setCurrent] = useState(1);
+  const itemsPerPage = 8;
+  const lastIndex = current * itemsPerPage;
+  const startIndex = lastIndex - itemsPerPage;
+ const totalPages = Math.ceil(search?.length / itemsPerPage);
+ const currentBooks = search?.slice(startIndex, lastIndex).slice(0, displayCount);
 
  
 
@@ -119,26 +134,13 @@ const changeIconColor = (id: any) => {
   };
   
 
-  const filteredBooks = currentBooks?.filter((book:{  category: string, price: string}) => {
-      const price = parseFloat(book.price);
-      const min = parseFloat(minPrice) || 0;
-      const max = parseFloat(maxPrice) || Infinity;
-      const isPriceValid = price >= min && price <= max;
-      const isCategoryValid = selectedCategories.length === 0 || selectedCategories.includes(book.category);
-      return isPriceValid && isCategoryValid;
-    })
-    .sort((a:Book, b:Book) => {
-      if (sortOption === "alphabetical") return a.name.localeCompare(b.name);
-      if (sortOption === "priceLowToHigh") return a.price - b.price;
-      if (sortOption === "priceHighToLow") return b.price - a.price;
-      return 0;
-    })
-    .slice(0, displayCount);
+  
+
 
   const clearFilter = () => {
     setMinPrice('');
     setMaxPrice('');
-    setDisplayCount(10);
+    setDisplayCount(8);
     setSortOption("alphabetical");
     setSelectedCategories([]);
     setShowPrice(false);
@@ -246,8 +248,8 @@ const changeIconColor = (id: any) => {
                     sx={{ fontSize: { xs: '0.8rem', sm: '1rem' }, color: 'indigo.800' }}
                   >
                     <option value={4}>4</option>
-                    <option value={6}>6</option>
                     <option value={8}>8</option>
+                    <option value={12}>12</option>
                     <option value={30}>all</option>
                   </NativeSelect>
                 </FormControl>
@@ -255,7 +257,7 @@ const changeIconColor = (id: any) => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-6 ">
-              {filteredBooks?.map((book: any) => (
+              {currentBooks?.map((book: any) => (
                 <div key={book.id} className="text-center relative group">
                   <div className="shadow-xl mx-16 sm:mx-16 md:mx-12 lg:mx-8 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
                   <div className="transform hover:scale-105 transition duration-300">
