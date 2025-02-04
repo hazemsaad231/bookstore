@@ -41,7 +41,7 @@ function New() {
 
   const getData = async () => {
     try {
-      let response = await axios.get("https://backend-production-65d5.up.railway.app/books");
+      const response = await axios.get("https://backend-production-65d5.up.railway.app/books");
       const Book = response.data.filter((book: any) => book.new === "yes").slice(0, 8);
       console.log(response.data);
       setBooks(Book);
@@ -67,7 +67,7 @@ function New() {
           <h2 className="text-lg text-gray-500 font-bold tracking-wider">SOME QUALITY ITEMS</h2>
           <div className="flex items-center gap-6">
             <hr style={{ width: "50%", border: "1px solid #ff6347" }} />
-            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-indigo-900 mb-4 w-max">New Release Books</h1>
+            <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-indigo-900 mb-4 w-max">New Release Books</h1>
             <hr style={{ width: "50%", border: "1px solid #ff6347" }} />
           </div>
         </div>
@@ -81,7 +81,7 @@ function New() {
                   <img
                     src={book.image}
                     alt="img"
-                    className="h-72 w-48 sm:h-72 md:h-80 lg:h-80 xl:h-80 m-auto object-center"
+                    className="h-72 w-60 sm:h-72 md:h-80 lg:h-80 xl:h-80 m-auto object-center"
                     loading="lazy"
                   />
                   {/* زرارين يظهران عند hover */}

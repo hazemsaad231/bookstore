@@ -132,7 +132,7 @@ console.log(userId)
 
       {/* القائمة المنسدلة للشاشات الصغيرة */}
       {isNavbarVisible && (
-        <ul className="flex  gap-4 p-4 text-lg bg-gray-100 justify-center border-gray-300 md:hidden">
+        <ul className="flex  gap-4 p-4 text-lg bg-gray-50 justify-center border-gray-100 md:hidden">
           <li><Link to="home" onClick={toggleNavbar}>HOME</Link></li>
           <li className=""><Link to="book" onClick={toggleNavbar}>BOOKS</Link></li>
           {role === 'Customer' ? <li className=""><Link to={`/home/myOrders/${userId}`} onClick={toggleNavbar}>my orders</Link></li>: <li><Link to={"addBook"} onClick={toggleNavbar}>Add book</Link></li>}

@@ -12,7 +12,7 @@ import { Tooltip } from '@mui/material';
 export default function Login() {
 
 
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
 
 const {register,handleSubmit,formState:{errors}}=useForm<{email:string,password:string}>()
@@ -20,7 +20,7 @@ const {register,handleSubmit,formState:{errors}}=useForm<{email:string,password:
 
 const onSubmit=async(data:any)=>{
 try{
-  let response = await axios.post("https://upskilling-egypt.com:3007/api/auth/login",data)
+  const response = await axios.post("https://upskilling-egypt.com:3007/api/auth/login",data)
   console.log(response)
   toast("login successfully")
   localStorage.setItem("token",response.data.data.accessToken)

@@ -14,7 +14,7 @@ const options = ["Customer", "Admin"]
 export default function Register() {
 
 
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
 
 const {register,handleSubmit,formState:{errors}}=useForm({ defaultValues: {first_name:"" , last_name:"", email: "", password: "" , role:"Customer"} })
@@ -24,7 +24,7 @@ const onSubmit=async(data:any)=>{
 
 
 try{
-  let response = await axios.post("https://upskilling-egypt.com:3007/api/auth/register",data)
+  const response = await axios.post("https://upskilling-egypt.com:3007/api/auth/register",data)
   console.log(response)
   toast("register successfully")
   setTimeout(() => {

@@ -15,7 +15,7 @@ import { IoLogoStencil } from "react-icons/io5";
 export default function Reset() {
 
 
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
 
 const {register,handleSubmit,formState:{errors}}=useForm()
@@ -23,7 +23,7 @@ const {register,handleSubmit,formState:{errors}}=useForm()
 
 const onSubmit=async(data:any)=>{
 try{
-  let response = await axios.post("https://upskilling-egypt.com:3007/api/auth/reset-password",data)
+  const response = await axios.post("https://upskilling-egypt.com:3007/api/auth/reset-password",data)
   console.log(response)
   toast("password reset successfully")
   setTimeout(() => {
