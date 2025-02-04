@@ -6,8 +6,7 @@ import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoLogoStencil } from "react-icons/io5";
-import { Autocomplete } from '@mui/material';
-
+import { Autocomplete, Tooltip } from '@mui/material';
 
 
 
@@ -66,71 +65,71 @@ try{
       noValidate
       autoComplete="off"
     >
-        <div className='flex gap-3 '>
+        <div className='flex flex-col gap-3 '>
             
-         <div>
+         <div className='flex gap-x-3'>
+          <Tooltip title={errors.first_name?.message} open={!!errors.first_name} arrow>
       <TextField
         id="outlined-basic"
         label="firstName"
+        type='text'
         variant="outlined"
         {...register("first_name",{
-          required:true,
+          required:'first name is required',
           
         })}
-        className='bg-slate-100'
+        error={!!errors.first_name}
       />
-      {errors.first_name && <span className='text-red-400 text-start text-sm'>firstname is required</span>}
-      </div>
-
-      <div>
+      </Tooltip>
+<Tooltip title={errors.last_name?.message} open={!!errors.last_name} arrow>
       <TextField
         id="outlined-basic"
         label="lastName"
         variant="outlined"
         {...register("last_name",{
-          required:true,
+          required:'last name is required',
         })}
-        className='bg-slate-100'
+        error={!!errors.last_name}
       />
-      {errors.last_name && <span className='text-red-400 text-start text-sm'>lastname is required</span>}
+      </Tooltip>
       </div>
 
-      </div>
 
-
-      <div className='flex flex-col'><TextField
+<Tooltip title={errors.password?.message} open={!!errors.password} arrow>
+      <TextField
         id="outlined-basic"
         label="Password"
         type="password"
         variant="outlined"
         {...register("password",{
-          required:true,
+          required:'password is required',
         })}
-        className='bg-slate-100'
+        error={!!errors.password}
       />
-      {errors.password && <span className='text-red-400 text-start text-sm '>password is required</span>} 
-      </div>
+      </Tooltip>
+      
+     <Tooltip title={errors.email?.message} open={!!errors.email} arrow>
        
-     <div className='flex flex-col'><TextField
+     <TextField
         id="outlined-basic"
         label="email"
+        type='email'
         variant="outlined"
         {...register("email",{
-          required:true,
+          required:"email is required",
            pattern:{
             value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
             message:'email is valid'
           }
         })}
-        className='bg-slate-100'
+        error={!!errors.email}
       />
-      {errors.email && <span className='text-red-400 text-start text-sm'>email is required</span>}
-      </div>
-        
-<div>
+      </Tooltip>
+
 <Autocomplete
         id="controllable-states-demo"
         options={options}
+        defaultValue={options[0]}
         sx={{
          m: 2, width: '35ch' ,margin:"0 auto",
         }}
@@ -139,13 +138,13 @@ try{
          label="role" 
          variant="outlined"
         {...register("role",{
-          required:true,
-        })}></TextField> }
-        className='bg-slate-100'
+          required:'role is required',
+        })}
+        /> }
+
       />
-      {errors.role && <span className='text-red-400 text-start text-sm'>role is required</span>}
-</div>
-    
+
+    </div>
     
 
       

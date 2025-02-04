@@ -27,6 +27,5 @@ export default defineConfig({
   },
   server: {
     host: true, // يسمح بالوصول من أجهزة أخرى (مفيد للاختبار)
-    open: true, // يفتح المتصفح تلقائيًا عند تشغيل dev server
   }
 })

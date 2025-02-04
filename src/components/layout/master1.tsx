@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 import { lazy, Suspense } from 'react';
-import BookSkeleton from '../loaded';
+import BookSkeleton from '../load/loaded';
 
 const Footer = lazy(() => import("../footer/footer"))
 const Navbar = lazy(() => import("../navbar/navbar"))

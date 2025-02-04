@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { ToastContainer } from "react-toastify"
-import BookSkeleton from '../loaded';
+import BookSkeleton from '../load/loaded';
 const Slide = lazy(() => import("./part1"))
 const Category = lazy(() => import("./part2"))
 const New = lazy(() => import("./part3"))

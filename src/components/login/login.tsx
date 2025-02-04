@@ -6,6 +6,7 @@ import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoLogoStencil } from "react-icons/io5";
+import { Tooltip } from '@mui/material';
 
 
 export default function Login() {
@@ -14,7 +15,7 @@ export default function Login() {
   let navigate = useNavigate()
 
 
-const {register,handleSubmit,formState:{errors}}=useForm()
+const {register,handleSubmit,formState:{errors}}=useForm<{email:string,password:string}>()
 
 
 const onSubmit=async(data:any)=>{
@@ -63,34 +64,42 @@ try{
       autoComplete="off"
     >
         <div>
+          <Tooltip title={errors.email?.message} open={!!errors.email} arrow>
         <TextField
         id="outlined-basic"
         label="email"
+        type="email"
         variant="outlined"
         {...register("email",{
-          required:true,
+          required:"email is required",
            pattern:{
             value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
             message:'email is valid'
           }
         })}
-        className='bg-slate-100'
+        error={!!errors.email}
+        fullWidth
       />
+      </Tooltip>
 
-      {errors.email && <span className='text-red-400 text-start text-sm'>email is required</span>}
-      <div><TextField
-        id="outlined-basic"
-        label="Password"
-        type="password"
-        variant="outlined"
-        {...register("password",{
-          required:true,
-         
-          
-        })}
-        className='bg-slate-100'
-      />
-      {errors.password && <span className='text-red-400 text-start text-sm '>password is required</span>} </div>
+       <Tooltip title={errors.password?.message} open={!!errors.password} arrow>
+        <TextField
+          id="outlined-basic"
+          label="Password"
+          type="password"
+          variant="outlined"
+          {...register("password", {
+            required: "Password is required",
+            minLength: {
+              value: 6,
+              message: "Password must be at least 6 characters",
+            },
+          })}
+          error={!!errors.password}
+          fullWidth
+        />
+      </Tooltip>
+
       </div>
 
       </Box>
