@@ -9,7 +9,9 @@ import bg1 from '../../assets/img/bg1.webp';
 import bg3 from '../../assets/img/bg3.webp';
 import bg4 from '../../assets/img/bg4.webp';
 import bg2 from '../../assets/img/bg2.webp';
-
+import latest1 from "../../assets/img/latest1.webp"
+import latest2 from "../../assets/img/latest2.webp"
+import latest3 from "../../assets/img/latest3.webp"
 
 
 
@@ -53,8 +55,28 @@ const data = [
 
 
 
-export {data}
 
+const Ldata = [
+    
+    {
+        img:latest1,
+        date:'2 Aug,2022',
+        description:'Reading Books Always Makes The Moments Happy'
+    },
+    {
+        img:latest2,
+        title:'5 Aug,2022',
+        description:'Reading Books Always Makes The Moments Happy'
+    },
+    {
+        img:latest3,
+        title:'6 Aug,2022',
+        description:'Reading Books Always Makes The Moments Happy'
+    },
+
+]
+
+export {data,Ldata}
 
 const data1 = [
     
