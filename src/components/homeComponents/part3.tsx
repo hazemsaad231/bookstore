@@ -42,7 +42,7 @@ function New() {
   const getData = async () => {
     try {
       let response = await axios.get("https://backend-production-65d5.up.railway.app/books");
-      const Book = response.data.slice(0, 8); 
+      const Book = response.data.filter((book: any) => book.new === "yes").slice(0, 8);
       console.log(response.data);
       setBooks(Book);
     } catch (error) {

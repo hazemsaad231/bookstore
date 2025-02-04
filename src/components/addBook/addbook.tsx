@@ -23,8 +23,8 @@ const AddBook = () => {
                     setValue("description", book.description);
                     setValue("author", book.author);
                     setValue("price", book.price);
-                    setValue("favourite", book.favourite);
-                    setValue("profile", book.profile);
+                    setValue("featured", book.featured);
+                    setValue("new", book.new);
                     setValue("image", book.image);
                     setValue("category", book.category);
                     
@@ -112,12 +112,13 @@ const AddBook = () => {
                 </div>
 
                 <div className="flex flex-col mt-2">
-                    <label htmlFor="">favourite</label>
-                     <input type="text" placeholder="Enter favourite" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("favourite", { required: false })} />
+                    <label htmlFor="">featured book </label>
+                     <input type="text" placeholder="Enter featured" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("featured", { required: false })} />
+                     
                 </div>
                 <div className="flex flex-col mt-2">
-                    <label htmlFor="">profile</label>
-                     <input type="text" placeholder="Enter profile" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("profile", { required: false })} />
+                    <label htmlFor="">new Realease book</label>
+                     <input type="text" placeholder="Enter new realease" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("new", { required: false })} />
                 </div>
                 
             </div>
