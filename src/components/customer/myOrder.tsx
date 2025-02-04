@@ -86,7 +86,9 @@ const [open, setOpen] = useState(false);
   return (
     <>
     <ToastContainer/>
-{isLoading && <Load />}
+{isLoading ? (<Load />) : (
+  
+
     <div className="bg-gradient-to-l from-red-100 to-white py-40 h-full p-4">
       <div>
         <div className="p-4 w-[100%] sm:w-[80%] md:w-[60%] lg:w-[60%] xl:w-[60%] m-auto bg-white shadow-2xl rounded-xl">
@@ -155,7 +157,7 @@ const [open, setOpen] = useState(false);
         </div>
       </div>
     </div>
-
+)}
     <Dialog
         open={open}
         keepMounted
