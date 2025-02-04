@@ -16,6 +16,8 @@ function Category() {
     slidesToShow: 3,
     slidesToScroll: 1,
     cssEase: "linear",
+    autoplay: true,
+    speed: 3000,
     arrows: false,
     responsive: [
       {

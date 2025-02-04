@@ -1,13 +1,13 @@
+import { lazy, Suspense } from 'react';
 import { ToastContainer } from "react-toastify"
-import Slide from "./part1"
-import Category from "./part2"
-import New from "./part3"
-import Feature from "./part4"
-import Offer from "./part5"
-import Subscribe from "./part6"
-import Latest from "./part7"
-
-
+import BookSkeleton from '../loaded';
+const Slide = lazy(() => import("./part1"))
+const Category = lazy(() => import("./part2"))
+const New = lazy(() => import("./part3"))
+const Feature = lazy(() => import("./part4"))
+const Offer = lazy(() => import("./part5"))
+const Subscribe = lazy(() => import("./part6"))
+const Latest = lazy(() => import("./part7"))
 const home = () => {
 
     
@@ -15,8 +15,10 @@ const home = () => {
 
 
     return(
+        <>
+        <ToastContainer/>
         <div>
-         <ToastContainer/>
+       <Suspense fallback={<div><BookSkeleton/></div>}>
         <Slide/>
         <Category/>
         <New/>
@@ -24,8 +26,11 @@ const home = () => {
         <Offer/>
         <Subscribe/>
         <Latest/>
+        </Suspense>
         </div>
+        </>
     )
+
 
 }
 

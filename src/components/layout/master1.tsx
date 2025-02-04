@@ -1,13 +1,17 @@
 import { Outlet } from "react-router-dom"
-import Navbar from "../navbar/navbar"
-import Footer from "../footer/footer"
+import { lazy, Suspense } from 'react';
+import BookSkeleton from '../loaded';
 
+const Footer = lazy(() => import("../footer/footer"))
+const Navbar = lazy(() => import("../navbar/navbar"))
 const Master1 = () => {
     return (
         <div>
+            <Suspense fallback={<div><BookSkeleton/></div>}>
             <Navbar/>
           <Outlet/>
           <Footer/>
+          </Suspense>
         </div>
     )
 }
