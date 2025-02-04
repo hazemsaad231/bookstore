@@ -235,7 +235,7 @@ const search = filteredBooks ;
 
            
                 <h1 className="text-indigo-800 text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl mt-2 font-semibold">
-                  Showing {filteredBooks?.length} books
+                  Showing {displayCount} books
                 </h1> 
               
 
@@ -250,7 +250,7 @@ const search = filteredBooks ;
                     <option value={4}>4</option>
                     <option value={8}>8</option>
                     <option value={12}>12</option>
-                    <option value={30}>all</option>
+                    <option value={books?.length}>all</option>
                   </NativeSelect>
                 </FormControl>
               </Box>
