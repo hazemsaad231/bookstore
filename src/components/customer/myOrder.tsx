@@ -1,53 +1,40 @@
-import { collection, query, where, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import { db } from "./firebase";
 import Load from "../load/load";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
-
-interface Order {
-  id: string;
-  cartItems: {
-    image: string;
-    name: string;
-    quantity: number;
-    price: number;
-  }[];
-  delivery_address: {
-    name: string;
-    address: string;
-    mobile: string;
-    country: string;
-    street: string;
-    city: string;
-  };
-}
-
+import axios from "axios";
 
 
 const MyOrders = () => {
 
+  const {id} = useParams();
 
-  const fetchOrders = async (userId: string) => {
-    const ordersRef = collection(db, "orders");
-    const q = query(ordersRef, where("userId", "==", userId));
-    const querySnapshot = await getDocs(q);
+  console.log(id)
+
+
+ 
+
+  const getOrderDetails = async () => {
+    return await axios.get(`https://backend-production-65d5.up.railway.app/orders`)
+  }
+
+ 
+  const {data, isLoading} = useQuery(["orders", id], getOrderDetails, {
+    refetchInterval: 1000
+  })
+console.log(data?.data.map((order: any) => order.userId))
   
-    if (querySnapshot.empty) {
-      return [];
-    }
+const orders = data?.data?.filter((order: any) => order.userId === id);
+
+  console.log("Filtered Orders:", orders);
   
-    return querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as Order[];
-  };
 
+ 
 
-const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [selectedDelete, setSelectedDelete] = useState(null);
 
   const handleClickOpen = (id: any) => {
@@ -60,28 +47,22 @@ const [open, setOpen] = useState(false);
     setOpen(false);
   };
 
-  const handleDelete = async () => {
-    if (!selectedDelete) {
-      return;
-    }
-    try {
-      await deleteDoc(doc(db, "orders", selectedDelete));
-      toast.success("Order deleted successfully.", { autoClose: 2000 });
-      console.log("Order deleted successfully.");
-    } catch (error) {
-      console.error("Error deleting order:", error);
-    }
-  };
+
+ const handleDelete = async () => {
+  if (!selectedDelete) {
+    return;
+  }
+  try {
+    await axios.delete(`https://backend-production-65d5.up.railway.app/orders/${selectedDelete}`);
+    toast.success("Order deleted successfully.", { autoClose: 2000 });
+    console.log("Order deleted successfully.");
+  } catch (error) {
+    console.error("Error deleting order:", error);
+  }
+};
 
 
-  const { id: userId } = useParams();
 
-  const { data: orders = [], isLoading } = useQuery({
-    queryKey: ["orders", userId], // مفتاح التخزين المؤقت
-    queryFn: () => fetchOrders(userId!), // الدالة التي تجلب البيانات
-    enabled: !!userId, // تأكد من عدم تنفيذ الجلب إلا إذا كان هناك userId
-    refetchInterval: 500
-  });
 
   return (
     <>
@@ -96,11 +77,11 @@ const [open, setOpen] = useState(false);
             My Orders
           </h1>
           <div className="space-y-6">
-            {orders.length === 0 && !isLoading && (
+            {orders?.length === 0 && !isLoading && (
               <p className="text-center text-gray-500">No orders found for this user.</p>
             )}
 
-            {orders.map((order: any) => {
+            {orders?.map((order: any) => {
               const totalPrice = order.cartItems.reduce(
                 (acc: number, item: any) => acc + item.quantity * item.price,
                 0
@@ -190,4 +171,4 @@ const [open, setOpen] = useState(false);
   );
 };
 
-export default MyOrders;
+export default MyOrders

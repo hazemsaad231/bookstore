@@ -6,8 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { resetCart } from '../../redux/counter';
-import { db } from './firebase';
-import { collection, addDoc } from "firebase/firestore";
+import axios from 'axios';
 
 function Payment() {
   const stripe = useStripe();
@@ -81,9 +80,7 @@ console.log(email)
         };
 
         try {
-          // إضافة بيانات الطلب إلى Firestore
-          const ordersCollection = collection(db,"orders");
-          await addDoc(ordersCollection, {
+          const orders =  axios.post("https://backend-production-65d5.up.railway.app/orders", {
             userId: id,
             token: token?.id,
             email: email,
@@ -91,6 +88,8 @@ console.log(email)
             cartItems: data.cartItems,
             timestamp: new Date(),
           });
+
+          await orders ;
 
           toast.success("successful order");
           setTimeout(() => {

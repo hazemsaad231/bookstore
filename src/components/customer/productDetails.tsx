@@ -31,6 +31,7 @@ function Details() {
           Authorization: `Bearer ${localStorage.getItem("token")}` // استبدل yourToken بالـ Token الصحيح
       }
       })
+      
     }
 
     const {data, isLoading} = useQuery("product", getProductDetails, {

@@ -1,45 +1,32 @@
 import { useParams } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
 import { useQuery } from 'react-query';
-import { db } from '../customer/firebase';
 import Load from '../load/load';
+import axios from 'axios';
 
 
-interface Details {
-  cartItems: {
-    image: string;
-    name: string;
-    quantity: number;
-    price: number;
-  }[];
-  delivery_address: {
-    name: string;
-    address: string;
-    mobile: string;
-    country: string;
-    street: string;
-    city: string;
-  };
-}
-
-const fetchOrderDetails = async (id: string): Promise<Details | null> => {
-  const docRef = doc(db, 'orders', id);
-  const docSnap = await getDoc(docRef);
-  return docSnap.exists() ? (docSnap.data() as Details) : null;
-};
 
 const OrderDetails = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
 
-  const { data: Details, isLoading } = useQuery({
+  const fetchOrderDetails = async (id: string) => {
+ 
+    return await axios.get(`https://backend-production-65d5.up.railway.app/orders/${id}`);
+  };
+  
+  const { data: data , isLoading } = useQuery({
     queryKey: ['orderDetails', id],
     queryFn: () => fetchOrderDetails(id!),
     enabled: !!id, // فقط اجلب البيانات عندما يكون هناك id
   });
 
+  console.log(data?.data);
+
+  const Details = data?.data;
+
   if (isLoading) return <Load />;
 
   return (
+    <>
     <div className="bg-gradient-to-r from-red-100 to-white pb-40 pt-20">
       <div className="w-[95%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
         <h1 className="text-lg font-semibold text-center mb-8 tracking-[0.2em]">Order Details</h1>
@@ -54,7 +41,7 @@ const OrderDetails = () => {
             </tr>
           </thead>
           <tbody className="text-center p-3">
-            {Details?.cartItems.map((item, index) => (
+            {Details?.cartItems.map((item: any, index: number) => (
               <tr key={index}>
                 <td className="p-2"><img src={item.image} alt="" className="w-12 h-6 m-auto" /></td>
                 <td className="p-2">{item.name}</td>
@@ -77,8 +64,8 @@ const OrderDetails = () => {
           </thead>
           <tbody className="text-center">
             <tr>
-              <td>{Details?.cartItems.reduce((total, item) => total + item.quantity, 0)}</td>
-              <td>{Details?.cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}$</td>
+              <td>{Details?.cartItems.reduce((total: number, item: any) => total + item.quantity, 0)}</td>
+              <td>{Details?.cartItems.reduce((total: number, item: any) => total + item.price * item.quantity, 0)}$</td>
             </tr>
           </tbody>
         </table>
@@ -110,6 +97,7 @@ const OrderDetails = () => {
         </table>
       </div>
     </div>
+    </>
   );
 };
 
