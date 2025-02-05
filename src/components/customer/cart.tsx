@@ -38,7 +38,7 @@ const Cart = () => {
   <table className="w-full border-collapse bg-gray-100">
     <thead className="mb-4 rounded-full">
       <tr className=" bg-[rgb(237,85,59)] text-white">
-        <th className="p-4 text-center">Book</th>
+        <th className="p-4 px-16 text-center">Book</th>
         <th className="p-4 text-center">Name</th>
         <th className="p-4 text-center">Price</th>
         <th className="p-4 text-center">Quantity</th>
