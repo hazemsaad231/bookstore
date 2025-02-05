@@ -5,13 +5,13 @@ import cate5 from '../../assets/img/cate5.webp';
 import history from '../../assets/img/history.webp';
 import cooking from '../../assets/img/cooking.webp';
 import sports from '../../assets/img/sports.webp';
-import bg1 from '../../assets/img/bg1.webp';
-import bg3 from '../../assets/img/bg3.webp';
+import bg1 from '../../assets/img/bg1.png';
+import bg3 from '../../assets/img/bg3.png';
 import bg4 from '../../assets/img/bg4.webp';
-import bg2 from '../../assets/img/bg2.webp';
-import latest1 from "../../assets/img/latest1.webp"
-import latest2 from "../../assets/img/latest2.webp"
-import latest3 from "../../assets/img/latest3.webp"
+import bg2 from '../../assets/img/bg2.png';
+import latest1 from "../../assets/img/latest1.png"
+import latest2 from "../../assets/img/latest2.png"
+import latest3 from "../../assets/img/latest3.png"
 
 
 
@@ -81,30 +81,30 @@ export {data,Ldata}
 const data1 = [
     
     {
-        image:bg2,
-        name:'The Assignment',
-       description:'The assignments is a novel by the American novelist and screenwriter Patrick Swayze.'
+        image:bg1,
+        name:'Sample Way',
+       description:'Sample Way is a novel by the American novelist and screenwriter Patrick Swayze.'
 
     },
     
     
     {
-        image:bg1,
-        name:'Hermes',
-        description:'The iconic bags, the instantly recognizable packaging, the celebrity fans. Hèrmes is the last word in luxurious accessories.'
+        image:bg2,
+        name:'Great travel',
+        description:'Great travel is a novel by the American novelist and screenwriter Patrick Swayze.'
 
     },
    
     {
-        image:bg4,
-        name:'The fine print',
-        description:'The fine print is a novel by the American novelist and screenwriter Patrick Swayze.'
+        image:bg3,
+        name:'The lady beautiful',
+        description:'The lady beautiful is a novel by the American novelist and screenwriter Patrick Swayze.'
 
     },
     {
-        image:bg3,
-        name:'The fine print',
-        description:'The fine print is a novel by the American novelist and screenwriter Patrick Swayze.'
+        image:bg4,
+        name:'The assingment',
+        description:'The assingment is a novel by the American novelist and screenwriter Patrick Swayze.'
 
     },
 

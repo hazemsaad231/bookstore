@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import offer from "../../assets/img/offer.webp";
+import offer from "../../assets/img/offer.png";
 
 const Offer = () => {
     const targetDate = new Date("2025-12-31T23:59:59").getTime();

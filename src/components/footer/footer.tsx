@@ -4,8 +4,8 @@ import { IoBookSharp } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <div className='w-full bg-gradient-to-b from-orange-700 to-orange-700 flex justify-center' id='contact'>
-    <footer className="bg-gradient-to-b from-orange-700 to-orange-700 text-white py-10" style={{fontFamily:"quicksand"}}>
+    <div className='w-full bg-[rgb(237,85,59)] flex justify-center' id='contact'>
+    <footer className="bg-[rgb(237,85,59)] text-white py-10" style={{fontFamily:"quicksand"}}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
 

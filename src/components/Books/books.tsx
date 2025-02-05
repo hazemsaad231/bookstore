@@ -212,7 +212,7 @@ const search = filteredBooks ;
                   </FormGroup>
                 )}
               </ul>
-              <button onClick={clearFilter} className="bg-orange-700 px-4 py-2 rounded-md text-white">Clear Filter</button>
+              <button onClick={clearFilter} className="bg-[rgb(237,85,59)] px-4 py-2 rounded-md text-white">Clear Filter</button>
             </div>
           </div>
 
@@ -273,16 +273,16 @@ const search = filteredBooks ;
            
               
            { role === 'Customer' ?
-           <button className=" bg-orange-700 text-white w-full py-2">
+           <button className=" bg-[rgb(237,85,59)] text-white w-full py-2">
              <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>:
-              <button className="bg-orange-700 text-white w-full py-2">
+              <button className="bg-[rgb(237,85,59)] text-white w-full py-2">
              <Link to={`/home/addBook/${book.id}`} className="text-white">Update</Link></button>
              }
 
            { role === 'Customer' ?
-           <button className="bg-indigo-700 text-white w-full  py-2">
+           <button className="bg-indigo-600 text-white w-full  py-2">
            <FaShoppingCart size={30} onClick={() => handleAddToCart(book)} className="m-auto" /></button>:
-           <button className="bg-indigo-700 text-white w-full  py-2"
+           <button className="bg-indigo-600 text-white w-full  py-2"
            onClick={() => handleClickOpen(book.id)}>
             delete
            </button>
@@ -356,7 +356,7 @@ const search = filteredBooks ;
             <div className="m-auto py-8">
             <button
               onClick={() => setCurrent(current > 1 ? current - 1 : current)}
-              className="px-1 py-2 mx-1 text-white bg-indigo-800 rounded-full p-1"
+              className="px-1 py-2 mx-1 text-white bg-[rgb(237,85,59)] rounded-full p-1"
               disabled={current === 1}
             >
               Prev
@@ -366,7 +366,7 @@ const search = filteredBooks ;
               <button
                 key={index}
                 onClick={() => setCurrent(index + 1)}
-                className={`px-1 py-2 mx-1 rounded ${current === index + 1 ? 'bg-indigo-800 text-white rounded-full' : 'bg-gray-300 rounded-full'}`}
+                className={`px-1 py-2 mx-1 rounded ${current === index + 1 ? 'bg-[rgb(237,85,59)] text-white rounded-full' : 'bg-gray-300 rounded-full'}`}
               >
                 {index + 1}
               </button>
@@ -374,7 +374,7 @@ const search = filteredBooks ;
 
             <button
               onClick={() => setCurrent(current < totalPages ? current + 1 : current)}
-              className="px-1 py-2 mx-1 text-white bg-orange-700 rounded-full p-1"
+              className="px-1 py-2 mx-1 text-white bg-[rgb(237,85,59)] rounded-full p-1"
               disabled={current === totalPages}
             >
               Next

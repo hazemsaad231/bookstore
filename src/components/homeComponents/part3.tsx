@@ -66,9 +66,9 @@ function New() {
         <div className="text-center">
           <h2 className="text-lg text-gray-500 font-bold tracking-wider">SOME QUALITY ITEMS</h2>
           <div className="flex items-center gap-2">
-            <hr style={{ width: "40%", border: "1px solid #ff6347" }} />
+            <hr style={{ width: "200px", border: "1px solid #ff6347" }} className="hidden sm:hidden md:block lg:block xl:block"  />
             <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-indigo-900 m-4">New Release Books</h1>
-            <hr style={{ width: "40%", border: "1px solid #ff6347" }} />
+            <hr style={{ width: "200px", border: "1px solid #ff6347" }} className="hidden sm:hidden md:block lg:block xl:block" />
           </div>
         </div>
         

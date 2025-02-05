@@ -108,35 +108,35 @@ const handleClose = () => {
 
 
 {role === 'Customer' ? (
-  <ul className="hidden md:flex gap-x-4 p-2 text-lg cursor-pointer">
+  <ul className="hidden md:flex gap-x-4 p-1 text-lg cursor-pointer">
     <li><Link to="/home">HOME</Link></li>
     <li className="border-x-2 border-gray-300 px-4"><Link to="book">BOOKS</Link></li>
-    <li className=" px-4"><Link to={`/home/myOrders/${userId}`} >my orders</Link></li>
+    <li className=" px-2"><Link to={`/home/myOrders/${userId}`} >my orders</Link></li>
   </ul>
 ) : (
-  <ul className="hidden md:flex gap-x-4 p-2 text-lg cursor-pointer">
+  <ul className="hidden md:flex gap-x-4 p-1 text-lg cursor-pointer">
     <li><Link to="/home">HOME</Link></li>
     <li className="border-x-2 border-gray-300 px-4"><Link to="book">BOOKS</Link></li>
-    <li className=" px-4"><Link to="addBook">Add book</Link></li>
+    <li className=" px-2"><Link to="addBook">Add book</Link></li>
   </ul>
 )}
        
 
 
 
-        <ul className="flex gap-4 px-6 cursor-pointer relative top-1 p-1 ">
-          <li><Link to="profile"><FaUser size={25} /></Link></li>
-          {role === 'Customer' ? <li className="border-x-2 border-gray-300 px-4"><Link to="all"><BiClipboard size={25} /></Link>
+        <ul className="flex gap-x-4 px-6 cursor-pointer relative top-3 ">
+          <li><Link to="profile"><FaUser size={24} className="text-indigo-800"/></Link></li>
+          {role === 'Customer' ? <li className="border-x-2 border-gray-300 px-4"><Link to="all"><BiClipboard size={24} className="text-indigo-800"/></Link>
           <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">
               {userData.cartAmount}
             </span>
           </li>: null}
-        {role !== 'Customer' ? <li className=" "><Link to="orders"><MdOutlineBookmarkBorder size={28} /></Link>
+        {role !== 'Customer' ? <li className=" "><Link to="orders"><MdOutlineBookmarkBorder size={25}className="text-indigo-800" /></Link>
         <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">
               {orderItems.length.toString()}
             </span></li>: 
-            <li className=""><Link to={'favourite'}><MdFavoriteBorder size={28} /></Link></li>}
-          <li className="border-l-2 border-gray-300 px-2" onClick={() => setOpen(true)}><CiLogin size={25} /></li>
+            <li className=""><Link to={'favourite'}><MdFavoriteBorder size={25} className="text-indigo-800"/></Link></li>}
+          <li className="border-l-2 border-gray-300 px-2" onClick={() => setOpen(true)}><CiLogin size={25} className="text-indigo-800"/></li>
         </ul>
       </div>
 
