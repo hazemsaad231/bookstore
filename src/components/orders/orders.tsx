@@ -1,5 +1,3 @@
-import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
-import { db } from "../customer/firebase";
 import { useDispatch } from "react-redux";
 import { updateOrder } from "../../redux/counter";
 import { Link } from "react-router-dom";
@@ -9,6 +7,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
+import axios from "axios";
 
 interface Order {
   email: string;
@@ -25,23 +24,25 @@ interface Order {
   };
   name: string;
   timestamp: any;
-}
+} 
 
-const fetchOrders = async () => {
-  const querySnapshot = await getDocs(collection(db, "orders"));
-  return querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  })) as Order[];
-};
+
+
 
 const Orders = () => {
+
   const dispatch = useDispatch();
 
-  const { data: orders = [], isLoading } = useQuery( "orders", fetchOrders,{
+  const fetchOrders = async () => {
+    return await axios.get("https://backend-production-65d5.up.railway.app/orders");
+  };
+  const { data , isLoading } = useQuery( "orders", fetchOrders,{
     refetchInterval: 500,
   });
 
+  const orders = data?.data;
+
+  console.log(orders)
   // إرسال الطلبات إلى Redux عند تحميل البيانات
   if (!isLoading) dispatch(updateOrder(orders));
 
@@ -63,7 +64,7 @@ const Orders = () => {
       return;
     }
     try {
-      await deleteDoc(doc(db, "orders", selectedDelete));
+      await axios.delete(`https://backend-production-65d5.up.railway.app/orders/${selectedDelete}`);
       toast.success("Order deleted successfully.", { autoClose: 2000 });
       console.log("Order deleted successfully.");
     } catch (error) {
@@ -93,7 +94,7 @@ const Orders = () => {
                 </tr>
               </thead>
               <tbody className="text-center text-sm">
-                {orders.map((order, index: number) => {
+                {orders.map((order: Order, index: number) => {
                   const totalPrice: number = order.cartItems.reduce((total, item) => {
                     return total + parseFloat(item.price) * item.quantity;
                   }, 0);
@@ -103,7 +104,7 @@ const Orders = () => {
                       <td className="p-3">{order.email}</td>
                       <td className="p-3">{order.id}</td>
                       <td className="p-3">{order.delivery_address.name}</td>
-                      <td className="p-3">{order.timestamp.toDate().toLocaleDateString()}</td>
+                      <td className="p-3">{order.timestamp.slice(0, 10)}</td>
                       <td className="p-3">{totalPrice.toFixed(2)}$</td>
                       <td className="p-3">
                         <button className="bg-red-700 px-2 py-1 text-white rounded-full">

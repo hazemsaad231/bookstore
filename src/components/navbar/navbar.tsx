@@ -1,5 +1,5 @@
 import { Phone } from "@mui/icons-material"
-import { Link} from "react-router-dom"
+import { Link, useNavigate} from "react-router-dom"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -7,7 +7,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { FaUser } from "react-icons/fa";
 import { BiClipboard } from "react-icons/bi";
 import logo from '../../assets/img/logo.png'
-import Close from "./logout/close";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { ReactNode, useEffect, useState } from "react";
@@ -15,7 +14,11 @@ import { setUserData } from "../../redux/counter";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
-import React from "react";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
+import { CiLogin } from 'react-icons/ci'
+
+
+
 interface UserData {
   cartAmount: ReactNode;
   userData: {
@@ -28,7 +31,7 @@ interface UserData {
 
 
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const dispatch = useDispatch();
   const userData:UserData = useSelector((state: RootState) => state.counter);
 
@@ -36,6 +39,9 @@ const Navbar: React.FC = () => {
 
   console.log(orderItems)
 
+ const navigate = useNavigate();
+
+  const [open, setOpen] = useState(false);
 
   const userDataString = localStorage.getItem("data");
   const user = userDataString ? JSON.parse(userDataString) : null;
@@ -43,6 +49,10 @@ const Navbar: React.FC = () => {
 
 console.log(userId)
 
+const handleClose = () => {
+
+  setOpen(false);
+};
 
   const role = localStorage.getItem("role");
   console.log(role)
@@ -126,7 +136,7 @@ console.log(userId)
               {orderItems.length.toString()}
             </span></li>: 
             <li className=""><Link to={'favourite'}><MdFavoriteBorder size={28} /></Link></li>}
-          <li className="border-l-2 border-gray-300 px-2"><Close /></li>
+          <li className="border-l-2 border-gray-300 px-2" onClick={() => setOpen(true)}><CiLogin size={25} /></li>
         </ul>
       </div>
 
@@ -139,6 +149,35 @@ console.log(userId)
           
         </ul>
       )}
+       <Dialog
+        open={open}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+        sx={{
+          "& .MuiDialog-paper": {
+            boxShadow: "none", // لإزالة الظل من المربع
+            backgroundColor: "white", // تغيير لون خلفية الحوار
+          },
+          "& .MuiBackdrop-root": {
+            backgroundColor: "rgba(0, 0, 0, 0)", // تغيير لون خلفية التعتيم للشفافية
+          },
+        }}
+       >
+        <DialogTitle >{"Are you sure you want to logout?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>close</Button>
+          <Button onClick={() => {
+             navigate('/login')
+          }}
+           
+          >logout</Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };
