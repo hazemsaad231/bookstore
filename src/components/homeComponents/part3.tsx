@@ -62,13 +62,13 @@ function New() {
   return (
     <div className="py-16" style={{ backgroundColor: 'rgb(250, 245, 239)' }}>
       <ToastContainer />
-      <div className="slider flex flex-col gap-4 justify-center items-center px-4">
+      <div className="slider flex flex-col gap-4 justify-center items-center">
         <div className="text-center">
           <h2 className="text-lg text-gray-500 font-bold tracking-wider">SOME QUALITY ITEMS</h2>
-          <div className="flex items-center gap-6">
-            <hr style={{ width: "50%", border: "1px solid #ff6347" }} />
-            <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-indigo-900 mb-4 w-max">New Release Books</h1>
-            <hr style={{ width: "50%", border: "1px solid #ff6347" }} />
+          <div className="flex items-center gap-2">
+            <hr style={{ width: "40%", border: "1px solid #ff6347" }} />
+            <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-indigo-900 m-4">New Release Books</h1>
+            <hr style={{ width: "40%", border: "1px solid #ff6347" }} />
           </div>
         </div>
         

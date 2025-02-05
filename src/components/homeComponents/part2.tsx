@@ -32,7 +32,7 @@ function Category() {
   return (
     <div className="py-16">
       <div className="slider-container">
-        <div className="m-12">
+        <div className="m-6">
           <div className="flex gap-2">
             <GoArrowLeft size={25} color="#ff6347"/>
             <h1 className="text-orange-600 font-bold text-2xl">Categories</h1>

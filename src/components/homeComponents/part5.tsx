@@ -33,7 +33,7 @@ const Offer = () => {
     }, [targetDate]);
 
     return (
-        <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row justify-around items-center bg-gradient-to-r from-red-100 to-white-100 p-10 rounded-xl m-10">
+        <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row justify-around items-center bg-gradient-to-r from-red-100 to-white-100 p-4 rounded-xl m-4">
             <div className="flex flex-col justify-center items-center">
                 <h1 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-orange-500">
                     All books are 50% off now!

@@ -119,7 +119,7 @@ const search = filteredBooks ;
   const itemsPerPage = 8;
   const lastIndex = current * itemsPerPage;
   const startIndex = lastIndex - itemsPerPage;
- const totalPages = Math.ceil(search?.length / itemsPerPage);
+ const totalPages = Math.ceil(search?.length / itemsPerPage)
  const currentBooks = search?.slice(startIndex, lastIndex).slice(0, displayCount);
 
  

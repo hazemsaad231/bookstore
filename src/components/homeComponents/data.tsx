@@ -65,12 +65,12 @@ const Ldata = [
     },
     {
         img:latest2,
-        title:'5 Aug,2022',
+        date:'5 Aug,2022',
         description:'Reading Books Always Makes The Moments Happy'
     },
     {
         img:latest3,
-        title:'6 Aug,2022',
+        date:'6 Aug,2022',
         description:'Reading Books Always Makes The Moments Happy'
     },
 
