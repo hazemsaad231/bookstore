@@ -35,9 +35,9 @@ const Cart = () => {
         <>
           {/* عرض العربة */}
 <div className="overflow-x-auto mt-12 rounded-xl shadow-xl">
-  <table className="w-full border-collapse bg-gradient-to-r from-red-100 to-white-100 ">
-    <thead>
-      <tr className="">
+  <table className="w-full border-collapse bg-gray-100">
+    <thead className="mb-4 rounded-full">
+      <tr className=" bg-[rgb(237,85,59)] text-white">
         <th className="p-4 text-center">Book</th>
         <th className="p-4 text-center">Name</th>
         <th className="p-4 text-center">Price</th>
@@ -58,14 +58,14 @@ const Cart = () => {
           <td className="p-12 text-center flex justify-center items-center  gap-4">
             <h5
               onClick={() => handleDecrease(item)}
-              className="cursor-pointer bg-indigo-700 text-white text-xl hover:bg-indigo-500 rounded-full p-2"
+              className="cursor-pointer bg-[rgb(237,85,59)] text-white text-xl hover:bg-[rgb(207,35,59)] rounded-full p-2"
             >
               -
             </h5>
             <span >{item.quantity}</span>
             <h5
               onClick={() => handleIncrease(item)}
-              className="cursor-pointer bg-indigo-700 text-white text-xl hover:bg-indigo-500 rounded-full p-2"
+              className="cursor-pointer bg-[rgb(237,85,59)] text-white text-xl hover:bg-[rgb(207,35,59)] rounded-full p-2"
             >
               +
             </h5>
@@ -73,7 +73,7 @@ const Cart = () => {
           <td className="p-4 text-center">${item.price * item.quantity}</td>
           <td className="p-4 text-center">
             <button
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-[rgb(237,85,59)] hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => handleDelete(item)}
             >
               Remove
@@ -88,8 +88,8 @@ const Cart = () => {
 
 
           {/* عرض إجمالي الكتب والسعر */}
-          <div className="mt-4 shadow-xl rounded-xl text-center">
-          <table className="w-full bg-gradient-to-r from-red-100 to-white-100 rounded-xl">
+          <div className="mt-4 shadow-xl rounded-xl text-center bg-gray-100">
+          <table className="w-full rounded-xl">
   <thead>
     <tr>
       <th className="p-4 text-center w-full"colSpan={2}>

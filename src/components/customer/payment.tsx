@@ -118,7 +118,7 @@ console.log(email)
       <div className="flex w-full justify-center items-center">
         <div className="flex flex-col ">
           <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 400, mt: 4 }}>
-            <div className="bg-gradient-to-r from-red-100 to-white p-2 m-4 text-center rounded-lg shadow-xl">
+            <div className="bg-gray-100 p-2 m-4 text-center rounded-lg shadow-xl">
               <Typography variant="h5" gutterBottom>
                 Payment Info
               </Typography>
@@ -131,7 +131,7 @@ console.log(email)
               </Grid>
             </div>
 
-            <div className="bg-gradient-to-r from-red-100 to-white p-2 text-center rounded-lg shadow-xl">
+            <div className="bg-gray-100 p-2 text-center rounded-lg shadow-xl">
               <Typography variant="h5" gutterBottom>
                 Shipping Data
               </Typography>
