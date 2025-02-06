@@ -31,24 +31,24 @@ try{
   setTimeout(() => {
     navigate("/home")
   }, 2000);
- 
 
-
-}catch(error){
+}catch(error:any){
   console.error("Error:", error);
-  toast.error("Failed to login. Please try again.");
+  toast.error(error.response.data.message[0]||"Failed to login. Please try again.");
 }
 }
+
+
+
   return (
     <>
     <ToastContainer/>
-
 
     <div className='flex h-screen  w-[100%] sm:w-[100%] md:w-1/2 lg:w-1/2 xl:w-1/2 justify-center items-center'>
       <div> 
          
            <div>
-            <div className='py-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
+     <div className='py-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
            
             <h3 className='text-gray-500 text-lg text-start'>Welcome back!</h3>
             <h1 className='font-bold text-2xl mb-4'>Login to your account</h1>

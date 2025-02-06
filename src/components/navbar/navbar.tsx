@@ -156,7 +156,7 @@ const handleClose = () => {
         aria-describedby="alert-dialog-slide-description"
         sx={{
           "& .MuiDialog-paper": {
-            boxShadow: "none", // لإزالة الظل من المربع
+            boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.2)", // لإزالة الظل من المربع
             backgroundColor: "white", // تغيير لون خلفية الحوار
           },
           "& .MuiBackdrop-root": {
@@ -164,7 +164,7 @@ const handleClose = () => {
           },
         }}
        >
-        <DialogTitle >{"Are you sure you want to logout?"}</DialogTitle>
+        <DialogTitle sx={{fontSize:"1rem"}} >{"Are you sure you want to logout?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
           </DialogContentText>

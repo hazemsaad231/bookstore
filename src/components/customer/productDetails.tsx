@@ -50,7 +50,7 @@ console.log(data?.data)
         <div className="flex justify-center flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row  md:space-x-60 lg:space-x-60 xl:space-x-80 p-16 ">
 
     <div className="flex justify-center items-center my-4">
-      <img src={product?.image} alt=""  className="h-80 w-60"/>
+      <img src={product?.image} alt=""  className="h-80 w-72 "/>
     </div>
 
     <div className="flex flex-col gap-3 items-center justify-center">

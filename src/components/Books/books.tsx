@@ -335,7 +335,7 @@ const search = filteredBooks ;
           },
         }}
        >
-        <DialogTitle >{"Are you sure you want to delete this book?"}</DialogTitle>
+        <DialogTitle sx={{ fontSize: "1rem" }}>{"Are you sure you want to delete this book?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
           </DialogContentText>

@@ -15,8 +15,6 @@ const MyOrders = () => {
   console.log(id)
 
 
- 
-
   const getOrderDetails = async () => {
     return await axios.get(`https://backend-production-65d5.up.railway.app/orders`)
   }
@@ -154,7 +152,7 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
           },
         }}
        >
-        <DialogTitle>{"Are you sure you want to delete this order?"}</DialogTitle>
+        <DialogTitle sx={{ fontSize: "1rem"}}>{"Are you sure you want to delete this order?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
           </DialogContentText>

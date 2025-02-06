@@ -19,7 +19,7 @@ const home = () => {
         <div>
         <Silde/>
         <Category/>
-\        <New/>
+        <New/>
         <Feature/>
         <Offer/>
         <Subscribe/>

@@ -135,7 +135,7 @@ const Orders = () => {
           },
         }}
        >
-        <DialogTitle>{"Are you sure you want to delete this order?"}</DialogTitle>
+        <DialogTitle sx={{fontSize:"1rem" }}>{"Are you sure you want to delete this order?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
           </DialogContentText>

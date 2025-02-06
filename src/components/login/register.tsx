@@ -30,9 +30,9 @@ try{
   setTimeout(() => {
     navigate("/login")
   }, 2000);
-}catch(error){
+}catch(error:any){
     console.error("Error:", error);
-    toast.error("Failed to register. Please try again.");
+    toast.error(error.response.data.message);
   
 }
   
