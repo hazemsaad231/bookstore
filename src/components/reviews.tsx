@@ -62,7 +62,7 @@ const ReviewSystem = ({bookId}: {bookId: string}) => {
       <Rating
         name="product-rating"
         value={rating}
-        onChange={(event, newValue) => setRating(newValue)}
+        onChange={(_event, newValue) => setRating(newValue)}
       />
 
       {/* إدخال التعليق */}
