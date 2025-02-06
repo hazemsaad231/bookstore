@@ -6,7 +6,7 @@ interface Review {
   comment: string;
 }
 
-const ReviewSystem = ({bookId}: {bookId: string}) => {
+const ReviewSystem = ({bookId}: {bookId: any}) => {
   const [rating, setRating] = useState<number | null>(0);
   const [comment, setComment] = useState<string>("");
   const [reviews, setReviews] = useState<Review[]>([]);
