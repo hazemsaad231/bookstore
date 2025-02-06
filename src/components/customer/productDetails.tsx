@@ -5,7 +5,7 @@ import { addToCart } from "../../redux/counter";
 import { ToastContainer } from "react-toastify";
 import { useQuery } from "react-query";
 import Load from "../load/load";
-import ReviewSystem from "../reviews";
+import ReviewSystem from "../reviews/reviews";
 import { useState } from "react";
 
 
