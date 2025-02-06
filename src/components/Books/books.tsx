@@ -65,6 +65,7 @@ const [clicked, setClicked] = useState(null);
 
 const changeIconColor = (id: any) => {
   if (clicked !== id) {
+
     setClicked(id);  // إذا تم الضغط على نفس الأيقونة، نعيد اللون الأصلي
   } 
 };
