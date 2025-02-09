@@ -4,6 +4,7 @@ import axios from "axios";
 
 
 interface Review {
+  bookId: string;
   rating: number;
   comment: string;
 }
@@ -21,7 +22,6 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
   })
 
 
-  const role = localStorage.getItem("role");
 
   const [rating, setRating] = useState<number>(0);
   const [comment, setComment] = useState("");
@@ -41,14 +41,15 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
   
     fetchReviews();
   }, [bookId]);
+  const review = reviews?.filter((rev: any) => rev.bookId === bookId);
 
-
+  console.log("Filtered Orders:", review);
   // إضافة تقييم جديد
   const handleSubmit = async() => {
     if (rating && comment.trim() !== "") {
       try {
-        await axios.put(`https://backend-production-65d5.up.railway.app/reviews`, { rating, comment });
-        const updatedReviews = [...reviews, { rating, comment }];
+        await axios.post(`https://backend-production-65d5.up.railway.app/reviews`, { rating, comment, bookId });
+        const updatedReviews = [...reviews, { rating, comment, bookId }];
         setReviews(updatedReviews);
         setRating(0);
         setComment("")
@@ -72,7 +73,7 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
   {/* عرض التقييمات */}
   <div className="w-80 flex flex-col justify-center items-center">
         <Typography variant="h5" sx={{ letterSpacing: "1px" }}>Reviews</Typography>
-        {reviews.map((review, index) => (
+        {review.map((review, index) => (
           <div key={index} className="py-2">
             <Typography variant="subtitle1">⭐ {review.rating} Stars</Typography>
             <Typography variant="body2">{review.comment}</Typography>
@@ -107,11 +108,9 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
       <Button variant="contained" color="primary" onClick={handleSubmit}>
         Submit Review
       </Button>
-  {role === "admin" && (
   <Button variant="outlined" color="secondary" onClick={handleClearReviews}>
   Clear All Reviews
 </Button>
-)}
 
 
     
