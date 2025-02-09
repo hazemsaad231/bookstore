@@ -1,44 +1,69 @@
 import { useState, useEffect } from "react";
 import { Rating, Typography, TextField, Button } from "@mui/material";
+import axios from "axios";
+
 
 interface Review {
   rating: number;
   comment: string;
 }
 
-const ReviewSystem = ({bookId}: {bookId: any}) => {
-  const [rating, setRating] = useState<number | null>(0);
-  const [comment, setComment] = useState<string>("");
-  const [reviews, setReviews] = useState<Review[]>([]);
 
-  // تحميل التقييمات المحفوظة عند تحميل الصفحة
+const ReviewSystem = ({bookId}: {bookId: any}) => {
+
+
   useEffect(() => {
-    const storedReviews = JSON.parse(localStorage.getItem(`reviews${bookId}`) || "[]");
-    setReviews(storedReviews);
-  }, [bookId]);
+    if(bookId){
+      console.log(bookId)
+    }else{
+      console.log("no book id")
+    }
+  })
 
 
   const role = localStorage.getItem("role");
 
+  const [rating, setRating] = useState<number>(0);
+  const [comment, setComment] = useState("");
+  const [reviews, setReviews] = useState<Review[]>([]);
+
+  // تحميل التقييمات المحفوظة عند تحميل الصفحة
+ 
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(`https://backend-production-65d5.up.railway.app/reviews`);
+        setReviews(response.data);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      }
+    };
+  
+    fetchReviews();
+  }, [bookId]);
 
 
   // إضافة تقييم جديد
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     if (rating && comment.trim() !== "") {
-      const newReview = { rating, comment };
-      const updatedReviews = [...reviews, newReview];
-
-      setReviews(updatedReviews);
-      localStorage.setItem(`reviews${bookId}`, JSON.stringify(updatedReviews));
-
-      setRating(0);
-      setComment("");
+      try {
+        await axios.put(`https://backend-production-65d5.up.railway.app/reviews`, { rating, comment });
+        const updatedReviews = [...reviews, { rating, comment }];
+        setReviews(updatedReviews);
+        setRating(0);
+        setComment("")
+      } catch (error) {
+        console.error("Error adding review:", error);
+      }
     }
   };
-  const handleClearReviews = () => {
-    setReviews([]);
-    localStorage.removeItem(`reviews${bookId}`);
+
+
+  const handleClearReviews = async() => {
+    setReviews([])
+   await axios.delete(`https://backend-production-65d5.up.railway.app/reviews`);
   };
+
 
 
   return (
@@ -62,7 +87,8 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
       <Rating
         name="product-rating"
         value={rating}
-        onChange={(_event, newValue) => setRating(newValue)}
+        onChange={(_event, newValue) =>
+          newValue !== null && setRating(newValue)}
       />
 
       {/* إدخال التعليق */}
@@ -81,7 +107,7 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
       <Button variant="contained" color="primary" onClick={handleSubmit}>
         Submit Review
       </Button>
-{role === "admin" && (
+  {role === "admin" && (
   <Button variant="outlined" color="secondary" onClick={handleClearReviews}>
   Clear All Reviews
 </Button>

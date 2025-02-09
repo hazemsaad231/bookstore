@@ -94,8 +94,10 @@ const changeIconColor = (id: any) => {
    refetchInterval: 500,
    refetchOnWindowFocus: true
  });
-
  const books = data?.data;
+
+
+
  const [displayCount, setDisplayCount] = useState(8);
 
  const filteredBooks = books?.filter((book:{  category: string, price: string}) => {

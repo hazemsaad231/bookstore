@@ -11,6 +11,7 @@ import { useState } from "react";
 
 
 function Details() {
+
   const { id } = useParams();
 
 
@@ -48,9 +49,9 @@ function Details() {
     }
 
     const {data, isLoading} = useQuery("product", getProductDetails, {
-      refetchInterval: 500
+      refetchInterval: 8000
     })
-console.log(data?.data)
+    console.log(data?.data)
     const product = data?.data;
 
 

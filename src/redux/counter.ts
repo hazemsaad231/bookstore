@@ -100,6 +100,7 @@ export const cartSlice = createSlice({
           autoClose: 2000,
         });
       }
+      
 
       // تحديث cartTotal و cartAmount
       const { totalAmount, totalPrice } = updateCartSummary(state.cartItems);
