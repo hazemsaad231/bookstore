@@ -278,8 +278,12 @@ const search = filteredBooks ;
            { role === 'Customer' ?
            <button className=" bg-[rgb(237,85,59)] text-white w-full py-2">
              <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>:
+             <button className=" bg-indigo-600 text-white w-full py-2">
+             <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>
+             }
+             { role === 'Admin' ?
               <button className="bg-[rgb(237,85,59)] text-white w-full py-2">
-             <Link to={`/home/addBook/${book.id}`} className="text-white">Update</Link></button>
+             <Link to={`/home/addBook/${book.id}`} className="text-white">Update</Link></button>:null
              }
 
            { role === 'Customer' ?

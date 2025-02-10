@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Rating, Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
 
@@ -11,6 +11,8 @@ interface Review {
 
 
 const ReviewSystem = ({bookId}: {bookId: any}) => {
+
+ const role = localStorage.getItem("role")
 
 
   useEffect(() => {
@@ -60,11 +62,22 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
   };
 
 
-  const handleClearReviews = async() => {
-    setReviews([])
-   await axios.delete(`https://backend-production-65d5.up.railway.app/reviews`);
-  };
+  // const handleClearReviews = async() => {
+  // const response = await axios.delete(`https://backend-production-65d5.up.railway.app/reviews`);
+  // console.log(response.data,"deleted");
+  //   setReviews([]);
+  // };
+  const handleClearReviews = useCallback(  async () => {
 
+    try {
+      await axios.delete(`https://backend-production-65d5.up.railway.app/reviews`);
+      console.log("Review deleted successfully.");
+      setReviews(reviews.filter((rev: any) => rev.bookId !== bookId));
+    
+    } catch (errors) {
+      console.log(errors);
+    }
+  }, [bookId]);
 
 
   return (
@@ -108,10 +121,11 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
       <Button variant="contained" color="primary" onClick={handleSubmit}>
         Submit Review
       </Button>
+      {role==="Admin" &&
   <Button variant="outlined" color="secondary" onClick={handleClearReviews}>
   Clear All Reviews
 </Button>
-
+}
 
     
     </div>

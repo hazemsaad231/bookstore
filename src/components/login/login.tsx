@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoLogoStencil } from "react-icons/io5";
 import { Tooltip } from '@mui/material';
+import { useState } from 'react';
 
 
 export default function Login() {
@@ -14,6 +15,7 @@ export default function Login() {
 
   const navigate = useNavigate()
 
+const [loading, setLoading] = useState(false);
 
 const {register,handleSubmit,formState:{errors}}=useForm<{email:string,password:string}>()
 
@@ -21,13 +23,11 @@ const {register,handleSubmit,formState:{errors}}=useForm<{email:string,password:
 const onSubmit=async(data:any)=>{
 try{
   const response = await axios.post("https://upskilling-egypt.com:3007/api/auth/login",data)
-  console.log(response)
   toast("login successfully")
   localStorage.setItem("token",response.data.data.accessToken)
   localStorage.setItem("role",response.data.data.profile.role)
-  console.log(response.data.data.accessToken)
   localStorage.setItem("data",window.JSON.stringify(response.data.data.profile))
-  console.log(response.data.data.profile)
+  setLoading(true)
   setTimeout(() => {
     navigate("/home")
   }, 2000);
@@ -118,10 +118,9 @@ try{
       onClick={()=>navigate("/Forgot")}>Forgot Password?</div>
       </div>
 
-    
-      
+      <div className='flex flex-col gap-2'>
+    <button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg mt-4'>{loading ? "Loading..." : "Login"}</button>
  
-    <div className='flex flex-col gap-2'> <button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg mt-4'>Login</button>
     <button className='border border-indigo-700 p-3 rounded-lg  mt-4 text-indigo-700 hover:bg-indigo-100' onClick={()=>navigate("/register")}>Register</button></div>
     </form>
     </div>
