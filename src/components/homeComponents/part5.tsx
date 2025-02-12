@@ -35,7 +35,7 @@ const Offer = () => {
     return (
         <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row justify-around items-center p-4 rounded-xl m-4" style={{ backgroundColor: 'rgb(250, 245, 239)' }}>
             <div className="flex flex-col justify-center items-center">
-                <h1 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-orange-500">
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-orange-500">
                     All books are 50% off now!
                     <div>Don't miss this offer</div>
                 </h1>
@@ -62,7 +62,7 @@ const Offer = () => {
                     </tbody>
                 </table>
             </div>
-            <img src={offer} alt="" className="w-80 sm:w-80 md:w-1/2 lg:w-1/2 xl:w-1/2 rounded-xl mt-10" />
+            <img src={offer} alt="" className="w-96 sm:w-96 md:w-1/2 lg:w-1/2 xl:w-1/2 rounded-xl mt-10" />
         </div>
     );
 };
