@@ -42,7 +42,7 @@ function Feature() {
         <Slider {...settings}>
           {books.map((book: any, index) => (
             <div key={index}>
-                <div className="flex justify-between sm:justify-between md:justify-around lg:justify-around xl:justify-around m-2 gap-4">
+                <div className="flex justify-between sm:justify-between md:justify-around lg:justify-around xl:justify-around m-4 gap-4">
                     <div className="text-center gap-y-3 flex flex-col justify-center items-center text-md sm:text-md md:text-lg lg:text-xl xl:text-xl" >
                     <h1 className="text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold">{book.name}</h1>
                         <h1 className="text-lg font-semibold text-gray-400">{book.author}</h1>
