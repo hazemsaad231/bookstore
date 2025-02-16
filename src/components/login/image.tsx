@@ -1,3 +1,4 @@
+import React from 'react';
 import img from '../../assets/img/img.jpeg'
 const Image = () => {
     
@@ -10,4 +11,4 @@ const Image = () => {
     )
 }
 
-export default Image
+export default React.memo(Image);
