@@ -98,7 +98,7 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
                         <th className="px-3">Quantity</th>
                         <th className="px-3">Price</th>
                         <th className="px-3">Total Price</th>
-<th><button className="my-2"><FaDeleteLeft size={20} onClick={() => handleClickOpen(order.id)}/></button></th>
+<th><button className="m-2"><FaDeleteLeft size={20} onClick={() => handleClickOpen(order.id)}/></button></th>
                       </tr>
                     </thead>
                     <tbody className="text-center">
@@ -112,7 +112,7 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
                               {order.id}
                             </td>
                           )}
-                          <td>{item.name}</td>
+                          <td className="p-3">{item.name}</td>
                           <td>{item.quantity}</td>
                           <td>${item.price}</td>
                           {index === 0 && (
