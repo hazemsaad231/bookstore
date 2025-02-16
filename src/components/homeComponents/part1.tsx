@@ -52,7 +52,6 @@ function bookSlide() {
     src={book.image}
     alt="book"
     className="rounded-lg h-80 w-68 sm:h-80 md:h-72 lg:h-80 xl:h-[420px] xl:w-68 m-auto object-center"
-    loading="lazy"
   />
   {/* الوصف يظهر عند hover */}
   <div className="block sm:block md:hidden lg:hidden xl:hidden">

@@ -62,7 +62,7 @@ const Offer = () => {
                     </tbody>
                 </table>
             </div>
-            <img src={offer} alt="" className="w-96 sm:w-96 md:w-1/2 lg:w-1/2 xl:w-1/2 rounded-xl mt-10" />
+            <img src={offer} alt="" className="w-96 sm:w-96 md:w-1/2 lg:w-1/2 xl:w-1/2 rounded-xl mt-10" loading="lazy"/>
         </div>
     );
 };

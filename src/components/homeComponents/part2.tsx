@@ -45,7 +45,7 @@ function Category() {
       {data.map((item, index) => (
           <div key={index}>
             <div className="flex flex-col w-[95%]">
-              <img src={item.img} alt="Category 1" className="h-72  rounded-xl" loading="lazy" />
+              <img src={item.img} alt="Category 1" className="h-72  rounded-xl" />
               <h1 className="text-center text-indigo-600">{item.title}</h1>
             </div>
           </div>
