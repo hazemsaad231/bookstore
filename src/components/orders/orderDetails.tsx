@@ -40,14 +40,14 @@ const OrderDetails = () => {
               <th>Total Price</th>
             </tr>
           </thead>
-          <tbody className="text-center p-3">
+          <tbody className="text-center p-4">
             {Details?.cartItems.map((item: any, index: number) => (
               <tr key={index}>
-                <td className="p-2"><img src={item.image} alt="" className="w-12 h-6 m-auto" /></td>
-                <td className="p-2">{item.name}</td>
-                <td className="p-2">{item.quantity}</td>
-                <td className="p-2">{item.price}$</td>
-                <td className="p-2">{item.price * item.quantity}$</td>
+                <td className="p-4"><img src={item.image} alt="" className="w-12 h-6 m-auto" /></td>
+                <td className="p-4">{item.name}</td>
+                <td className="p-4">{item.quantity}</td>
+                <td className="p-4">{item.price}$</td>
+                <td className="p-4">{item.price * item.quantity}$</td>
               </tr>
             ))}
           </tbody>
@@ -86,11 +86,11 @@ const OrderDetails = () => {
           <tbody className="text-center">
             {Details && (
               <tr>
-                <td className="p-4">{Details.delivery_address.name}</td>
-                <td className="p-4">{Details.delivery_address.mobile}</td>
-                <td className="p-4">{Details.delivery_address.country}</td>
-                <td className="p-4">{Details.delivery_address.city}</td>
-                <td className="p-4">{Details.delivery_address.street}</td>
+                <td className="p-5">{Details.delivery_address.name}</td>
+                <td className="p-5">{Details.delivery_address.mobile}</td>
+                <td className="p-5">{Details.delivery_address.country}</td>
+                <td className="p-5">{Details.delivery_address.city}</td>
+                <td className="p-5">{Details.delivery_address.street}</td>
               </tr>
             )}
           </tbody>

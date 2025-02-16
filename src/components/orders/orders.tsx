@@ -101,17 +101,17 @@ const Orders = () => {
 
                   return (
                     <tr key={index}>
-                      <td className="p-3">{order.email}</td>
-                      <td className="p-3">{order.id}</td>
-                      <td className="p-3">{order.delivery_address.name}</td>
-                      <td className="p-3">{order.timestamp.slice(0, 10)}</td>
-                      <td className="p-3">{totalPrice.toFixed(2)}$</td>
-                      <td className="p-3">
+                      <td className="p-4">{order.email}</td>
+                      <td className="p-6">{order.id}</td>
+                      <td className="p-6">{order.delivery_address.name}</td>
+                      <td className="p-4">{order.timestamp.slice(0, 10)}</td>
+                      <td className="p-4">{totalPrice.toFixed(2)}$</td>
+                      <td className="p-4">
                         <button className="bg-red-700 px-2 py-1 text-white rounded-full">
                           <Link to={`/home/orderDetails/${order.id}`}>View</Link>
                         </button>
                       </td>
-                      <td className="p-3"><button className="py-1" onClick={() => handleClickOpen(order.id)}><FaDeleteLeft size={20} className="text-red-700"/></button></td>
+                      <td className="p-4"><button className="py-1" onClick={() => handleClickOpen(order.id)}><FaDeleteLeft size={20} className="text-red-700"/></button></td>
                     </tr>
                   );
                 })}
