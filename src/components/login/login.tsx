@@ -34,7 +34,7 @@ try{
 
 }catch(error:any){
   console.error("Error:", error);
-  toast.error(error.response.data.message);
+  toast.error(error.response.data.message||"Failed to login. Please try again.");
 }
 }
 

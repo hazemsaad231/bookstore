@@ -25,7 +25,6 @@ const Books = () => {
   const [selectedDelete, setSelectedDelete] = useState(null);
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
-
   const [sortOption, setSortOption] = useState("alphabetical");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const dispatch = useDispatch();
@@ -65,14 +64,9 @@ const [clicked, setClicked] = useState(null);
 
 const changeIconColor = (id: any) => {
   if (clicked !== id) {
-
     setClicked(id);  // إذا تم الضغط على نفس الأيقونة، نعيد اللون الأصلي
   } 
 };
-
-
-
-
 
 
   const handleAddToCart = (book: any) => {
@@ -96,8 +90,6 @@ const changeIconColor = (id: any) => {
  });
  const books = data?.data;
 
-
-
  const [displayCount, setDisplayCount] = useState(8);
 
  const filteredBooks = books?.filter((book:{  category: string, price: string}) => {
@@ -113,20 +105,19 @@ const changeIconColor = (id: any) => {
   if (sortOption === "priceLowToHigh") return a.price - b.price;
   if (sortOption === "priceHighToLow") return b.price - a.price;
   return 0;
-})
+});
 
 const search = filteredBooks ;
 
 
  const [current, setCurrent] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = displayCount;
   const lastIndex = current * itemsPerPage;
   const startIndex = lastIndex - itemsPerPage;
  const totalPages = Math.ceil(search?.length / itemsPerPage)
  const currentBooks = search?.slice(startIndex, lastIndex).slice(0, displayCount);
 
  
-
   const togglePrice = () => setShowPrice(!showPrice);
   const toggleCategory = () => setShowCategory(!showCategory);
   

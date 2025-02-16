@@ -29,6 +29,15 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
   const [comment, setComment] = useState("");
   const [reviews, setReviews] = useState<Review[]>([]);
 
+  const [addReview, setAddReview] = useState(false);
+
+  const AddReview = () => {
+    setAddReview(true);
+  };
+  const CloseReview = () => {
+    setAddReview(false);
+  }
+
   // تحميل التقييمات المحفوظة عند تحميل الصفحة
  
   useEffect(() => {
@@ -62,11 +71,7 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
   };
 
 
-  // const handleClearReviews = async() => {
-  // const response = await axios.delete(`https://backend-production-65d5.up.railway.app/reviews`);
-  // console.log(response.data,"deleted");
-  //   setReviews([]);
-  // };
+  
   const handleClearReviews = useCallback(  async () => {
 
     try {
@@ -84,20 +89,26 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
     <div className="flex flex-col items-center gap-2 ">
 
   {/* عرض التقييمات */}
-  <div className="w-80 flex flex-col justify-center items-center">
+  <div className="w-80 flex flex-col justify-center items-center gap-2">
         <Typography variant="h5" sx={{ letterSpacing: "1px" }}>Reviews</Typography>
         {review.map((review, index) => (
-          <div key={index} className="py-2">
+          <div key={index} className="flex flex-col gap-1 justify-center items-center w-full">
             <Typography variant="subtitle1">⭐ {review.rating} Stars</Typography>
-            <Typography variant="body2">{review.comment}</Typography>
+            <Typography variant="body2" className="text-center w-40">{review.comment}</Typography>
           </div>
         ))}
       </div>
 
 
+      <Button variant="outlined" color="primary" onClick={AddReview}>
+        Add Review
+      </Button>
+
+{addReview &&
+<>
       <Typography variant="h5">Rate & Review</Typography>
 
-      {/* إدخال التقييم */}
+      {/* التقييم */}
       <Rating
         name="product-rating"
         value={rating}
@@ -118,9 +129,11 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
       />
 
       {/* زر الإرسال */}
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
+      <Button variant="contained" color="primary" onClick={() => {handleSubmit(); CloseReview()}}>
         Submit Review
       </Button>
+</>
+      }
       {role==="Admin" &&
   <Button variant="outlined" color="secondary" onClick={handleClearReviews}>
   Clear All Reviews
