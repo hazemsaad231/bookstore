@@ -74,12 +74,12 @@ const AddBook = () => {
         <div className="bg-gradient-to-r border from-red-100 to-white ">
 
             <ToastContainer />
-            <div className=" w-max m-auto px-8 sm:px-8 md:px-20 lg:px-20 xl:px-20 py-5 shadow-2xl mt-10 mb-10 bg-white  rounded-xl ">
+            <div className=" w-max m-auto px-12 sm:px-12 md:px-20 lg:px-20 xl:px-20 py-5 shadow-2xl mt-10 mb-10 bg-white  rounded-xl ">
             <h1 className="text-md sm:text-md md:text-lg lg:text-lg xl:text-xl  mt-2 mb-10 font-sans text-center tracking-[0.2em]">{id ? "Update Book" : "Add Book"}</h1>
     
     <div className="flex flex-col justify-center items-center">
     <form onSubmit={handleSubmit(onSubmit)}>
-             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 xl:gap-10 place-items-center  m-auto">
+             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 xl:gap-10 place-items-center m-auto">
                  <div className="flex flex-col">
                     <label htmlFor="">Name</label>
                      <input type="text" placeholder="Enter name" className="border w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("name", { required: true })} />
