@@ -37,7 +37,7 @@ function Feature() {
   return (
     <div className="flex flex-col items-center py-10">
       <div className="w-full mb-2">
-      <h1 className="border-b-2 border-l-2 rounded-full border-indigo-900 w-max m-auto p-2 text-4xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-indigo-900 mb-8 text-center">Featured Books</h1>
+      <h1 className="border-b-2 border-l-2 rounded-full border-indigo-900 w-max m-auto px-5 text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-indigo-900 mb-8 text-center">Featured Books</h1>
 
         <Slider {...settings}>
           {books.map((book: any, index) => (

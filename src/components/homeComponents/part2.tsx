@@ -38,7 +38,7 @@ function Category() {
             <h1 className="text-orange-600 font-bold text-2xl">Categories</h1>
           </div>
           <div>
-          <h1 className="text-4xl font-bold text-indigo-800">Explore our Top Categories</h1>
+          <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-indigo-800">Explore our Top Categories</h1>
           </div>
         </div>
         <Slider {...settings} className="py-4">

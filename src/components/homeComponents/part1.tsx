@@ -28,7 +28,7 @@ function bookSlide() {
     
   
     
-    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-12">
+    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-28 sm:py-24 md:py-20 lg:py-12 xl:py-12">
    
        <div className="slider-container w-full">         <Slider {...settings}>
 
@@ -51,7 +51,7 @@ function bookSlide() {
   <img
     src={book.image}
     alt="book"
-    className="rounded-lg h-80 w-68 sm:h-80 md:h-72 lg:h-80 xl:h-[420px] xl:w-68 m-auto object-center"
+    className="rounded-lg h-96 w-72 m-auto object-center"
   />
   {/* الوصف يظهر عند hover */}
   <div className="block sm:block md:hidden lg:hidden xl:hidden">

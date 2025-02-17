@@ -50,7 +50,7 @@ try{
            <div>
      <div className='py-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
            
-            <h3 className='text-gray-500 text-lg text-start'>Welcome back!</h3>
+            <h3 className='text-gray-500 text-xl text-start'>Welcome back!</h3>
             <h1 className='font-bold text-2xl mb-4'>Login to your account</h1>
         </div>
 

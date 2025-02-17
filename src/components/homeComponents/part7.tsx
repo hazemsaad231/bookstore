@@ -17,7 +17,7 @@ const Latest = () => {
             <div className="flex flex-col gap-4 justify-center items-center py-8">
                 <p className="text-gray-400">READ OUR ARTICLES</p>
               
-                    <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold text-center text-indigo-800">Latest Articles</h1>
+                    <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-semibold text-center text-indigo-800">Latest Articles</h1>
                
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-12 p-4 my-5">
 
@@ -28,7 +28,7 @@ const Latest = () => {
                         
                     <img src={late.img} alt="" className="w-full h-60 rounded-xl" loading="lazy"/>
                     <p className="text-gray-500">{late.date}</p>
-                    <h1 className="text-indigo-900 text-2xl w-60">{late.description} </h1>
+                    <h1 className="text-indigo-900 text-xl w-60">{late.description} </h1>
                     <hr />
                     <div className="flex gap-5">
                         <CiFacebook className="text-lg text-indigo-600"/>
