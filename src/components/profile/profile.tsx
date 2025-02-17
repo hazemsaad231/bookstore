@@ -14,7 +14,7 @@ const Profile = () => {
   console.log(userData);
 
   return (
-    <div className="flex justify-center items-center bg-gradient-to-r border from-red-100 to-white py-12">
+    <div className="flex justify-center items-center bg-gradient-to-r border py-20" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
       <div className="bg-white shadow-2xl rounded-lg w-full max-w-3xl p-6 m-6">
         <div className="flex justify-center mb-6">
           <div className="h-32 w-32 bg-blue-500 rounded-full flex items-center justify-center text-white text-4xl font-bold">

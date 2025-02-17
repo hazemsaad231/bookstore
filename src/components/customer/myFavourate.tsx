@@ -18,7 +18,7 @@ const dispatch = useDispatch();
     return (
 
       
-      <div className="bg-gradient-to-r from-red-100 to-white py-40">
+      <div className="py-40" style={{ backgroundColor: "rgb(250, 245, 239)" }} >
         
         <ToastContainer/>
         <div className="shadow-2xl rounded-xl bg-white w-[80%] sm:w-[80%] m-auto md:w-[70%] lg:w-[60%] xl:w-[60%] tracking-[1px] ">

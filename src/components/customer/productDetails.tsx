@@ -61,7 +61,7 @@ function Details() {
 <ToastContainer/>
 
 {isLoading ?(<div><Load/></div>):(
-    <div className="bg-gradient-to-t from-red-100 to-white-100 h-full p-6">
+    <div className="h-full p-12" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
 
 <h1 className="text-4xl font-bold text-center text-indigo-600 pb-6 tracking-[5px]">Book Details</h1>
 

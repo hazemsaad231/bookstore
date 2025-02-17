@@ -78,9 +78,9 @@ const Orders = () => {
       {isLoading ? 
         <Load />
        : 
-        <div className="bg-gradient-to-r from-red-100 to-white pb-40 pt-20">
+        <div className="bg-white pb-44 pt-24" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
         <div className="m-4">
-          <div className="overflow-x-auto mt-12 rounded-xl shadow-xl bg-white m-auto p-4 w-full sm:w-full md:w-5/6 lg:w-2/3 xl:w-2/3">
+          <div className="bg-white overflow-x-auto mt-12 rounded-xl shadow-xl m-auto p-4 w-full sm:w-full md:w-5/6 lg:w-2/3 xl:w-2/3" >
             <h1 className="text-xl font-semibold text-center mb-8 tracking-[0.2em]">Orders list</h1>
             <table className="w-full border-collapse">
               <thead>

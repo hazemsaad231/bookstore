@@ -71,10 +71,10 @@ const AddBook = () => {
     
 
     return (
-        <div className="bg-gradient-to-r border from-red-100 to-white ">
+        <div className="py-12" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
 
             <ToastContainer />
-            <div className=" w-max m-auto px-12 sm:px-12 md:px-20 lg:px-20 xl:px-20 py-5 shadow-2xl mt-10 mb-10 bg-white  rounded-xl ">
+            <div className=" w-max m-auto px-12 sm:px-12 md:px-20 lg:px-20 xl:px-20 py-5 shadow-2xl bg-white  rounded-xl ">
             <h1 className="text-md sm:text-md md:text-lg lg:text-lg xl:text-xl  mt-2 mb-10 font-sans text-center tracking-[0.2em]">{id ? "Update Book" : "Add Book"}</h1>
     
     <div className="flex flex-col justify-center items-center">

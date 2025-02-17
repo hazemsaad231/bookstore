@@ -12,14 +12,15 @@ import { useState } from 'react';
 
 export default function Login() {
 
-
   const navigate = useNavigate()
 
 const [loading, setLoading] = useState(false);
 
-const {register,handleSubmit,formState:{errors}}=useForm<{email:string,password:string}>()
+// {react hook form}
+const {register,handleSubmit,formState:{errors}}=useForm<{email:string,password:string}>() 
 
 
+// {تسجيل الدخول}
 const onSubmit=async(data:any)=>{
 try{
   const response = await axios.post("https://upskilling-egypt.com:3007/api/auth/login",data)
@@ -34,7 +35,7 @@ try{
 
 }catch(error:any){
   console.error("Error:", error);
-  toast.error(error.response.data.message||"Failed to login. Please try again.");
+  toast.error(error.response.data.message[0]||error.response.data.message);
 }
 }
 
@@ -48,7 +49,7 @@ try{
       <div> 
          
            <div>
-     <div className='py-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
+     <div className='py-8'> <IoLogoStencil className='w-32 h-24 text-indigo-700 m-auto'/></div>
            
             <h3 className='text-gray-500 text-xl text-start'>Welcome back!</h3>
             <h1 className='font-bold text-2xl mb-4'>Login to your account</h1>

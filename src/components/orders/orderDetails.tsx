@@ -27,7 +27,7 @@ const OrderDetails = () => {
 
   return (
     <>
-    <div className="bg-gradient-to-r from-red-100 to-white pb-40 pt-20">
+    <div className="pb-40 pt-20" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
       <div className="w-[95%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
         <h1 className="text-lg font-semibold text-center mb-8 tracking-[0.2em]">Order Details</h1>
         <table className="w-full border-collapse m-auto">

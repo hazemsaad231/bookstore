@@ -50,7 +50,7 @@ try{
       <div> 
          
            <div>
-            <div className='py-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
+            <div className='py-8'> <IoLogoStencil className='w-32 h-24 text-indigo-700 m-auto'/></div>
            
             <h3 className='text-gray-500 text-xl text-center'>Create new account</h3>
             <h1 className='font-bold text-3xl text-center mb-4'>Register</h1>

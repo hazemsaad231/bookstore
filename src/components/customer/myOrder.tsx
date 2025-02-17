@@ -68,7 +68,7 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
 {isLoading ? (<Load />) : (
   
 
-    <div className="bg-gradient-to-l from-red-100 to-white py-40 h-full p-4">
+    <div className="py-44 h-full p-4" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
       <div>
         <div className="p-4 w-[100%] sm:w-[80%] md:w-[60%] lg:w-[60%] xl:w-[60%] m-auto bg-white shadow-2xl rounded-xl">
           <h1 className="text-lg text-center mb-8 tracking-[0.2em]">
