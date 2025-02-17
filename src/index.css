@@ -4,8 +4,7 @@
 
 
 body{
-  font-family: 'arial' !important;
-  font-display: swap;
+  font-family: 'sans-serif' !important;
 }
 .slick-prev, .slick-next {
   border: solid 1px #ff6347 !important;
