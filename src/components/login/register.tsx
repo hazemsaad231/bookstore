@@ -32,7 +32,7 @@ try{
   }, 2000);
 }catch(error:any){
     console.error("Error:", error);
-    toast.error(error.response.data.message[0]);
+    toast.error(error.response.data.message);
   
 }
   
