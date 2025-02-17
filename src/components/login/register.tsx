@@ -32,8 +32,11 @@ try{
   }, 2000);
 }catch(error:any){
     console.error("Error:", error);
-    toast.error('Sorry, the password must contain at least 3 charac…ercase letter, one number, one special character.');
-  
+    if(Array.isArray(error.response.data.message)){
+      toast.error(error.response.data.message[0]);
+    }else{
+      toast.error(error.response.data.message);
+    }  
 }
   
 
