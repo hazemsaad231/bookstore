@@ -50,7 +50,7 @@ function Feature() {
               <div className="border border-indigo-800 py-2 px-2 text-indigo-800 rounded-lg w-max hover:bg-indigo-100 text-sm sm:text-sm md:text-md lg:text-lg xl:text-lg"><Link to='/home/book'>View More</Link></div>
 
               </div>
-              <div className="p-1 bg-white shadow-lg rounded-lg"><img src={book.image} alt={book.name} className="rounded-xl m-auto h-80 w-60 sm:h-60 md:h-72 lg:h-80 xl:h-96 object-center" loading="lazy" /></div>
+              <div className="p-2 bg-white shadow-lg rounded-lg"><img src={book.image} alt={book.name} className="rounded-xl m-auto h-80 w-60 object-center" loading="lazy" /></div>
 
                 </div>
              

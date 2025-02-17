@@ -23,7 +23,7 @@ const Footer = () => {
                 </div>
                 <div className='flex gap-2 mb-2'>
           <FaPhoneAlt className='text-2xl '/>
-                <li className='text-sm font-thin'>+20123456789</li>
+                <li className='text-sm font-thin'>+201062588052</li>
                 </div>
        
 
@@ -37,7 +37,7 @@ const Footer = () => {
             <h3 className="font-bold text-md mb-4">Our Products</h3>
             <ul>
             <li className='text-sm font-thin'>Career</li>
-              <li className='text-sm font-thin'>Car</li>
+              <li className='text-sm font-thin'>book</li>
               <li className='text-sm font-thin'>Packages</li>
               <li className='text-sm font-thin'>Features</li>
               <li className='text-sm font-thin'>Priceline</li>  

@@ -81,7 +81,7 @@ function New() {
                   <img
                     src={book.image}
                     alt="img"
-                    className="h-80 w-60 sm:h-60 md:h-80 lg:h-80 xl:h-80 m-auto object-center"
+                    className="h-80 w-60 m-auto object-center rounded-xl"
                     loading="lazy"
                   />
                   {/* زرارين يظهران عند hover */}
