@@ -33,7 +33,7 @@ console.log(bookId);
   }
 
 
-  const { data  }: any = useQuery(["reviews", bookId], getReviews, 
+  const { data , isLoading }: any = useQuery(["reviews", bookId], getReviews, 
     { refetchInterval: 4000 });
 
     console.log(data);
@@ -59,10 +59,12 @@ console.log(bookId);
 
   
   const handleClearReviews = useCallback(async () => {
+    if (!bookId) {
+      return;
+    }
     try {
-      await axios.delete(`https://backend-production-65d5.up.railway.app/reviews`, { data: { bookId } });
+      await axios.delete(`https://backend-production-65d5.up.railway.app/reviews/${bookId}`);
       console.log("Reviews for book deleted successfully.");
-      queryClient.invalidateQueries(["reviews", bookId]); // تحديث البيانات بعد الحذف
     } catch (errors) {
       console.error("Error deleting reviews:", errors);
     }
@@ -75,13 +77,18 @@ console.log(bookId);
     <>
     <div className="flex flex-col items-center gap-2">
 
+{isLoading && <div>Loading...</div>}
+
     {/* عرض التقييمات */}
-  <div className="w-80 flex flex-col justify-center items-center gap-2">
-        <Typography variant="h5" sx={{ letterSpacing: "1px" }}>Reviews</Typography>
+  <div className="w-80 flex flex-col justify-center items-center gap-1">
+  
+      
+   
+        <Typography variant="h5" sx={{ letterSpacing: "1px" ,fontWeight: "bold"}}>Reviews</Typography>
         {review?.map((review: any, index:number) => (
-          <div key={index} className="flex flex-col p-2 gap-1 justify-center items-center w-full">
+          <div key={index} className="flex flex-col p-1 gap-1 justify-center items-center w-full">
             <Typography variant="subtitle1" className="text-start w-max">⭐ {review.rating} Stars</Typography>
-            <Typography variant="body2" className="text-start w-max">{review.comment}</Typography>
+            <Typography variant="body2" className="text-start w-max border p-2 rounded-full">{review.comment}</Typography>
           </div>
         ))}
       </div>
@@ -109,7 +116,7 @@ console.log(bookId);
         label="Your Review"
         multiline
         rows={1}
-        sx={{width: "250px"}}
+        sx={{width: "250px"}} 
         variant="outlined"
         fullWidth
         value={comment}

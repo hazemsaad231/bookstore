@@ -13,6 +13,7 @@ import { useState } from "react";
 function Details() {
 
   const { id } = useParams();
+const role = localStorage.getItem("role");
 
 
  const [reviews, setReviews] = useState(false);
@@ -87,9 +88,10 @@ function Details() {
       <h2 className="text-xl text-gray-600">by {product?.author}</h2>
       <h2 className=" font-bold text-xl">{product?.price}$</h2>
       <h2 className="text-sm w-80 text-gray-600">{product?.description}</h2>
-   
+   {role !== "Admin" ?
     <button className="bg-indigo-600 px-4 py-2 rounded-lg text-white active:animate-spin"
-    onClick={() => handleAddToCart(product)}>Add to Cart</button>
+    onClick={() => handleAddToCart(product)}>Add to Cart</button>:null
+  }
     </div>
 
 }
