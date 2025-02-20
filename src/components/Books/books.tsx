@@ -59,14 +59,8 @@ const Books = () => {
   }, [selectedDelete]);
 
 
-const [clicked, setClicked] = useState(null);
 
 
-const changeIconColor = (id: any) => {
-  if (clicked !== id) {
-    setClicked(id);  // إذا تم الضغط على نفس الأيقونة، نعيد اللون الأصلي
-  } 
-};
 
 
   const handleAddToCart = (book: any) => {
@@ -122,12 +116,28 @@ const search = filteredBooks ;
   const toggleCategory = () => setShowCategory(!showCategory);
   
 
+  // const [clicked, setClicked] = useState(null);
   const handleCategoryChange = (event: any) => {
     const { name, checked } = event.target;
     setSelectedCategories((prev: any) => checked ? [...prev, name] : prev.filter((category: any) => category !== name));
   };
-  
 
+  // const changeIconColor = (id: any) => {
+  //   if (clicked !== id) {
+  //     setClicked((prev) => (prev === id ? null : id));
+
+  //   } 
+  // };
+  
+  const [clickedIcons, setClickedIcons] = useState<{ [key: string]: boolean }>({});
+
+  const changeIconColor = (id: string) => {
+    setClickedIcons((prev) => ({
+      ...prev,
+      [id]: !prev[id], // يعكس الحالة (true/false)
+    }));
+  };
+  
   
 
 
@@ -281,12 +291,14 @@ const search = filteredBooks ;
            <button className="bg-indigo-600 text-white w-full  py-2">
            <FaShoppingCart size={30} onClick={() => handleAddToCart(book)} className="m-auto" /></button>:
            <button className="bg-indigo-600 text-white w-full  py-2"
-           onClick={() => handleClickOpen(book.id)}>
+           onClick={() => handleClickOpen(book.id)
+
+           }
+           >
             delete
            </button>
-           }
-        
            
+          }
         </div>
 
 
@@ -295,9 +307,14 @@ const search = filteredBooks ;
        </div>
                      <div className="mt-2 cursor-pointer">
                  { role === 'Customer' ?
-                         <MdFavoriteBorder size={20} onClick={() =>{ handleAddMyFavorite(book)
-                          changeIconColor(book.id)}
-                         } color={clicked === book.id ? "red" : "black"}/>:
+                         <MdFavoriteBorder 
+                         size={24} 
+                         color={clickedIcons[book.id] ? "red" : "gray"} 
+                         onClick={() => {changeIconColor(book.id);  handleAddMyFavorite(book)}}
+                         
+                         className="cursor-pointer"
+                       />
+                          :
                         <div></div>
                          }
                  </div>

@@ -3,6 +3,7 @@ import { RootState } from "../../redux/store";
 import { MdDelete } from "react-icons/md";
 import { ToastContainer } from "react-toastify";
 import { DeleteFromFavorite } from "../../redux/counter";
+import { Link } from "react-router-dom";
 
 
 const MyFavourate = () => {
@@ -39,7 +40,10 @@ const dispatch = useDispatch();
               className=" h-60 w-64 mb-4 m-auto rounded-xl shadow-lg"
             />
 <div className="absolute inset-0 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <div className="bg-orange-700 w-full py-1 rounded"><MdDelete size={30} color="white" className="cursor-pointer m-auto" onClick={() => handleDelete(book.id)} /></div>   
+            <button className="bg-orange-700 w-full py-1  rounded"><MdDelete size={30} color="white" className="cursor-pointer m-auto" onClick={() => handleDelete(book.id)} />
+              </button>   
+              <button className=" bg-indigo-600 text-white w-full py-2 rounded">
+               <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>
                </div>
                </div>
               
