@@ -15,7 +15,7 @@ const Profile = () => {
 
   return (
     <div className="flex justify-center items-center bg-gradient-to-r border py-20">
-      <div className="bg-white shadow-xl rounded-xl w-full max-w-3xl p-6 m-6">
+      <div className="bg-white border-[5px] shadow-xl rounded-xl w-full max-w-3xl p-6 m-6">
         <div className="flex justify-center mb-6">
           <div className="h-32 w-32 bg-indigo-700 rounded-full flex items-center justify-center text-white text-4xl font-bold">
             {userData?.first_name?.[0]}{userData?.last_name?.[0]}

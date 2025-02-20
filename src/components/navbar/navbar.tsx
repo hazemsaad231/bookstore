@@ -142,7 +142,7 @@ const handleClose = () => {
 
       {/* القائمة المنسدلة للشاشات الصغيرة */}
       {isNavbarVisible && (
-        <ul className="flex  gap-8 p-4 text-lg text-indigo-800 bg-white/50 justify-center border-gray-100 md:hidden rounded-full shadow-xl">
+        <ul className="flex border-x-[8px] border-indigo-800 rounded-xl gap-8 p-4 text-lg text-indigo-800 bg-white/50 justify-center md:hidden shadow-xl">
           <li><Link to="home" onClick={toggleNavbar}>HOME</Link></li>
           <li className=""><Link to="book" onClick={toggleNavbar}>BOOKS</Link></li>
           {role === 'Customer' ? <li className=""><Link to={`/home/myOrders/${userId}`} onClick={toggleNavbar}>my orders</Link></li>: <li><Link to={"addBook"} onClick={toggleNavbar}>Add book</Link></li>}
