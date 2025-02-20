@@ -11,11 +11,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { ReactNode, useEffect, useState } from "react";
 import { setUserData } from "../../redux/counter";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import { CiLogin } from 'react-icons/ci'
+import { VscListFlat } from "react-icons/vsc";
+import { CiCircleRemove } from "react-icons/ci";
+
 
 
 
@@ -72,13 +74,22 @@ const handleClose = () => {
     <>
       <div className="flex justify-between items-center w-full p-4 bg-indigo-900 text-white">
         {/* تظهر فقط على الشاشات الصغيرة */}
-        <GiHamburgerMenu
+
+        {isNavbarVisible ? (
+          <CiCircleRemove
+            size={25}
+            className="block md:hidden"
+            color="white"
+            onClick={toggleNavbar}
+          />
+        ):
+        <VscListFlat
           size={25}
           className="block md:hidden"
           color="white"
           onClick={toggleNavbar}
         />
-
+      }
         <div className="flex gap-1">
           <Phone />
           <h2 className="text-sm sm:text-sm md:text-md lg:text-lg xl:text-lg">01062588052</h2>
