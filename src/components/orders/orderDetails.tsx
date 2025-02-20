@@ -27,9 +27,10 @@ const OrderDetails = () => {
 
   return (
     <>
-    <div className="pb-40 pt-20" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
-      <div className="w-[95%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
-        <h1 className="text-lg font-semibold text-center mb-8 tracking-[0.2em]">Order Details</h1>
+    <div className="pb-40 pt-20">
+    <h1 className="text-2xl font-semibold text-center mb-8 tracking-[0.2em]">Order Details</h1>
+
+      <div className="border-t-[40px] border-[rgb(237,85,59)] w-[95%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
         <table className="w-full border-collapse m-auto">
           <thead>
             <tr>
@@ -54,7 +55,7 @@ const OrderDetails = () => {
         </table>
       </div>
 
-      <div className="w-[40%] m-auto bg-white shadow-xl rounded-xl h-full mt-10">
+      <div className="w-[40%] m-auto border-x-[60px] border-[rgb(237,85,59)] bg-white shadow-xl rounded-xl h-full mt-10">
         <table className="w-full m-auto">
           <thead>
             <tr>
@@ -71,7 +72,7 @@ const OrderDetails = () => {
         </table>
       </div>
 
-      <div className="w-[90%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
+      <div className="border-t-[40px] border-[rgb(237,85,59)] w-[90%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
         <h1 className="text-lg font-semibold text-center mb-8 tracking-[0.2em]">Customer Details</h1>
         <table className="w-full border-collapse m-auto">
           <thead>

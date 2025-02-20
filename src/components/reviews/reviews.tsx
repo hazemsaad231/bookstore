@@ -1,36 +1,25 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState,useCallback} from "react";
 import { Rating, Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
+import { useQuery } from "react-query";
+import { useQueryClient } from "react-query";
 
 
-interface Review {
-  bookId: string;
-  rating: number;
-  comment: string;
-}
+
+
 
 
 const ReviewSystem = ({bookId}: {bookId: any}) => {
 
  const role = localStorage.getItem("role")
 
-
-  useEffect(() => {
-    if(bookId){
-      console.log(bookId)
-    }else{
-      console.log("no book id")
-    }
-  })
-
-
+  const queryClient = useQueryClient();
 
   const [rating, setRating] = useState<number>(0);
   const [comment, setComment] = useState("");
-  const [reviews, setReviews] = useState<Review[]>([]);
-
   const [addReview, setAddReview] = useState(false);
 
+console.log(bookId);
   const AddReview = () => {
     setAddReview(true);
   };
@@ -38,32 +27,29 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
     setAddReview(false);
   }
 
-  // تحميل التقييمات المحفوظة عند تحميل الصفحة
- 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await axios.get(`https://backend-production-65d5.up.railway.app/reviews`);
-        setReviews(response.data);
-      } catch (error) {
-        console.error("Error fetching reviews:", error);
-      }
-    };
-  
-    fetchReviews();
-  }, [bookId]);
-  const review = reviews?.filter((rev: any) => rev.bookId === bookId);
+  const getReviews = async () => {
+    const response = await axios.get(`https://backend-production-65d5.up.railway.app/reviews`);
+    return response.data;
+  }
 
-  console.log("Filtered Orders:", review);
+
+  const { data  }: any = useQuery(["reviews", bookId], getReviews, 
+    { refetchInterval: 4000 });
+
+    console.log(data);
+
+
+  // فلترة التقييمات بناء على الكتاب المحدد
+  const review = data?.filter((review: any) => review.bookId === bookId);
+
   // إضافة تقييم جديد
   const handleSubmit = async() => {
     if (rating && comment.trim() !== "") {
       try {
         await axios.post(`https://backend-production-65d5.up.railway.app/reviews`, { rating, comment, bookId });
-        const updatedReviews = [...reviews, { rating, comment, bookId }];
-        setReviews(updatedReviews);
         setRating(0);
         setComment("")
+        queryClient.invalidateQueries(["reviews", bookId]); // تحديث البيانات بعد الإضافة
       } catch (error) {
         console.error("Error adding review:", error);
       }
@@ -72,29 +58,30 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
 
 
   
-  const handleClearReviews = useCallback(  async () => {
-
+  const handleClearReviews = useCallback(async () => {
     try {
-      await axios.delete(`https://backend-production-65d5.up.railway.app/reviews`);
-      console.log("Review deleted successfully.");
-      setReviews(reviews.filter((rev: any) => rev.bookId !== bookId));
-    
+      await axios.delete(`https://backend-production-65d5.up.railway.app/reviews`, { data: { bookId } });
+      console.log("Reviews for book deleted successfully.");
+      queryClient.invalidateQueries(["reviews", bookId]); // تحديث البيانات بعد الحذف
     } catch (errors) {
-      console.log(errors);
+      console.error("Error deleting reviews:", errors);
     }
   }, [bookId]);
+  
 
 
   return (
-    <div className="flex flex-col items-center gap-2 ">
 
-  {/* عرض التقييمات */}
+    <>
+    <div className="flex flex-col items-center gap-2">
+
+    {/* عرض التقييمات */}
   <div className="w-80 flex flex-col justify-center items-center gap-2">
         <Typography variant="h5" sx={{ letterSpacing: "1px" }}>Reviews</Typography>
-        {review.map((review, index) => (
-          <div key={index} className="flex flex-col gap-1 justify-center items-center w-full">
-            <Typography variant="subtitle1">⭐ {review.rating} Stars</Typography>
-            <Typography variant="body2" className="text-center w-40">{review.comment}</Typography>
+        {review?.map((review: any, index:number) => (
+          <div key={index} className="flex flex-col p-2 gap-1 justify-center items-center w-full">
+            <Typography variant="subtitle1" className="text-start w-max">⭐ {review.rating} Stars</Typography>
+            <Typography variant="body2" className="text-start w-max">{review.comment}</Typography>
           </div>
         ))}
       </div>
@@ -107,8 +94,9 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
 {addReview &&
 <>
       <Typography variant="h5">Rate & Review</Typography>
+ 
 
-      {/* التقييم */}
+      {/* عرض التقييمات */}
       <Rating
         name="product-rating"
         value={rating}
@@ -139,9 +127,8 @@ const ReviewSystem = ({bookId}: {bookId: any}) => {
   Clear All Reviews
 </Button>
 }
-
-    
-    </div>
+    </div> 
+    </>
   );
 };
 

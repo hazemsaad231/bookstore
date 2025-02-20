@@ -18,10 +18,10 @@ const dispatch = useDispatch();
     return (
 
       
-      <div className="py-40" style={{ backgroundColor: "rgb(250, 245, 239)" }} >
+      <div className="py-48">
         
         <ToastContainer/>
-        <div className="shadow-2xl rounded-xl bg-white w-[80%] sm:w-[80%] m-auto md:w-[70%] lg:w-[60%] xl:w-[60%] tracking-[1px] ">
+        <div className="border-t-[40px] border-[rgb(237,85,59)]  shadow-xl rounded-xl bg-white w-[80%] sm:w-[80%] m-auto md:w-[70%] lg:w-[60%] xl:w-[60%] tracking-[1px]" >
         <h1 className="text-xl font-serif text-center mb-4 ">My Favourate Books</h1>
         {favourateBooks.length === 0 ? (
           <p className="text-center text-gray-600">No books in your favorite list.</p>

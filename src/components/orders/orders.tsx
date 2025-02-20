@@ -78,9 +78,9 @@ const Orders = () => {
       {isLoading ? 
         <Load />
        : 
-        <div className="bg-white pb-44 pt-24" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
+        <div className="pb-44 pt-24">
         <div className="m-4">
-          <div className="bg-white overflow-x-auto mt-12 rounded-xl shadow-xl m-auto p-4 w-full sm:w-full md:w-5/6 lg:w-2/3 xl:w-2/3" >
+          <div className="border-t-[40px] border-[rgb(237,85,59)] bg-white overflow-x-auto mt-12 rounded-xl shadow-xl m-auto p-4 w-full sm:w-full md:w-5/6 lg:w-2/3 xl:w-2/3" >
             <h1 className="text-xl font-semibold text-center mb-8 tracking-[0.2em]">Orders list</h1>
             <table className="w-full border-collapse">
               <thead>
@@ -107,11 +107,11 @@ const Orders = () => {
                       <td className="p-4">{order.timestamp.slice(0, 10)}</td>
                       <td className="p-4">{totalPrice.toFixed(2)}$</td>
                       <td className="p-4">
-                        <button className="bg-red-700 px-2 py-1 text-white rounded-full">
+                        <button className="bg-[rgb(237,85,59)] px-2 py-1 text-white rounded-full">
                           <Link to={`/home/orderDetails/${order.id}`}>View</Link>
                         </button>
                       </td>
-                      <td className="p-4"><button className="py-1" onClick={() => handleClickOpen(order.id)}><FaDeleteLeft size={20} className="text-red-700"/></button></td>
+                      <td className="p-4"><button className="py-1" onClick={() => handleClickOpen(order.id)}><FaDeleteLeft size={20} className="text-[rgb(237,85,59)]"/></button></td>
                     </tr>
                   );
                 })}

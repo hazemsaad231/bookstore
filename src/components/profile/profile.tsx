@@ -14,10 +14,10 @@ const Profile = () => {
   console.log(userData);
 
   return (
-    <div className="flex justify-center items-center bg-gradient-to-r border py-20" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
-      <div className="bg-white shadow-2xl rounded-lg w-full max-w-3xl p-6 m-6">
+    <div className="flex justify-center items-center bg-gradient-to-r border py-20">
+      <div className="bg-white shadow-xl rounded-xl w-full max-w-3xl p-6 m-6">
         <div className="flex justify-center mb-6">
-          <div className="h-32 w-32 bg-blue-500 rounded-full flex items-center justify-center text-white text-4xl font-bold">
+          <div className="h-32 w-32 bg-indigo-700 rounded-full flex items-center justify-center text-white text-4xl font-bold">
             {userData?.first_name?.[0]}{userData?.last_name?.[0]}
           </div>
         </div>
@@ -42,7 +42,7 @@ const Profile = () => {
         </div>
 
         <div className="mt-6 flex justify-center">
-          <button className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300">
+          <button className="bg-indigo-700 text-white py-2 px-6 rounded-full hover:bg-indigo-900 transition duration-300">
             Profile
           </button>
         </div>

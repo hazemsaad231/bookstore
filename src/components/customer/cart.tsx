@@ -28,7 +28,7 @@ const Cart = () => {
     <div className=" w-[90%] sm:w-[80%] md:w-[55%] lg:w-[70%] xl:w-[70%] m-auto">
       {/* عرض رسالة في حالة العربة فارغة */}
       {cart.cartItems.length === 0 ? (
-        <div className="text-center text-xl text-gray-600 shadow-xl rounded-xl p-8 mt-8">
+        <div className="text-center text-xl border-t-[25px] border-[rgb(237,85,59)] text-gray-600 shadow-xl rounded-xl p-8 mt-8">
           Your cart is empty. Please add some books to your cart.
         </div>
       ) : (

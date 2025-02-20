@@ -7,7 +7,7 @@ import Home from './components/homeComponents/home'
 import Books from './components/Books/books'
 import Forgot from './components/login/forgot'
 import Reset from './components/login/reset'
-import Details from './components/customer/productDetails'
+import Details from './components/customer/bookDetails'
 import All from './components/customer/all'
 import {Elements} from '@stripe/react-stripe-js'
 import {loadStripe} from '@stripe/stripe-js'
@@ -45,7 +45,7 @@ const route = createBrowserRouter([
   },
   {
     path: '/home',
-    element:<PrivateRoute><Master1/></PrivateRoute>, 
+    element: <Master1 />,
     errorElement:<div>error</div>,
     children:[
       {index:true, element: <Home/>},

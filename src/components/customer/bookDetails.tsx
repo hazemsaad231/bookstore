@@ -61,14 +61,14 @@ function Details() {
 <ToastContainer/>
 
 {isLoading ?(<div><Load/></div>):(
-    <div className="h-full p-12" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
+    <div className="h-full p-20">
 
 <h1 className="text-4xl font-bold text-center text-indigo-600 pb-6 tracking-[5px]">Book Details</h1>
 
         <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row justify-center gap-20 items-center py-12 ">
 
 
-        <img src={product?.image} alt=""  className="h-96 w-96 object-center"/>
+        <img src={product?.image} alt=""  className="h-96 w-96 object-center transform hover:scale-110 transition duration-500"/>
 
 
  
