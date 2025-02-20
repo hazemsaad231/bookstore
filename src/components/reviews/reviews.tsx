@@ -57,18 +57,29 @@ console.log(bookId);
   };
 
 
-  
   const handleClearReviews = useCallback(async () => {
-    if (!bookId) {
-      return;
-    }
+    if (!bookId) return;
+  
     try {
-      await axios.delete(`https://backend-production-65d5.up.railway.app/reviews/${bookId}`);
+      // 1. جلب جميع المراجعات
+      const { data: reviews } = await axios.get("https://backend-production-65d5.up.railway.app/reviews");
+  
+      // 2. استخراج المراجعات الخاصة بالـ bookId
+      const bookReviews = reviews.filter((review: any) => review.bookId === bookId);
+  
+      // 3. إرسال طلب حذف لكل مراجعة تخص الكتاب
+      await Promise.all(
+        bookReviews.map((review: any) => 
+          axios.delete(`https://backend-production-65d5.up.railway.app/reviews/${review.id}`)
+        )
+      );
+  
       console.log("Reviews for book deleted successfully.");
     } catch (errors) {
       console.error("Error deleting reviews:", errors);
     }
   }, [bookId]);
+  
   
 
 

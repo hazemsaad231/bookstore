@@ -45,7 +45,7 @@ const route = createBrowserRouter([
   },
   {
     path: '/home',
-    element: <Master1 />,
+    element: <PrivateRoute><Master1 /></PrivateRoute>,
     errorElement:<div>error</div>,
     children:[
       {index:true, element: <Home/>},
