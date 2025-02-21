@@ -6,9 +6,6 @@ import { useQueryClient } from "react-query";
 
 
 
-
-
-
 const ReviewSystem = ({bookId}: {bookId: any}) => {
 
  const role = localStorage.getItem("role")
