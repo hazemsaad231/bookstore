@@ -25,7 +25,7 @@ import {QueryClientProvider, QueryClient} from 'react-query'
 
 function App() {
 
-  const Stripe = loadStripe("pk_test_51QFwLTBBBCgBrYZETIOQg6jU8b6FNOuHyjGPeIWliPqSeYXqTbJkV8QYxeNHqUMCyzf5m4meV3J3HX1m7mMEEWVj00Hz8287JJ")
+  const Stripe = loadStripe("pk_live_51QFwLTBBBCgBrYZETIOQg6jU8b6FNOuHyjGPeIWliPqSeYXqTbJkV8QYxeNHqUMCyzf5m4meV3J3HX1m7mMEEWVj00Hz8287JJ")
 
   const queryClient = new QueryClient()
 
