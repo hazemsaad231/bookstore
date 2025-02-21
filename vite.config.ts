@@ -12,7 +12,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   server: {
-    https: true
+    host: true,
   },
   plugins: [react()],
   build: {
@@ -28,7 +28,5 @@ export default defineConfig({
       }
     }
   },
-  server: {
-    host: true, // يسمح بالوصول من أجهزة أخرى (مفيد للاختبار)
-  }
+ 
 })
