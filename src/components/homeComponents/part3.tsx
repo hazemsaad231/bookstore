@@ -75,8 +75,8 @@ function New() {
         <div className="w-full">
           <Slider {...settings}>
           {books.map((book: any, index: number) => (
-            <div>
-              <div key={index} className="text-center relative group">
+            <div key={index}>
+              <div className="text-center relative group">
                 <div className="relative rounded-xl transform hover:scale-105 transition duration-300 m-6 group">
                   <img
                     src={book.image}
