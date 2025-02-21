@@ -74,8 +74,8 @@ const AddBook = () => {
         <div className="py-20">
 
             <ToastContainer />
-            <div className="border-t-[40px] border-[rgb(237,85,59)]  shadow-xl rounded-xl bg-white w-[80%] sm:w-[80%] m-auto md:w-[70%] lg:w-[60%] xl:w-[60%] px-12 sm:px-12 md:px-20 lg:px-20 xl:px-20 py-5">
-            <h1 className="text-md sm:text-md md:text-lg lg:text-lg xl:text-xl  mt-2 mb-10 font-sans text-center tracking-[0.2em]">{id ? "Update Book" : "Add Book"}</h1>
+            <div className="border-t-[40px] border-[rgb(237,85,59)]  shadow-xl rounded-xl bg-white w-[80%] sm:w-[80%] m-auto md:w-[70%] lg:w-[50%] xl:w-[50%] px-12 sm:px-8 md:px-20 lg:px-10 xl:px-5 py-5">
+            <h1 className="text-md sm:text-md md:text-lg lg:text-lg xl:text-xl  mt-2 mb-6 font-sans text-center tracking-[0.2em]">{id ? "Update Book" : "Add Book"}</h1>
     
     <div className="flex flex-col justify-center items-center">
     <form onSubmit={handleSubmit(onSubmit)}>
