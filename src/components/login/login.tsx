@@ -59,9 +59,9 @@ try{
             <h1 className='font-bold text-2xl mb-4'>Login to your account</h1>
         </div>
 
-    <form onSubmit={handleSubmit(onSubmit)}>
     <Box
-      component="form"
+    onSubmit={handleSubmit(onSubmit)}
+    component="form"
     sx={{
       '& > :not(style)': { m: 2, width: '25ch' , display: 'flex', flexDirection: 'column', gap: 2, justifyContent: 'center', alignItems: 'center' },
     }}
@@ -127,7 +127,7 @@ try{
     <button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg mt-4'>{loading ? "Loading..." : "Login"}</button>
  
     <button className='border border-indigo-700 p-3 rounded-lg  mt-4 text-indigo-700 hover:bg-indigo-100' onClick={()=>navigate("/register")}>Register</button></div>
-    </form>
+    
     </div>
    
       </div>
