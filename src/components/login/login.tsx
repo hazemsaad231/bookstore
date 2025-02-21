@@ -50,6 +50,10 @@ try{
     <ToastContainer/>
 
     <div className='flex h-screen  w-[100%] sm:w-[100%] md:w-1/2 lg:w-1/2 xl:w-1/2 justify-center items-center'>
+
+
+   
+
       <div> 
          
            <div>
@@ -59,7 +63,9 @@ try{
             <h1 className='font-bold text-2xl mb-4'>Login to your account</h1>
         </div>
 
-    <Box
+
+
+        <Box
     onSubmit={handleSubmit(onSubmit)}
     component="form"
     sx={{
@@ -68,6 +74,10 @@ try{
       noValidate
       autoComplete="off"
     >
+
+
+
+
         <div>
           <Tooltip title={errors.email?.message} open={!!errors.email} arrow>
         <TextField
@@ -104,33 +114,32 @@ try{
           fullWidth
         />
       </Tooltip>
-
+      
       </div>
-
       </Box>
-
-
 
       <div className='flex gap-10 text-sm mt-4'>
 
-    <div className='flex'>
-        <input type="checkbox"  className='mt-1'/>
-        <span className='ml-2 text-indigo-800'>Remember me</span>
-      </div>
+<div className='flex'>
+ <input type="checkbox"  className='mt-1'/>
+ <span className='ml-2 text-indigo-800'>Remember me</span>
+</div>
 
-      <div className='text-right text-indigo-800 cursor-pointer'
+<div className='text-right text-indigo-800 cursor-pointer'onClick={()=>navigate("/Forgot")}>Forgot Password?</div>
+</div>
+
+<div className='flex flex-col gap-2'>
+<button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg mt-4' onClick={handleSubmit(onSubmit)}>{loading ? "Loading..." : "Login"}</button>
+
+<button className='border border-indigo-700 p-3 rounded-lg  mt-4 text-indigo-700 hover:bg-indigo-100' onClick={()=>navigate("/register")}>Register</button>
+</div>
+     
+
+</div>
+
+
       
-      onClick={()=>navigate("/Forgot")}>Forgot Password?</div>
-      </div>
-
-      <div className='flex flex-col gap-2'>
-    <button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg mt-4'>{loading ? "Loading..." : "Login"}</button>
- 
-    <button className='border border-indigo-700 p-3 rounded-lg  mt-4 text-indigo-700 hover:bg-indigo-100' onClick={()=>navigate("/register")}>Register</button></div>
-    
-    </div>
-   
-      </div>
+      </div> 
    
 
           
