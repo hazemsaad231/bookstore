@@ -34,17 +34,17 @@ const OrderDetails = () => {
         <table className="w-full border-collapse m-auto">
           <thead>
             <tr>
-              <th>Product</th>
-              <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Total Price</th>
+              <th className='px-2'>Product</th>
+              <th className='px-2'>Product Name</th>
+              <th className='px-2'>Quantity</th>
+              <th className='px-2'>Price</th>
+              <th className='px-2'>Total Price</th>
             </tr>
           </thead>
           <tbody className="text-center p-4">
             {Details?.cartItems.map((item: any, index: number) => (
               <tr key={index}>
-                <td className="p-4"><img src={item.image} alt="" className="w-12 h-6 m-auto" /></td>
+                <td className="p-4"><img src={item.image} alt="" className="w-16 h-8 m-auto object-center" /></td>
                 <td className="p-4">{item.name}</td>
                 <td className="p-4">{item.quantity}</td>
                 <td className="p-4">{item.price}$</td>
@@ -55,7 +55,7 @@ const OrderDetails = () => {
         </table>
       </div>
 
-      <div className="w-[40%] m-auto border-x-[60px] border-[rgb(237,85,59)] bg-white shadow-xl rounded-xl h-full mt-10">
+      <div className="w-[90%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[40%] m-auto border-x-[32px] border-[rgb(237,85,59)] bg-white shadow-xl rounded-xl h-full mt-10">
         <table className="w-full m-auto">
           <thead>
             <tr>
@@ -77,11 +77,11 @@ const OrderDetails = () => {
         <table className="w-full border-collapse m-auto">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Phone Number</th>
-              <th>Country</th>
-              <th>City</th>
-              <th>Address</th>
+              <th className='px-2'>Name</th>
+              <th className='px-2'>Phone Number</th>
+              <th className='px-2'>Country</th>
+              <th className='px-2'>City</th>
+              <th className='px-2'>Address</th>
             </tr>
           </thead>
           <tbody className="text-center">
