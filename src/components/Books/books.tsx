@@ -116,18 +116,12 @@ const search = filteredBooks ;
   const toggleCategory = () => setShowCategory(!showCategory);
   
 
-  // const [clicked, setClicked] = useState(null);
   const handleCategoryChange = (event: any) => {
     const { name, checked } = event.target;
     setSelectedCategories((prev: any) => checked ? [...prev, name] : prev.filter((category: any) => category !== name));
   };
 
-  // const changeIconColor = (id: any) => {
-  //   if (clicked !== id) {
-  //     setClicked((prev) => (prev === id ? null : id));
-
-  //   } 
-  // };
+ 
   
   const [clickedIcons, setClickedIcons] = useState<{ [key: string]: boolean }>({});
 
@@ -263,7 +257,7 @@ const search = filteredBooks ;
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-6 ">
               {currentBooks?.map((book: any) => (
                 <div key={book.id} className="text-center relative group">
-                  <div className="shadow-xl mx-16 sm:mx-16 md:mx-12 lg:mx-8 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
+                  <div className="shadow-xl mx-8 sm:mx-8 md:mx-8 lg:mx-8 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
                   <div className="transform hover:scale-105 transition duration-300">
                    
                     <img

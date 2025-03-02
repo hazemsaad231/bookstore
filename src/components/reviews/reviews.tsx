@@ -88,11 +88,13 @@ console.log(bookId);
 {isLoading && <div>Loading...</div>}
 
     {/* عرض التقييمات */}
-  <div className="w-80 flex flex-col justify-center items-center gap-1">
+  <div className="w-80  flex flex-col justify-center items-center gap-1">
   
       
    
         <Typography variant="h5" sx={{ letterSpacing: "1px" ,fontWeight: "bold"}}>Reviews</Typography>
+        {review?.length === 0 && <Typography variant="body2" className="text-start w-max border p-2 rounded-full">No Reviews</Typography>}
+
         {review?.map((review: any, index:number) => (
           <div key={index} className="flex flex-col p-1 gap-1 justify-center items-center w-full">
             <Typography variant="subtitle1" className="text-start w-max">⭐ {review.rating} Stars</Typography>
