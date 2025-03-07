@@ -32,7 +32,7 @@ const dispatch = useDispatch();
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-2 place-items-center p-4">
       {favourateBooks.map((book: any) => (
         <div key={book.id} className="text-center relative group">
-          <div className="shadow-xl mx-16 sm:mx-16 md:mx-12 lg:mx-8 xl:mx-2 p-4 rounded-xl bg-slate-50 transform hover:scale-105 transition duration-300">
+          <div className="shadow-xl mx-2 p-4 rounded-xl bg-slate-50 transform hover:scale-105 transition duration-300">
           <div className="transform hover:scale-105 transition duration-300">
             <img
               src={book.image || 'default_image_url'} 
