@@ -161,7 +161,7 @@ const search = filteredBooks ;
          
         <div className="flex gap-4">
           <div className="hidden sm:hidden md:hidden lg:block xl:block">
-            <div className="flex flex-col gap-2 w-80 p-2">
+            <div className="flex flex-col gap-2 w-60 p-2">
               <button className="bg-indigo-800 text-white p-2 rounded" onClick={filter}>filter</button>
               <ul>
                 <div className="flex justify-between m-4">
@@ -215,7 +215,7 @@ const search = filteredBooks ;
           </div>
 
           <div className="flex flex-col gap-2 w-full">
-            <div className="flex justify-center space-x-12 sm:space-x-16 md:space-x-40 lg:space-x-60 xl:space-x-80 m-2">
+            <div className="flex justify-between items-center m-2">
               <Box sx={{ minWidth: 80 }}>
                 <FormControl fullWidth>
                   <InputLabel variant="standard" sx={{ color: 'indigo' }}>Sort by:</InputLabel>
@@ -232,9 +232,9 @@ const search = filteredBooks ;
               </Box>
 
            
-                <h1 className="text-indigo-800 text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl mt-2 font-semibold">
+                <span className="text-indigo-800 text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl mt-2 text-center w-full font-semibold">
                   Showing {displayCount} books
-                </h1> 
+                </span> 
               
 
               <Box sx={{ minWidth: 80 }}>
@@ -254,10 +254,10 @@ const search = filteredBooks ;
               </Box>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-6 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-2 py-6 ">
               {currentBooks?.map((book: any) => (
                 <div key={book.id} className="text-center relative group">
-                  <div className="shadow-xl mx-8 sm:mx-8 md:mx-8 lg:mx-8 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
+                  <div className="shadow-xl mx-8 sm:mx-8 md:mx-8 lg:mx-6 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
                   <div className="transform hover:scale-105 transition duration-300">
                    
                     <img
