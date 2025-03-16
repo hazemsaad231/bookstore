@@ -146,8 +146,8 @@ const handleClose = () => {
         <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">
               {orderItems.length.toString()}
             </span></li>: 
-            <li className=""><Link to={'favourite'}><MdFavoriteBorder size={25} className="text-indigo-800"/></Link></li>}
-          <li className="px-2" onClick={() => setOpen(true)}><CiLogin size={25} className="text-indigo-800"/></li>
+            <li><Link to={'favourite'}><MdFavoriteBorder size={25} className="text-indigo-800"/></Link></li>}
+          <li onClick={() => setOpen(true)}><CiLogin size={25} className="text-indigo-800"/></li>
         </ul>
       </div>
 
