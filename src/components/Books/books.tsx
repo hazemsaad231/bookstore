@@ -215,7 +215,7 @@ const search = filteredBooks ;
           </div>
 
           <div className="flex flex-col gap-2 w-full">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center p-1">
               <Box sx={{ minWidth: 80 }}>
                 <FormControl fullWidth>
                   <InputLabel variant="standard" sx={{ color: 'indigo' }}>Sort by:</InputLabel>
@@ -257,7 +257,7 @@ const search = filteredBooks ;
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-2 py-6 ">
               {currentBooks?.map((book: any) => (
                 <div key={book.id} className="text-center relative group">
-                  <div className="shadow-xl mx-8 sm:mx-8 md:mx-8 lg:mx-6 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
+                  <div className="shadow-xl mx-2 sm:mx-8 md:mx-8 lg:mx-6 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
                   <div className="transform hover:scale-105 transition duration-300">
                    
                     <img
@@ -312,17 +312,17 @@ const search = filteredBooks ;
                         <div></div>
                          }
                  </div>
-                     <div className="flex justify-between text-gray-600 font-thin text-sm">
-                      <h3 className="">Name</h3>
-                     <h3 className="">{book.name}</h3>
+                     <div className="flex justify-between text-gray-600 font-semibold text-sm">
+                      <h3>Name</h3>
+                     <h3>{book.name}</h3>
                      </div>
-                   <div className="flex justify-between text-gray-600 font-thin text-sm">
+                   <div className="flex justify-between text-gray-600 text-sm">
                     <h4>Author</h4>
-                   <p className="text-gray-600">{book.author}</p>
+                   <p>{book.author}</p>
                    </div>
-                   <div className="flex justify-between text-gray-600 font-thin text-sm">
+                   <div className="flex justify-between text-gray-600 text-sm">
                     <h4>Price</h4>
-                   <p className="">${book.price}</p>
+                   <p>${book.price}</p>
                    </div>
                
                   
