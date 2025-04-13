@@ -215,7 +215,7 @@ const search = filteredBooks ;
           </div>
 
           <div className="flex flex-col gap-2 w-full">
-            <div className="flex justify-between items-center m-2">
+            <div className="flex justify-between items-center">
               <Box sx={{ minWidth: 80 }}>
                 <FormControl fullWidth>
                   <InputLabel variant="standard" sx={{ color: 'indigo' }}>Sort by:</InputLabel>
@@ -232,7 +232,7 @@ const search = filteredBooks ;
               </Box>
 
            
-                <span className="text-indigo-800 text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl mt-2 text-center w-full font-semibold">
+                <span className="text-indigo-800 text-md sm:text-md md:text-lg lg:text-xl xl:text-xl mt-1 text-center w-full font-semibold">
                   Showing {displayCount} books
                 </span> 
               
