@@ -17,7 +17,6 @@ function Category() {
     slidesToScroll: 1,
     cssEase: "linear",
     arrows: false,
-    lazyLoad: 'ondemand',  
     responsive: [
       {
         breakpoint: 480,
