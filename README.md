@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+# 📚 Bookstore App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+تطبيق ويب لمحاكاة متجر كتب إلكتروني، يحتوي على صلاحيات للمستخدم العادي والأدمن، ويقدم تجربة كاملة لعمليات الشراء والإدارة.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ الميزات الرئيسية
 
-## Expanding the ESLint configuration
+### 👥 Authentication
+- تسجيل دخول
+- إنشاء حساب
+- استعادة كلمة المرور
+- صلاحيات حسب الدور (مستخدم / أدمن)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 🛍️ للمستخدم العادي
+- تصفح الكتب
+- إضافة للمفضلة ❤️
+- إضافة إلى السلة 🛒
+- إتمام عملية الشراء 💳
+- عرض الطلبات السابقة
 
-- Configure the top-level `parserOptions` property like this:
+### 🔧 للأدمن
+- إضافة / تعديل / حذف الكتب
+- إدارة جميع الطلبات
+- عرض تفاصيل الطلبات
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🛠️ التقنيات المستخدمة
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **React + TypeScript**: لبناء الواجهة
+- **Redux Toolkit**: لإدارة الحالة
+- **Tailwind CSS**: لتصميم واجهات متجاوبة
+- **Material UI**: مكونات جاهزة وجميلة
+- **React Router**: للتنقل بين الصفحات
+- **LocalStorage**: لتخزين الجلسات مؤقتًا (إن وجد)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
+
+## 🚀 تشغيل المشروع محليًا
+
+1. **نسخ المشروع**:
+    ```bash
+    git clone https://github.com/hazemsaad231/bookstore.git
+    ```
+
+2. **الدخول إلى المجلد**:
+    ```bash
+    cd bookstore
+    ```
+
+3. **تثبيت الحزم**:
+    ```bash
+    npm install
+    ```
+
+4. **تشغيل المشروع**:
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 👨‍💻 المطور
+
+- الاسم: Hazem Saad
+- البريد الإلكتروني: [hazemsaad231@gmail.com](mailto:hazemsaad231@gmail.com)
+- GitHub: [@hazemsaad231](https://github.com/hazemsaad231)
+
+---
+
+## 📝 الترخيص
+
+هذا المشروع متاح تحت ترخيص [MIT License](LICENSE).
