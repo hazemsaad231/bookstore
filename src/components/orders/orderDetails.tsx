@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import Load from '../load/load';
 import axios from 'axios';
+import { Orders_API } from '../Api/api';
 
 
 
@@ -10,7 +11,7 @@ const OrderDetails = () => {
 
   const fetchOrderDetails = async (id: string) => {
  
-    return await axios.get(`https://backend-production-65d5.up.railway.app/orders/${id}`);
+    return await axios.get(`${Orders_API}/${id}`);
   };
   
   const { data: data , isLoading } = useQuery({

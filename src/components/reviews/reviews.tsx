@@ -3,6 +3,7 @@ import { Rating, Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { useQueryClient } from "react-query";
+import { Reviews_API } from "../Api/api";
 
 
 
@@ -25,7 +26,7 @@ console.log(bookId);
   }
 
   const getReviews = async () => {
-    const response = await axios.get(`https://backend-production-65d5.up.railway.app/reviews`);
+    const response = await axios.get(`${Reviews_API}`);
     return response.data;
   }
 
@@ -43,7 +44,7 @@ console.log(bookId);
   const handleSubmit = async() => {
     if (rating && comment.trim() !== "") {
       try {
-        await axios.post(`https://backend-production-65d5.up.railway.app/reviews`, { rating, comment, bookId });
+        await axios.post(`${Reviews_API}`, { rating, comment, bookId });
         setRating(0);
         setComment("")
         queryClient.invalidateQueries(["reviews", bookId]); // تحديث البيانات بعد الإضافة
@@ -59,7 +60,7 @@ console.log(bookId);
   
     try {
       // 1. جلب جميع المراجعات
-      const { data: reviews } = await axios.get("https://backend-production-65d5.up.railway.app/reviews");
+      const { data: reviews } = await axios.get(`${Reviews_API}`);
   
       // 2. استخراج المراجعات الخاصة بالـ bookId
       const bookReviews = reviews.filter((review: any) => review.bookId === bookId);
@@ -67,7 +68,7 @@ console.log(bookId);
       // 3. إرسال طلب حذف لكل مراجعة تخص الكتاب
       await Promise.all(
         bookReviews.map((review: any) => 
-          axios.delete(`https://backend-production-65d5.up.railway.app/reviews/${review.id}`)
+          axios.delete(`${Reviews_API}/${review.id}`)
         )
       );
   

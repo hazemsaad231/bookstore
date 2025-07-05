@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import { BOOKS_API } from "../Api/api";
 
 
 function Feature() {
@@ -22,8 +23,8 @@ function Feature() {
 
   const getData = async () => {
     try {
-      const response = await axios.get("https://backend-production-65d5.up.railway.app/books");
-      const Book = response.data.filter((book: any) => book.featured === "yes").slice(0, 6);
+      const response = await axios.get(BOOKS_API);
+      const Book = response.data.filter((book: any) => book.featured === true).slice(0, 24);
       console.log(response.data);
       setBooks(Book);
     } catch (error) {

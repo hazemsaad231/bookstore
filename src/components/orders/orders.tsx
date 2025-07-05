@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import axios from "axios";
+import { Orders_API } from "../Api/api";
 
 interface Order {
   email: string;
@@ -34,7 +35,7 @@ const Orders = () => {
   const dispatch = useDispatch();
 
   const fetchOrders = async () => {
-    return await axios.get("https://backend-production-65d5.up.railway.app/orders");
+    return await axios.get(Orders_API);
   };
   const { data , isLoading } = useQuery( "orders", fetchOrders,{
     refetchInterval: 500,
@@ -64,7 +65,7 @@ const Orders = () => {
       return;
     }
     try {
-      await axios.delete(`https://backend-production-65d5.up.railway.app/orders/${selectedDelete}`);
+      await axios.delete(`${Orders_API}/${selectedDelete}`);
       toast.success("Order deleted successfully.", { autoClose: 2000 });
       console.log("Order deleted successfully.");
     } catch (error) {

@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { resetCart } from '../../redux/counter';
 import axios from 'axios';
+import { Orders_API } from '../Api/api';
 
 function Payment() {
   const stripe = useStripe();
@@ -80,7 +81,7 @@ console.log(email)
         };
 
         try {
-          const orders =  axios.post("https://backend-production-65d5.up.railway.app/orders", {
+          const orders =  axios.post(Orders_API, {
             userId: id,
             token: token?.id,
             email: email,

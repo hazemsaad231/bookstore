@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import Load from "../load/load";
 import ReviewSystem from "../reviews/reviews";
 import { useState } from "react";
+import { BOOKS_API } from "../Api/api";
 
 
 
@@ -41,7 +42,7 @@ const role = localStorage.getItem("role");
 
   const getProductDetails = async () => {
     
-      return await axios.get(`https://backend-production-65d5.up.railway.app/books/${id}`,{
+      return await axios.get(`${BOOKS_API}/${id}`,{
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}` // استبدل yourToken بالـ Token الصحيح
       }

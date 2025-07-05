@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import { BOOKS_API } from "../Api/api";
 
 const AddBook = () => {
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({});
@@ -16,8 +17,7 @@ const AddBook = () => {
         if (id) {
             const Update = async () => {
                 try {
-
-                    const res = await axios.get(`https://backend-production-65d5.up.railway.app/books/${id}`);
+                    const res = await axios.get(`${BOOKS_API}/${id}`);
                     const book = res.data;
                     setValue("name", book.name);
                     setValue("description", book.description);
@@ -43,8 +43,8 @@ const AddBook = () => {
     const onSubmit = async (data:any) => {
         try {
             if (id) {
-               
-                const response = await axios.put(`https://backend-production-65d5.up.railway.app/books/${id}`, data);
+
+                const response = await axios.put(`${BOOKS_API}/${id}`, data);
                 console.log(response,'updated');
                 setTimeout(() => {
                     navigate("/home/book")
@@ -52,7 +52,7 @@ const AddBook = () => {
                
                 toast("Update is successful");
             } else {
-                const response = await axios.post("https://backend-production-65d5.up.railway.app/books", data);
+                const response = await axios.post(BOOKS_API, data);
                 console.log(response);
                 setTimeout(() => {
                     navigate("/home/book")

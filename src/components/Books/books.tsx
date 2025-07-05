@@ -9,6 +9,7 @@ import { addToCart, addToFavorite } from "../../redux/counter";
 import { toast, ToastContainer } from "react-toastify";
 import { MdFavoriteBorder } from "react-icons/md";
 import { useQuery } from "react-query";
+import { BOOKS_API } from "../Api/api";
 
 
 
@@ -48,7 +49,8 @@ const Books = () => {
   const handleDelete = useCallback(  async () => {
 
     try {
-      await axios.delete(`https://backend-production-65d5.up.railway.app/books/${selectedDelete}`);
+
+      await axios.delete(`${BOOKS_API}/${selectedDelete}`);
       toast('Delete is successful!');
       getBooks();
       handleClose();
@@ -75,7 +77,7 @@ const Books = () => {
 
   const getBooks = async () => {
     
-    return await axios.get("https://backend-production-65d5.up.railway.app/books");
+    return await axios.get(BOOKS_API);
 
   }
  const {data,isLoading} = useQuery('allBooks',getBooks,{
@@ -201,12 +203,11 @@ const search = filteredBooks ;
                   <FormGroup style={{ marginLeft: '15px' }}>
                     <FormControlLabel control={<Checkbox name="love" onChange={handleCategoryChange} />} label="love" />
                     <FormControlLabel control={<Checkbox name="sports" onChange={handleCategoryChange} />} label="sports" />
-                    <FormControlLabel control={<Checkbox name="success" onChange={handleCategoryChange} />} label="Self-help" />
-                    <FormControlLabel control={<Checkbox name="food" onChange={handleCategoryChange} />} label="cooking" />
+                    <FormControlLabel control={<Checkbox name="self-help" onChange={handleCategoryChange} />} label="Self-help" />
+                    <FormControlLabel control={<Checkbox name="food" onChange={handleCategoryChange} />} label="food" />
                     <FormControlLabel control={<Checkbox name="kids" onChange={handleCategoryChange} />} label="kids" />
                     <FormControlLabel control={<Checkbox name="history" onChange={handleCategoryChange} />} label="history" />
-                    <FormControlLabel control={<Checkbox name="programming" onChange={handleCategoryChange} />} label="programming" />
-                    <FormControlLabel control={<Checkbox name="fiction" onChange={handleCategoryChange} />} label="fiction" />
+                    <FormControlLabel control={<Checkbox name="other" onChange={handleCategoryChange} />} label="other" />
                   </FormGroup>
                 )}
               </ul>

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import axios from "axios";
+import { Orders_API } from "../Api/api";
 
 
 const MyOrders = () => {
@@ -16,7 +17,7 @@ const MyOrders = () => {
 
 
   const getOrderDetails = async () => {
-    return await axios.get(`https://backend-production-65d5.up.railway.app/orders`)
+    return await axios.get(`${Orders_API}`)
   }
 
  
@@ -51,7 +52,7 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
     return;
   }
   try {
-    await axios.delete(`https://backend-production-65d5.up.railway.app/orders/${selectedDelete}`);
+    await axios.delete(`${Orders_API}/${selectedDelete}`);
     toast.success("Order deleted successfully.", { autoClose: 2000 });
     console.log("Order deleted successfully.");
   } catch (error) {

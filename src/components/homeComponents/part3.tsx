@@ -6,6 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/counter";
 import { ToastContainer } from "react-toastify";
+import { BOOKS_API } from "../Api/api";
 
 
 function New() {
@@ -40,8 +41,8 @@ function New() {
 
   const getData = async () => {
     try {
-      const response = await axios.get("https://backend-production-65d5.up.railway.app/books");
-      const Book = response.data.filter((book: any) => book.new === "yes").slice(0, 8);
+      const response = await axios.get(BOOKS_API);
+      const Book = response.data.filter((book: any) => book.new === true).slice(0, 6);
       console.log(response.data);
       setBooks(Book);
     } catch (error) {
@@ -103,7 +104,7 @@ function New() {
           </Slider>
         </div>
         <div className="cursor-pointer text-right p-1 rounded-lg mt-12 text-orange-600 text-xl font-semibold hover:bg-gray-100 w-max transition duration-300 ease-in-out">
-          <Link to='/home/book'>View All Products</Link>
+          <Link to='/home/book'>View All Books</Link>
         </div>
       </div>
     </div>
