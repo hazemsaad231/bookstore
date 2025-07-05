@@ -67,6 +67,15 @@ export const cartSlice = createSlice({
         } else {
           state.cartItems = []; // تعيين سلة فارغة للمستخدمين غير المسجلين
         }
+
+        const userId = state.userData?._id; // استخدام _id من بيانات المستخدم المخزنة في الـ Redux
+          const storedFavoriteItems = localStorage.getItem(`favoriteItems_${userId}`);
+      if (storedFavoriteItems) {
+        state.favoriteItems = JSON.parse(storedFavoriteItems);
+      } else {
+        state.favoriteItems = [];
+      }
+
       } catch (error) {
         console.error("Error parsing the profile data from localStorage:", error);
       }
@@ -140,14 +149,7 @@ export const cartSlice = createSlice({
           autoClose: 2000,
         });
       }
-
-    
         localStorage.setItem(`favoriteItems_${userId}`, JSON.stringify(state.favoriteItems));
-      
-      
-    
-      
-
     },
 
 

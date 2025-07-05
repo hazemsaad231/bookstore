@@ -183,6 +183,7 @@ const handleClose = () => {
         <DialogActions>
           <Button onClick={handleClose}>close</Button>
           <Button onClick={() => {
+             localStorage.removeItem('token')
              navigate('/login')
           }}
            

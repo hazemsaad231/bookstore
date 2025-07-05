@@ -10,6 +10,8 @@ import { toast, ToastContainer } from "react-toastify";
 import { MdFavoriteBorder } from "react-icons/md";
 import { useQuery } from "react-query";
 import { BOOKS_API } from "../Api/api";
+import { useSelector } from "react-redux";
+import { Book } from "@mui/icons-material";
 
 
 
@@ -31,7 +33,6 @@ const Books = () => {
   const dispatch = useDispatch();
 
   
- 
 
   
   const [open, setOpen] = useState(false);
@@ -124,18 +125,14 @@ const search = filteredBooks ;
   };
 
  
-  
-  const [clickedIcons, setClickedIcons] = useState<{ [key: string]: boolean }>({});
+  const favoriteItems = useSelector((state: any) => state.counter.favoriteItems);
 
-  const changeIconColor = (id: string) => {
-    setClickedIcons((prev) => ({
-      ...prev,
-      [id]: !prev[id], // يعكس الحالة (true/false)
-    }));
+ 
+console.log(favoriteItems)
+
+ const isFavorite = (book: any) => {
+    return favoriteItems.some((item: any) => item.id === book.id);
   };
-  
-  
-
 
   const clearFilter = () => {
     setMinPrice('');
@@ -304,8 +301,8 @@ const search = filteredBooks ;
                  { role === 'Customer' ?
                          <MdFavoriteBorder 
                          size={24} 
-                         color={clickedIcons[book.id] ? "red" : "gray"} 
-                         onClick={() => {changeIconColor(book.id);  handleAddMyFavorite(book)}}
+                         color={isFavorite(book) ? 'red' : 'gray'}
+                         onClick={() => {handleAddMyFavorite(book)}}
                          
                          className="cursor-pointer"
                        />
