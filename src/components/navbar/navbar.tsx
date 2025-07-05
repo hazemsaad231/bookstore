@@ -107,7 +107,7 @@ const handleClose = () => {
         <div>
           <h1 className="text-md sm:text-md md:text-lg lg:text-xl xl:text-xl font-semibold text-indigo-900">
             <span className="text-indigo-700">Welcome </span>
-            {userData.userData?.first_name} {userData.userData?.last_name}
+            {userData.userData?.first_name}  {userData.userData?.last_name}
           </h1>
         </div>
 
