@@ -5,8 +5,6 @@ import { addToCart } from "../../redux/counter";
 import { ToastContainer } from "react-toastify";
 import { useQuery } from "react-query";
 import Load from "../load/load";
-import ReviewSystem from "../reviews/reviews";
-import { useState } from "react";
 import { BOOKS_API } from "../Api/api";
 
 
@@ -15,20 +13,6 @@ function Details() {
 
   const { id } = useParams();
 const role = localStorage.getItem("role");
-
-
- const [reviews, setReviews] = useState(false);
- const [details, setDetails] = useState(true);
-
-
- const handleDetails = () => {
-  setDetails(true);
-  setReviews(false);
- }
- const handleReviews = () => {
-  setReviews(true);
-  setDetails(false);
- }
 
   const dispatch = useDispatch();
   const handleAddToCart = (book: any) => {
@@ -77,12 +61,8 @@ const role = localStorage.getItem("role");
 
       <div className="flex flex-col gap-3 items-center justify-center">
 
-      <div className="flex gap-2">
-      <button className="bg-indigo-600 px-4 py-2 rounded-lg text-white active:animate-spin" onClick={handleReviews}>Reviews</button>
-      <button className="bg-indigo-600 px-4 py-2 rounded-lg text-white active:animate-spin" onClick={handleDetails}>Details</button>
-      </div>
 
-      {details &&
+      {product &&
             <div className="flex flex-col gap-2 justify-center items-center">
 
       <h1 className="text-2xl font-semibold">{product?.name}</h1>
@@ -97,9 +77,6 @@ const role = localStorage.getItem("role");
 
 }
 
-    {reviews &&
-    <ReviewSystem bookId={id}/>
-    }
   </div>
 
   </div>

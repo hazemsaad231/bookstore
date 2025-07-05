@@ -163,7 +163,7 @@ const search = filteredBooks ;
          
         <div className="flex gap-4">
           <div className="hidden sm:hidden md:hidden lg:block xl:block">
-            <div className="flex flex-col gap-2 w-60 p-2">
+            <div className="flex flex-col gap-2 lg:w-60 xl:w-72 p-2">
               <button className="bg-indigo-800 text-white p-2 rounded" onClick={filter}>filter</button>
               <ul>
                 <div className="flex justify-between m-4">
@@ -203,7 +203,7 @@ const search = filteredBooks ;
                   <FormGroup style={{ marginLeft: '15px' }}>
                     <FormControlLabel control={<Checkbox name="love" onChange={handleCategoryChange} />} label="love" />
                     <FormControlLabel control={<Checkbox name="sports" onChange={handleCategoryChange} />} label="sports" />
-                    <FormControlLabel control={<Checkbox name="self-help" onChange={handleCategoryChange} />} label="Self-help" />
+                    <FormControlLabel control={<Checkbox name="self-help" onChange={handleCategoryChange} />} label="self-help" />
                     <FormControlLabel control={<Checkbox name="food" onChange={handleCategoryChange} />} label="food" />
                     <FormControlLabel control={<Checkbox name="kids" onChange={handleCategoryChange} />} label="kids" />
                     <FormControlLabel control={<Checkbox name="history" onChange={handleCategoryChange} />} label="history" />
