@@ -22,7 +22,7 @@ const MyOrders = () => {
 
  
   const {data, isLoading} = useQuery(["orders", id], getOrderDetails, {
-    refetchInterval: 1000
+    refetchInterval: 3000
   })
 console.log(data?.data.map((order: any) => order.userId))
   
@@ -30,9 +30,6 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
 
   console.log("Filtered Orders:", orders);
   
-
- 
-
   const [open, setOpen] = useState(false);
   const [selectedDelete, setSelectedDelete] = useState(null);
 
@@ -110,7 +107,7 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
                               rowSpan={order.cartItems.length}
                               className="align-middle"
                             >
-                              {order.id}
+                              {order.orderNumber}
                             </td>
                           )}
                           <td className="p-3">{item.name}</td>

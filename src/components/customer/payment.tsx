@@ -78,8 +78,12 @@ console.log(email)
             },
           },
           cartItems,
+        
+
         };
 
+ const  orderNumber = Math.floor(Math.random() * 100000)
+ 
         try {
           const orders =  axios.post(Orders_API, {
             userId: id,
@@ -88,13 +92,15 @@ console.log(email)
             delivery_address: data.delivery_address,
             cartItems: data.cartItems,
             timestamp: new Date(),
+            orderNumber: orderNumber
+          
           });
 
           await orders ;
 
           toast.success("successful order");
           setTimeout(() => {
-            navigate('/home/order', { state: { cartItems } });
+            navigate('/home/order', { state: { orderNumber} });
           },2000)
          localStorage.setItem("orders", `${JSON.stringify(cartItems)}`);
           basket();

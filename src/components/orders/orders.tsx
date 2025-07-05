@@ -13,6 +13,7 @@ import { Orders_API } from "../Api/api";
 interface Order {
   email: string;
   id: string;
+  orderNumber: number;
   cartItems: {
     id: number;
     image: string;
@@ -103,7 +104,7 @@ const Orders = () => {
                   return (
                     <tr key={index}>
                       <td className="p-4">{order.email}</td>
-                      <td className="p-6">{order.id}</td>
+                      <td className="p-6">{order.orderNumber}</td>
                       <td className="p-6">{order.delivery_address.name}</td>
                       <td className="p-4">{order.timestamp.slice(0, 10)}</td>
                       <td className="p-4">{totalPrice.toFixed(2)}$</td>

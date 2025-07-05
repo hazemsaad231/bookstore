@@ -54,7 +54,7 @@ const role = localStorage.getItem("role");
         <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row justify-center gap-20 items-center py-12 ">
 
 
-        <img src={product?.image} alt=""  className="h-96 w-96 object-center transform hover:scale-110 transition duration-500"/>
+        <img src={product?.image} alt=""  className="h-96 w-96 object-center rounded-xl transform hover:scale-105 transition duration-500"/>
 
 
  
