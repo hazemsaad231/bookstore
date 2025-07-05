@@ -56,8 +56,6 @@ function bookSlide() {
   {/* الوصف يظهر عند hover */}
   <div className="block sm:block md:hidden lg:hidden xl:hidden">
   <div className="absolute inset-0  flex flex-col justify-center items-center gap-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-  {/* <h1 className="text-2xl font-bold text-orange-600 text-center relative bottom-16">{book.name}</h1> */}
-  {/* <p className="text-white text-sm text-center w-32"> {book.description} </p> */}
   </div>
   </div>
   </div>

@@ -82,6 +82,7 @@ function New() {
                     src={book.image}
                     alt="img"
                     className="h-80 w-60 m-auto object-center rounded-xl"
+                    loading="lazy"
                   />
                   {/* زرارين يظهران عند hover */}
                   <div className="absolute inset-0 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
