@@ -36,6 +36,7 @@ interface UserData {
 const Navbar = () => {
   const dispatch = useDispatch();
   const userData:UserData = useSelector((state: RootState) => state.counter);
+  const favouriteData = useSelector((state: RootState) => state.counter.favoriteItems);
 
   const orderItems = useSelector((state: RootState) => state.counter.items);
 
@@ -146,7 +147,11 @@ const handleClose = () => {
         <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">
               {orderItems.length.toString()}
             </span></li>: 
-            <li><Link to={'favourite'}><MdFavoriteBorder size={25} className="text-indigo-800"/></Link></li>}
+            <li><Link to={'favourite'}><MdFavoriteBorder size={25} className="text-indigo-800"/></Link>
+             <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">
+              {favouriteData.length.toString()}
+            </span>
+            </li>}
           <li onClick={() => setOpen(true)}><CiLogin size={25} className="text-indigo-800"/></li>
         </ul>
       </div>
