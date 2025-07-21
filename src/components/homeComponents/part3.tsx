@@ -42,7 +42,7 @@ function New() {
   const getData = async () => {
     try {
       const response = await axios.get(BOOKS_API);
-      const Book = response.data.filter((book: any) => book.new === true).slice(0, 6);
+      const Book = response.data.filter((book: any) => book.new ==='true');
       console.log(response.data);
       setBooks(Book);
     } catch (error) {

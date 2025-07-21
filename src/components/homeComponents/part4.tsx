@@ -24,7 +24,7 @@ function Feature() {
   const getData = async () => {
     try {
       const response = await axios.get(BOOKS_API);
-      const Book = response.data.filter((book: any) => book.featured === true).slice(0, 24);
+      const Book = response.data.filter((book: any) => book.featured === 'true')
       console.log(response.data);
       setBooks(Book);
     } catch (error) {

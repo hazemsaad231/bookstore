@@ -36,7 +36,7 @@ try{
 
     return (
         <>
-       <ToastContainer/>
+       <ToastContainer limit={1}/>
        <div className="flex flex-col justify-center items-center text-center w-[100%] sm:w-[100%] md:w-1/2 lg:w-1/2 xl:w-1/2">
         <div className='p-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
 
