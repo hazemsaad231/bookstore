@@ -1,4 +1,3 @@
-import { Phone } from "@mui/icons-material"
 import { Link, useNavigate} from "react-router-dom"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -17,6 +16,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Dialog
 import { CiLogin } from 'react-icons/ci'
 import { VscListFlat } from "react-icons/vsc";
 import { CiCircleRemove } from "react-icons/ci";
+
 
 
 
@@ -91,10 +91,7 @@ const handleClose = () => {
           onClick={toggleNavbar}
         />
       }
-        <div className="flex gap-1">
-          <Phone />
-          <h2 className="text-sm sm:text-sm md:text-md lg:text-lg xl:text-lg">01062588052</h2>
-        </div>
+        
 
         <div className="flex gap-1">
           <FacebookIcon />

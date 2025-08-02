@@ -1,6 +1,5 @@
 import Slider from "react-slick";
 import { GoArrowLeft } from "react-icons/go";
-import 'aos/dist/aos.css';
 import {data} from './data';
 
 
