@@ -37,8 +37,8 @@ try{
     return (
         <>
        <ToastContainer limit={1}/>
-       <div className="flex flex-col justify-center items-center text-center w-[100%] sm:w-[100%] md:w-1/2 lg:w-1/2 xl:w-1/2">
-        <div className='p-8'> <IoLogoStencil className='w-20 h-20 text-indigo-700 m-auto'/></div>
+       <div className="flex flex-col justify-center items-center h-screen text-center w-[100%] sm:w-[100%] md:w-1/2 lg:w-1/2 xl:w-1/2">
+        <div className='p-8'> <IoLogoStencil className='w-32 h-24 text-indigo-700 m-auto'/></div>
 
         <h4 className="text-gray-500">Welcome back</h4>
         <h1 className="font-semibold text-xl">Forgot Password !!</h1>
