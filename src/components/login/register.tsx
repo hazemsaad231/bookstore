@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoLogoStencil } from "react-icons/io5";
 import { Autocomplete, Tooltip } from '@mui/material';
+import { Register_API } from '../Api/api';
 
 
 
@@ -24,7 +25,7 @@ const onSubmit=async(data:any)=>{
 
 
 try{
-  const response = await axios.post("https://upskilling-egypt.com:3007/api/auth/register",data)
+  const response = await axios.post(Register_API,data)
   console.log(response)
   toast("register successfully")
   setTimeout(() => {

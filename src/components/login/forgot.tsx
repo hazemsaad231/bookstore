@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Tooltip } from '@mui/material';
+import { FORGOT_API } from "../Api/api";
 
 
 
@@ -19,7 +20,7 @@ const {register,handleSubmit,formState:{errors}}=useForm();
 
 const onSubmit=async(data:any)=>{
 try{
-    const response = await axios.post("https://upskilling-egypt.com:3007/api/auth/forgot-password",data)
+    const response = await axios.post(FORGOT_API,data)
     console.log(response)
     toast("email sent successfully")
     setTimeout(() => {

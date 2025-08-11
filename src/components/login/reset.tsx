@@ -6,7 +6,7 @@ import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoLogoStencil } from "react-icons/io5";
-
+import { RESET_API } from '../Api/api';
 
 
 
@@ -22,7 +22,7 @@ const {register,handleSubmit,formState:{errors}}=useForm()
 
 const onSubmit=async(data:any)=>{
 try{
-  const response = await axios.post("https://upskilling-egypt.com:3007/api/auth/reset-password",data)
+  const response = await axios.post(RESET_API,data)
   console.log(response)
   toast("password reset successfully")
   setTimeout(() => {

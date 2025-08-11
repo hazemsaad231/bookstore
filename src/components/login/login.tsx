@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { IoLogoStencil } from "react-icons/io5";
 import { Tooltip } from '@mui/material';
 import { useState } from 'react';
+import { Login_API } from '../Api/api';
 
 
 
@@ -26,7 +27,7 @@ const {register,handleSubmit,formState:{errors}}=useForm<{email:string,password:
 // {تسجيل الدخول}
 const onSubmit=async(data:any)=>{
 try{
-  const response = await axios.post("https://upskilling-egypt.com:3007/api/auth/login",data)
+  const response = await axios.post(Login_API,data)
   toast("login successfully")
   localStorage.setItem("token",response.data.data.accessToken)
   localStorage.setItem("role",response.data.data.profile.role)

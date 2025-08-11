@@ -14,7 +14,6 @@ function Category() {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    cssEase: "linear",
     arrows: false,
     responsive: [
       {
