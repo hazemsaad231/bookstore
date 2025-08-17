@@ -390,5 +390,3 @@ console.log(favoriteItems)
 };
 
 export default Books;
-
-
