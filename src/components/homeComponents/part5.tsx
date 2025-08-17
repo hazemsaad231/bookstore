@@ -35,7 +35,7 @@ const Offer = () => {
     return (
         <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row justify-around items-center p-4 rounded-xl m-4" style={{ backgroundColor: 'rgb(250, 245, 239)' }}>
             <div className="flex flex-col justify-center items-center">
-                <h1 className="text-center text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-orange-500">
+                <h1 className="text-center text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-primary">
                     All books are 50% off now!
                     <div>Don't miss this offer</div>
                 </h1>
@@ -53,7 +53,7 @@ const Offer = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className="text-center text-orange-500 text-2xl font-semibold">
+                        <tr className="text-center text-primary text-2xl font-semibold">
                             <td>{timeLeft.days}</td>
                             <td>{timeLeft.hours}</td>
                             <td>{timeLeft.minutes}</td>

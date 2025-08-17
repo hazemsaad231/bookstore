@@ -4,9 +4,9 @@ import Load from "../load/load";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { FaDeleteLeft } from "react-icons/fa6";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import axios from "axios";
 import { Orders_API } from "../Api/api";
+import ConfirmDialog from "../Dialog/conformDialog";
 
 
 const MyOrders = () => {
@@ -22,7 +22,7 @@ const MyOrders = () => {
 
  
   const {data, isLoading} = useQuery(["orders", id], getOrderDetails, {
-    refetchInterval: 3000
+    refetchInterval: 2000
   })
 console.log(data?.data.map((order: any) => order.userId))
   
@@ -68,7 +68,7 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
 
     <div className="py-44 h-full p-4" >
       <div>
-        <div className="p-4 w-[100%] sm:w-[80%] md:w-[60%] lg:w-[60%] xl:w-[60%] m-auto shadow-lg border-t-[40px] border-[rgb(237,85,59)] rounded-xl">
+        <div className="p-4 w-[100%] sm:w-[80%] md:w-[60%] lg:w-[60%] xl:w-[60%] m-auto shadow-lg border-t-[40px] border-primary rounded-xl">
           <h1 className="text-lg text-center mb-8 tracking-[0.2em]">
             My Orders
           </h1>
@@ -96,7 +96,7 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
                         <th className="px-3">Quantity</th>
                         <th className="px-3">Price</th>
                         <th className="px-3">Total Price</th>
-<th><button className="m-2"><FaDeleteLeft size={20} onClick={() => handleClickOpen(order.id)}/></button></th>
+<th><button className="m-2"><FaDeleteLeft size={20} onClick={() => handleClickOpen(order.id)} className="text-primary hover:text-red-600"/></button></th>
                       </tr>
                     </thead>
                     <tbody className="text-center">
@@ -135,34 +135,14 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
       </div>
     </div>
 )}
-    <Dialog
-        open={open}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-        sx={{
-          "& .MuiDialog-paper": {
-            boxShadow: "20px", // لإزالة الظل من المربع
-            backgroundColor: "white", // تغيير لون خلفية الحوار
-          },
-          "& .MuiBackdrop-root": {
-            backgroundColor: "rgba(0, 0, 0, 0)", // تغيير لون خلفية التعتيم للشفافية
-          },
-        }}
-       >
-        <DialogTitle sx={{ fontSize: "1rem"}}>{"Are you sure you want to delete this order?"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>close</Button>
-          <Button onClick={() =>{ handleDelete();
-            handleClose()
-          }}>Delete</Button>
-        </DialogActions>
-      </Dialog>
-
+ <ConfirmDialog
+  open={open}
+  title="Are you sure delete this order?"
+  onClose={handleClose}
+  onConfirm={()=>{handleDelete();handleClose()}}
+  confirmText="Delete"
+  cancelText="Close"
+/>
     </>
   );
 };

@@ -6,10 +6,11 @@ import Load from "../load/load";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import axios from "axios";
 import { Orders_API } from "../Api/api";
-
+import ConfirmDialog from "../Dialog/conformDialog";
+import InboxIcon from "@mui/icons-material/Inbox";
+import { Box, Typography } from "@mui/material";
 interface Order {
   email: string;
   id: string;
@@ -82,8 +83,23 @@ const Orders = () => {
        : 
         <div className="pb-44 pt-24">
         <div className="m-4">
-          <div className="border-t-[40px] border-[rgb(237,85,59)] bg-white overflow-x-auto mt-12 rounded-xl shadow-xl m-auto p-4 w-full sm:w-full md:w-5/6 lg:w-2/3 xl:w-2/3" >
+          <div className="border-t-[40px] border-primary bg-white overflow-x-auto mt-12 rounded-xl shadow-xl m-auto p-4 w-full sm:w-full md:w-5/6 lg:w-2/3 xl:w-2/3" >
             <h1 className="text-xl font-semibold text-center mb-8 tracking-[0.2em]">Orders list</h1>
+              {orders.length === 0 ?
+              <Box
+  sx={{
+    textAlign: "center",
+    py: 2,
+    color: "gray",
+  }}
+>
+  <InboxIcon sx={{ fontSize: 60, color: "gray" }} />
+  <Typography variant="h6" sx={{ mt: 2 , fontSize: 15 }}>
+    No Orders Found
+  </Typography>
+</Box>
+
+ :
             <table className="w-full border-collapse">
               <thead>
                 <tr>
@@ -109,46 +125,37 @@ const Orders = () => {
                       <td className="p-4">{order.timestamp.slice(0, 10)}</td>
                       <td className="p-4">{totalPrice.toFixed(2)}$</td>
                       <td className="p-4">
-                        <button className="bg-[rgb(237,85,59)] px-2 py-1 text-white rounded-full">
+                        <button className="bg-primary px-2 py-1 text-white rounded-full hover:bg-red-700">
                           <Link to={`/home/orderDetails/${order.id}`}>View</Link>
                         </button>
                       </td>
-                      <td className="p-4"><button className="py-1" onClick={() => handleClickOpen(order.id)}><FaDeleteLeft size={20} className="text-[rgb(237,85,59)]"/></button></td>
+                      <td className="p-4"><button className="py-1" onClick={() => handleClickOpen(order.id)}><FaDeleteLeft size={20} className="text-primary hover:text-red-700"/></button></td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
+            }
           </div>
         </div>
       </div>}
-      <Dialog
-        open={open}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-        sx={{
-          "& .MuiDialog-paper": {
-            boxShadow: "20px", // لإزالة الظل من المربع
-            backgroundColor: "white", // تغيير لون خلفية الحوار
-          },
-          "& .MuiBackdrop-root": {
-            backgroundColor: "rgba(0, 0, 0, 0)", // تغيير لون خلفية التعتيم للشفافية
-          },
-        }}
-       >
-        <DialogTitle sx={{fontSize:"1rem" }}>{"Are you sure you want to delete this order?"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>close</Button>
-          <Button onClick={() =>{ handleDelete();
-            handleClose()
-          }}>Delete</Button>
-        </DialogActions>
-      </Dialog>
+      <ConfirmDialog
+  open={open}
+  title="Are you sure delete this order?"
+  onClose={handleClose}
+  onConfirm={() => {
+    handleDelete();
+      handleClose()}}
+  confirmText="Delete"
+  cancelText="Close"
+  sx={{
+    "& .MuiDialog-paper": {
+      boxShadow: "0px 8px 24px rgba(0,0,0,0.3)", // custom shadow
+      borderRadius: "12px", // ممكن تزود كمان لو عايز corners ناعمة
+    },
+  }}
+/>
+
     </>
   );
 };

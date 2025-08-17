@@ -31,7 +31,7 @@ const OrderDetails = () => {
     <div className="pb-40 pt-20">
     <h1 className="text-2xl font-semibold text-center mb-8 tracking-[0.2em]">Order Details</h1>
 
-      <div className="border-t-[40px] border-[rgb(237,85,59)] w-[95%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
+      <div className="border-t-[40px] border-primary w-[95%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
         <table className="w-full border-collapse m-auto">
           <thead>
             <tr>
@@ -56,7 +56,7 @@ const OrderDetails = () => {
         </table>
       </div>
 
-      <div className="w-[90%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[40%] m-auto border-x-[32px] border-[rgb(237,85,59)] bg-white shadow-xl rounded-xl h-full mt-10">
+      <div className="w-[90%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[40%] m-auto border-x-[32px] border-primary bg-white shadow-xl rounded-xl h-full mt-10">
         <table className="w-full m-auto">
           <thead>
             <tr>
@@ -73,7 +73,7 @@ const OrderDetails = () => {
         </table>
       </div>
 
-      <div className="border-t-[40px] border-[rgb(237,85,59)] w-[90%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
+      <div className="border-t-[40px] border-primary w-[90%] sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[60%] m-auto overflow-x-auto bg-white shadow-xl rounded-xl h-full mt-10">
         <h1 className="text-lg font-semibold text-center mb-8 tracking-[0.2em]">Customer Details</h1>
         <table className="w-full border-collapse m-auto">
           <thead>

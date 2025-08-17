@@ -76,7 +76,7 @@ function New() {
           <Slider {...settings}>
           {books.map((book: any, index: number) => (
             <div key={index}>
-              <div className="text-center relative group">
+              <div className="text-center">
                 <div className="relative rounded-xl transform hover:scale-105 transition duration-300 m-6 group">
                   <img
                     src={book.image}
@@ -87,13 +87,12 @@ function New() {
                   {/* زرارين يظهران عند hover */}
                   <div className="absolute inset-0 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   { role === 'Customer' ?
-              <button className="bg-orange-700 text-white w-1/2 py-3">
-                <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>:
-                 <div></div>}
-                    { role === 'Customer' ?
-              <button className="bg-indigo-800 text-white w-1/2  py-3">
-                <FaShoppingCart size={25} onClick={() => handleAddToCart(book)} className="m-auto" /></button>:
-                <div></div>}
+                  <div className="flex flex-col gap-2 justify-center items-center w-full">
+              <button className="bg-primary text-white w-1/2 py-3">
+                <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>
+                 <button className="bg-indigo-800 text-white w-1/2  py-3">
+                <FaShoppingCart size={25} onClick={() => handleAddToCart(book)} className="m-auto" /></button>
+                  </div> : null}
                   </div>
                 </div>
                 <h1 className="mt-4 text-lg font-semibold">{book.name}</h1>
@@ -104,7 +103,7 @@ function New() {
             ))}
           </Slider>
         </div>
-        <div className="cursor-pointer text-right p-1 rounded-lg mt-12 text-orange-600 text-xl font-semibold hover:bg-gray-100 w-max transition duration-300 ease-in-out">
+        <div className="cursor-pointer text-right p-1 rounded-lg mt-12 text-primary text-xl font-semibold hover:bg-gray-100 w-max transition duration-300 ease-in-out">
           <Link to='/home/book'>View All Books</Link>
         </div>
       </div>

@@ -22,7 +22,7 @@ const dispatch = useDispatch();
       <div className="py-48">
         
         <ToastContainer/>
-        <div className="border-t-[40px] border-[rgb(237,85,59)]  shadow-xl rounded-xl bg-white w-[80%] sm:w-[80%] m-auto md:w-[70%] lg:w-[60%] xl:w-[60%] tracking-[1px]" >
+        <div className="border-t-[40px] border-primary  shadow-xl rounded-xl bg-white w-[80%] sm:w-[80%] m-auto md:w-[70%] lg:w-[60%] xl:w-[60%] tracking-[1px]" >
         <h1 className="text-xl font-serif text-center mb-4 ">My Favourate Books</h1>
         {favourateBooks.length === 0 ? (
           <p className="text-center text-gray-600">No books in your favorite list.</p>
@@ -37,10 +37,10 @@ const dispatch = useDispatch();
             <img
               src={book.image || 'default_image_url'} 
               alt={book.name}
-              className=" h-60 w-64 mb-4 m-auto rounded-xl shadow-lg"
+              className=" h-60 w-64 mb-4 m-auto rounded-xl shadow-lg object-cover"
             />
 <div className="absolute inset-0 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <button className="bg-orange-700 w-full py-1  rounded"><MdDelete size={30} color="white" className="cursor-pointer m-auto" onClick={() => handleDelete(book.id)} />
+            <button className="bg-primary w-full py-1  rounded"><MdDelete size={30} color="white" className="cursor-pointer m-auto" onClick={() => handleDelete(book.id)} />
               </button>   
               <button className=" bg-indigo-600 text-white w-full py-2 rounded">
                <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>

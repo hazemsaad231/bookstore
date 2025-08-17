@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useCallback, useState } from "react";
-import { Box, Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, FormControlLabel, FormGroup, InputLabel, NativeSelect, TextField } from "@mui/material";
+import { Box,Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, NativeSelect, TextField } from "@mui/material";
 import { FaArrowDown, FaArrowUp,FaShoppingCart } from "react-icons/fa";
 import { Link} from "react-router-dom";
 import Load from "../load/load";
@@ -12,6 +12,7 @@ import { useQuery } from "react-query";
 import { BOOKS_API } from "../Api/api";
 import { useSelector } from "react-redux";
 import { Book } from "@mui/icons-material";
+import ConfirmDialog from "../Dialog/conformDialog";
 
 
 
@@ -208,7 +209,7 @@ console.log(favoriteItems)
                   </FormGroup>
                 )}
               </ul>
-              <button onClick={clearFilter} className="bg-[rgb(237,85,59)] px-4 py-2 rounded-md text-white">Clear Filter</button>
+              <button onClick={clearFilter} className="bg-primary px-4 py-2 rounded-md text-white">Clear Filter</button>
             </div>
           </div>
 
@@ -261,7 +262,7 @@ console.log(favoriteItems)
                     <img
                       src={book.image || 'default_image_url'} // إضافة صورة افتراضية إذا لم توجد صورة
                       alt={book.name}
-                      className="w-full h-60 mb-4 m-auto rounded-xl shadow-lg"
+                      className="w-full h-60 mb-4 m-auto rounded-xl shadow-lg object-center"
                       loading="lazy"
                     />
 
@@ -269,13 +270,13 @@ console.log(favoriteItems)
            
               
            { role === 'Customer' ?
-           <button className=" bg-[rgb(237,85,59)] text-white w-full py-2">
+           <button className=" bg-primary text-white w-full py-2">
              <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>:
              <button className=" bg-indigo-600 text-white w-full py-2">
              <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>
              }
              { role === 'Admin' ?
-              <button className="bg-[rgb(237,85,59)] text-white w-full py-2">
+              <button className="bg-primary text-white w-full py-2">
              <Link to={`/home/addBook/${book.id}`} className="text-white">Update</Link></button>:null
              }
 
@@ -327,33 +328,21 @@ console.log(favoriteItems)
                  
                    </div>
 
-      <Dialog
-        open={open}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-        sx={{
-          "& .MuiDialog-paper": {
-            boxShadow: "none", // لإزالة الظل من المربع
-            backgroundColor: "white", // تغيير لون خلفية الحوار
-          },
-          "& .MuiBackdrop-root": {
-            backgroundColor: "rgba(0, 0, 0, 0)", // تغيير لون خلفية التعتيم للشفافية
-          },
-        }}
-       >
-        <DialogTitle sx={{ fontSize: "1rem" }}>{"Are you sure you want to delete this book?"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>close</Button>
-          <Button onClick={() =>{ handleDelete()
-            handleClose()
-          }}>Delete</Button>
-        </DialogActions>
-      </Dialog>
+
+                   <ConfirmDialog
+  open={open}
+  title="Are you sure delete this book?"
+  onClose={handleClose}
+  onConfirm={handleDelete}
+  confirmText="Delete"
+  cancelText="Close"
+  sx={{
+    "& .MuiDialog-paper": {
+      boxShadow: "0px 8px 24px rgba(0,0,0,0.3)", // custom shadow
+      borderRadius: "12px", // ممكن تزود كمان لو عايز corners ناعمة
+    },
+  }}
+/>
                 </div>
                 
               ))}
@@ -363,7 +352,7 @@ console.log(favoriteItems)
             <div className="m-auto py-8">
             <button
               onClick={() => setCurrent(current > 1 ? current - 1 : current)}
-              className="px-1 py-2 mx-1 text-white bg-[rgb(237,85,59)] rounded-full p-1"
+              className="px-1 py-2 mx-1 text-white bg-primary rounded-full p-1"
               disabled={current === 1}
             >
               Prev
@@ -373,7 +362,7 @@ console.log(favoriteItems)
               <button
                 key={index}
                 onClick={() => setCurrent(index + 1)}
-                className={`px-1 py-2 mx-1 rounded ${current === index + 1 ? 'bg-[rgb(237,85,59)] text-white rounded-full' : 'bg-gray-300 rounded-full'}`}
+                className={`px-1 py-2 mx-1 rounded ${current === index + 1 ? 'bg-primary text-white rounded-full' : 'bg-gray-300 rounded-full'}`}
               >
                 {index + 1}
               </button>
@@ -381,7 +370,7 @@ console.log(favoriteItems)
 
             <button
               onClick={() => setCurrent(current < totalPages ? current + 1 : current)}
-              className="px-1 py-2 mx-1 text-white bg-[rgb(237,85,59)] rounded-full p-1"
+              className="px-1 py-2 mx-1 text-white bg-primary rounded-full p-1"
               disabled={current === totalPages}
             >
               Next

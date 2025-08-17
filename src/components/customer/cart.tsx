@@ -28,7 +28,7 @@ const Cart = () => {
     <div className=" w-[90%] sm:w-[80%] md:w-[55%] lg:w-[70%] xl:w-[70%] m-auto">
       {/* عرض رسالة في حالة العربة فارغة */}
       {cart.cartItems.length === 0 ? (
-        <div className="text-center text-xl border-t-[40px] border-[rgb(237,85,59)] text-gray-600 shadow-xl rounded-xl p-8 mt-8">
+        <div className="text-center text-xl border-t-[40px] border-primary text-gray-600 shadow-xl rounded-xl p-8 mt-8">
           Your cart is empty. Please add some books to your cart.
         </div>
       ) : (
@@ -37,7 +37,7 @@ const Cart = () => {
 <div className="overflow-x-auto mt-12 rounded-xl shadow-xl">
   <table className="w-full border-collapse bg-gray-100">
     <thead className="mb-4 rounded-full">
-      <tr className=" bg-[rgb(237,85,59)] text-white">
+      <tr className=" bg-primary text-white">
         <th className="p-4 px-16 text-center">Book</th>
         <th className="p-4 text-center">Name</th>
         <th className="p-4 text-center">Price</th>
@@ -58,14 +58,14 @@ const Cart = () => {
           <td className="p-12 text-center flex justify-center items-center  gap-4">
             <h5
               onClick={() => handleDecrease(item)}
-              className="cursor-pointer bg-[rgb(237,85,59)] text-white text-xl hover:bg-[rgb(207,35,59)] rounded-full p-2"
+              className="cursor-pointer bg-primary text-white text-xl hover:bg-[rgb(207,35,59)] rounded-full p-2"
             >
               -
             </h5>
             <span >{item.quantity}</span>
             <h5
               onClick={() => handleIncrease(item)}
-              className="cursor-pointer bg-[rgb(237,85,59)] text-white text-xl hover:bg-[rgb(207,35,59)] rounded-full p-2"
+              className="cursor-pointer bg-primary text-white text-xl hover:bg-[rgb(207,35,59)] rounded-full p-2"
             >
               +
             </h5>
@@ -73,7 +73,7 @@ const Cart = () => {
           <td className="p-4 text-center">${item.price * item.quantity}</td>
           <td className="p-4 text-center">
             <button
-              className="bg-[rgb(237,85,59)] hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-primary hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => handleDelete(item)}
             >
               Remove
@@ -100,11 +100,11 @@ const Cart = () => {
   <tbody>
     <tr>
       <td className="p-4 text-center">Total books</td>
-      <td className="p-4 text-center font-bold text-red-600">{cart.cartAmount}</td>
+      <td className="p-4 text-center font-bold text-primary">{cart.cartAmount}</td>
     </tr>
     <tr>
       <td className="p-2 text-center">Total price</td>
-      <td className="p-4 text-center font-bold text-red-600">${cart.cartTotal}</td>
+      <td className="p-4 text-center font-bold text-primary">${cart.cartTotal}</td>
     </tr>
   </tbody>
 </table>

@@ -1,6 +1,6 @@
 import { useState } from 'react'; 
 import { CardElement, AddressElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { Box, Button, Typography, Grid } from '@mui/material';
+import { Box, Button, Typography, Grid, createTheme , ThemeProvider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { useSelector, useDispatch } from 'react-redux';
@@ -23,7 +23,13 @@ const data = localStorage.getItem("data");
 
 const email = data ? JSON.parse(data).email : null;
 
-console.log(email)
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: 'rgb(237,85,59)',
+    },
+  },
+});
 
   const basket = () => {
     dis(resetCart());
@@ -149,17 +155,18 @@ console.log(email)
                 }} />
               </Grid>
             </div>
-
+<ThemeProvider theme={theme}>
             <Button
               type="submit"
               variant="contained"
-              color="primary"
               fullWidth
               sx={{ mt: 2 }}
               disabled={!stripe || loading}
+              color="primary"
             >
               {loading ? "Processing..." : "PROCEED TO CHECKOUT"}
             </Button>
+            </ThemeProvider>
           </Box>
         </div>
       </div>

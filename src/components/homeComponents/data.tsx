@@ -2,7 +2,6 @@ import cate1 from '../../assets/img/cate1.webp';
 import cate2 from '../../assets/img/cate2.webp';
 import cate5 from '../../assets/img/cate5.webp';
 import history from '../../assets/img/history.webp';
-import cooking from '../../assets/img/cooking.webp';
 import sports from '../../assets/img/sports.webp';
 import bg1 from '../../assets/img/bg1.png';
 import bg3 from '../../assets/img/bg3.png';
@@ -28,10 +27,6 @@ const data = [
     {
         img:cate2,
         title:'Educational'
-    },
-    {
-        img:cooking,
-        title:'Cook'
     },
     {
         img:history,
