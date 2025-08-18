@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { BOOKS_API } from "../Api/api";
 
+
+
 const AddBook = () => {
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({});
     const navigate = useNavigate();
@@ -117,14 +119,21 @@ const AddBook = () => {
 
                 <div className="flex flex-col mt-2">
                     <label htmlFor="">featured book </label>
-                     <input type='text' placeholder="Enter featured" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("featured", { required: false })} />
-                     
+                     <input list="browsers" id="browser" placeholder="Enter featured" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("featured", { required: false })} />
+                     <datalist id="browsers">
+  <option value="true"/>
+  <option value="false"/>
+</datalist>
                 </div>
                 <div className="flex flex-col mt-2">
                     <label htmlFor="">new Realease book</label>
-                     <input type="text" placeholder="Enter new realease" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("new", { required: false })} />
+                     <input list="browsers" id="browser" placeholder="Enter new realease" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("new", { required: false })} />
+                     <datalist id="browsers">
+  <option value="true"/>
+  <option value="false"/>
+</datalist>
                 </div>
-                
+
             </div>
            
              <div className="flex justify-center">

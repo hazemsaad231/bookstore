@@ -37,7 +37,7 @@ const dispatch = useDispatch();
             <img
               src={book.image || 'default_image_url'} 
               alt={book.name}
-              className=" h-60 w-64 mb-4 m-auto rounded-xl shadow-lg object-cover"
+              className=" h-60 w-64 mb-4 m-auto rounded-xl shadow-lg object-center"
             />
 <div className="absolute inset-0 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
             <button className="bg-primary w-full py-1  rounded"><MdDelete size={30} color="white" className="cursor-pointer m-auto" onClick={() => handleDelete(book.id)} />

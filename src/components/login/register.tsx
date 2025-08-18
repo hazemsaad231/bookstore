@@ -146,7 +146,8 @@ try{
         {...register("role",{
           required:'role is required',
         })}
-        /> }
+        />
+       }
 
       />
 

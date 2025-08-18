@@ -92,7 +92,9 @@ function New() {
                 <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>
                  <button className="bg-indigo-800 text-white w-1/2  py-3">
                 <FaShoppingCart size={25} onClick={() => handleAddToCart(book)} className="m-auto" /></button>
-                  </div> : null}
+                  </div> :  <button className="bg-primary text-white w-full py-2">
+             <Link to={`/home/addBook/${book.id}`} className="text-white">Update</Link></button>
+                  }
                   </div>
                 </div>
                 <h1 className="mt-4 text-lg font-semibold">{book.name}</h1>
