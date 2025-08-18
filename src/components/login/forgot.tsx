@@ -42,7 +42,7 @@ try{
         <div className='p-8'> <IoLogoStencil className='w-32 h-24 text-indigo-700 m-auto'/></div>
 
         <h4 className="text-gray-500">Welcome back</h4>
-        <h1 className="font-semibold text-2xl">Forgot Password !!</h1>
+        <h1 className="font-semibold text-3xl">Forgot Password !!</h1>
       
         <form onSubmit={handleSubmit(onSubmit)}>
     <Box

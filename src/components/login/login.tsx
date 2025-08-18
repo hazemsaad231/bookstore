@@ -57,10 +57,10 @@ try{
       <div> 
          
            <div>
-     <div className='py-8'> <IoLogoStencil className='w-32 h-24 text-indigo-700 m-auto'/></div>
+        <div className='py-8'> <IoLogoStencil className='w-32 h-24 text-indigo-700 m-auto'/></div>
            
             <h3 className='text-gray-500 text-xl text-start'>Welcome back!</h3>
-            <h1 className='font-bold text-2xl mb-4'>Login to your account</h1>
+            <h1 className='font-bold text-3xl mb-4'>Login to your account</h1>
         </div>
 
 
@@ -69,7 +69,7 @@ try{
     onSubmit={handleSubmit(onSubmit)}
     component="form"
     sx={{
-      '& > :not(style)': { m: 2, width: '25ch' ,
+      '& > :not(style)': { m: 2 ,
          display: 'flex', flexDirection: 'column',
          gap: 2, justifyContent: 'center', alignItems: 'center' },
     }}
