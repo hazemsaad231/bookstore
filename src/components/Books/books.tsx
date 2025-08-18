@@ -135,34 +135,21 @@ console.log(favoriteItems)
     return favoriteItems.some((item: any) => item.id === book.id);
   };
 
-  const clearFilter = () => {
-    setMinPrice('');
-    setMaxPrice('');
-    setDisplayCount(8);
-    setSortOption("alphabetical");
-    setSelectedCategories([]);
-    setShowPrice(false);
-    setShowCategory(false);
-  };
-
   const filter = () => {
-    setShowPrice(true);
-    setShowCategory(true);
+    setShowPrice(!showPrice);
+    setShowCategory(!showCategory);
   };
 
   return (
 
     <>
-      {isLoading? <Load />:
-    <div className="flex flex-col p-2">
       <ToastContainer />
-    
-    
-         
+      {isLoading? <Load />:
+    <div className="flex flex-col h-full p-2">
         <div className="flex gap-4">
           <div className="hidden sm:hidden md:hidden lg:block xl:block">
             <div className="flex flex-col gap-2 lg:w-60 xl:w-72 p-2">
-              <button className="bg-indigo-800 text-white p-2 rounded" onClick={filter}>filter</button>
+              <button className="bg-indigo-800 text-white p-2 rounded" onClick={filter}>{showPrice && showCategory ? "Clear Filter" : "Filter"}</button>
               <ul>
                 <div className="flex justify-between m-4">
                   <li className="text-indigo-800 font-bold">Price</li>
@@ -198,7 +185,7 @@ console.log(favoriteItems)
                 </div>
 
                 {showCategory && (
-                  <FormGroup style={{ marginLeft: '15px' }}>
+                  <FormGroup style={{ marginLeft: '18px' }}>
                     <FormControlLabel control={<Checkbox name="love" onChange={handleCategoryChange} />} label="love" />
                     <FormControlLabel control={<Checkbox name="sports" onChange={handleCategoryChange} />} label="sports" />
                     <FormControlLabel control={<Checkbox name="self-help" onChange={handleCategoryChange} />} label="self-help" />
@@ -209,7 +196,6 @@ console.log(favoriteItems)
                   </FormGroup>
                 )}
               </ul>
-              <button onClick={clearFilter} className="bg-primary px-4 py-2 rounded-md text-white">Clear Filter</button>
             </div>
           </div>
 
@@ -229,11 +215,6 @@ console.log(favoriteItems)
                   </NativeSelect>
                 </FormControl>
               </Box>
-
-           
-                <span className="text-indigo-800 text-md sm:text-md md:text-lg lg:text-xl xl:text-xl mt-1 text-center w-full font-semibold">
-                  Showing {displayCount} books
-                </span> 
               
 
               <Box sx={{ minWidth: 80 }}>
@@ -252,6 +233,57 @@ console.log(favoriteItems)
                 </FormControl>
               </Box>
             </div>
+<div className="md:hidden">
+            <div className="flex flex-col gap-2 lg:w-60 xl:w-72 p-2">
+              <button className="bg-indigo-800 text-white p-2 rounded" onClick={filter}>{showPrice && showCategory ? "Clear Filter" : "Filter"}</button>
+              <ul>
+                <div className="flex justify-between m-4">
+                  <li className="text-indigo-800 font-bold">Price</li>
+                  <button onClick={togglePrice} className="ml-2">
+                    {showPrice ? <FaArrowUp color="indigo" /> : <FaArrowDown color="indigo" />}
+                  </button>
+                </div>
+
+                {showPrice && (
+                  <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '10ch' } }} noValidate autoComplete="off">
+                    <TextField
+                      id="min-price"
+                      label="Min $"
+                      variant="outlined"
+                      value={minPrice}
+                      onChange={(e) => setMinPrice(e.target.value)}
+                    />
+                    <TextField
+                      id="max-price"
+                      label="Max $"
+                      variant="outlined"
+                      value={maxPrice}
+                      onChange={(e) => setMaxPrice(e.target.value)}
+                    />
+                  </Box>
+                )}
+
+                <div className="flex justify-between m-4">
+                  <li className="text-indigo-800 font-bold">Category</li>
+                  <button onClick={toggleCategory}>
+                    {showCategory ? <FaArrowUp color="indigo" /> : <FaArrowDown color="indigo" />}
+                  </button>
+                </div>
+
+                {showCategory && (
+                  <FormGroup style={{ marginLeft: '18px' }}>
+                    <FormControlLabel control={<Checkbox name="love" onChange={handleCategoryChange} />} label="love" />
+                    <FormControlLabel control={<Checkbox name="sports" onChange={handleCategoryChange} />} label="sports" />
+                    <FormControlLabel control={<Checkbox name="self-help" onChange={handleCategoryChange} />} label="self-help" />
+                    <FormControlLabel control={<Checkbox name="food" onChange={handleCategoryChange} />} label="food" />
+                    <FormControlLabel control={<Checkbox name="kids" onChange={handleCategoryChange} />} label="kids" />
+                    <FormControlLabel control={<Checkbox name="history" onChange={handleCategoryChange} />} label="history" />
+                    <FormControlLabel control={<Checkbox name="other" onChange={handleCategoryChange} />} label="other" />
+                  </FormGroup>
+                )}
+              </ul>
+            </div>
+          </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-2 py-6 ">
               {currentBooks?.map((book: any) => (

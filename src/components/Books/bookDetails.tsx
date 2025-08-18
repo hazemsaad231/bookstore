@@ -64,7 +64,7 @@ const role = localStorage.getItem("role");
       <hr className="w-full h-2 bg-slate-600"/>
       <h2 className="text-md w-full text-gray-600">{book?.description}</h2>
    {role !== "Admin" ?
-    <button className="bg-indigo-600 px-4 py-2 w-full rounded-lg text-white active:animate-spin hover:bg-indigo-800"
+    <button className="bg-indigo-600 px-4 py-2 w-full rounded-lg text-white active:animate-pulse hover:bg-indigo-800"
     onClick={() => handleAddToCart(book)}>Add to Cart</button>:null
   }
     </div>
