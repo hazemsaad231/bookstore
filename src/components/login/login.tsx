@@ -40,9 +40,9 @@ try{
 }catch(error:any){
   console.error("Error:", error);
   if(Array.isArray(error.response.data.message)){
-    toast.error(error.response.data.message[0]);
+    toast.error(error.response.data.message[0])
 }else{
-  toast.error(error.response.data.message);
+  toast.error(error.response.data.message)
 }
 }
 }
