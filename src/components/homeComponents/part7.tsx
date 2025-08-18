@@ -26,7 +26,7 @@ const Latest = () => {
                     
                     <div key={index} className="flex flex-col gap-2">
                         
-                    <img src={late.img} alt="" className="w-full h-60 rounded-xl" loading="lazy"/>
+                    <img src={late.img} alt="" className="w-full h-60 sm:h-60 md:h-68 lg:h-72 xl:h-72 rounded-xl" loading="lazy"/>
                     <p className="text-gray-500">{late.date}</p>
                     <h1 className="text-indigo-900 text-xl w-60">{late.description} </h1>
                     <hr />

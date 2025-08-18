@@ -88,9 +88,9 @@ function New() {
                   <div className="absolute inset-0 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   { role === 'Customer' ?
                   <div className="flex flex-col gap-2 justify-center items-center w-full">
-              <button className="bg-primary text-white w-1/2 py-3">
+              <button className="bg-primary text-white w-full py-3">
                 <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>
-                 <button className="bg-indigo-800 text-white w-1/2  py-3">
+                 <button className="bg-indigo-800 text-white w-full  py-3">
                 <FaShoppingCart size={25} onClick={() => handleAddToCart(book)} className="m-auto" /></button>
                   </div> :  <button className="bg-primary text-white w-full py-2">
              <Link to={`/home/addBook/${book.id}`} className="text-white">Update</Link></button>

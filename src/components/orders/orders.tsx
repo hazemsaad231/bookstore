@@ -81,7 +81,7 @@ const Orders = () => {
       {isLoading ? 
         <Load />
        : 
-        <div className="pb-44 pt-24">
+        <div className="py-48">
         <div className="m-4">
           <div className="border-t-[40px] border-primary bg-white overflow-x-auto mt-12 rounded-xl shadow-xl m-auto p-4 w-full sm:w-full md:w-5/6 lg:w-2/3 xl:w-2/3" >
             <h1 className="text-xl font-semibold text-center mb-8 tracking-[0.2em]">Orders list</h1>

@@ -38,7 +38,7 @@ const role = localStorage.getItem("role");
       refetchInterval: 8000
     })
     console.log(data?.data)
-    const product = data?.data;
+    const book = data?.data;
 
 
 
@@ -47,31 +47,25 @@ const role = localStorage.getItem("role");
 <ToastContainer/>
 
 {isLoading ?(<div><Load/></div>):(
-    <div className="h-full p-20">
-
-<h1 className="text-4xl font-bold text-center text-indigo-600 pb-6 tracking-[5px]">Book Details</h1>
-
-        <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row justify-center gap-20 items-center py-12 ">
+    <div className="h-full py-40">
 
 
-        <img src={product?.image} alt=""  className="h-96 w-96 object-center rounded-xl transform hover:scale-105 transition duration-500"/>
+        <div className="flex flex-col lg:flex-row justify-center m-auto gap-10 p-4 items-center w-[90%] lg:w-[65%] rounded-xl shadow-xl border-t-[40px] border-primary ">
 
 
- 
+        <img src={book?.image} alt="" className="h-96 w-full object-center rounded-xl transform hover:scale-105 transition duration-500"/>
 
-      <div className="flex flex-col gap-3 items-center justify-center">
+      {book &&
+            <div className="flex flex-col gap-2 justify-center items-center w-[90%]">
 
-
-      {product &&
-            <div className="flex flex-col gap-2 justify-center items-center">
-
-      <h1 className="text-2xl font-semibold">{product?.name}</h1>
-      <h2 className="text-xl text-gray-600">by {product?.author}</h2>
-      <h2 className=" font-bold text-xl">{product?.price}$</h2>
-      <h2 className="text-sm w-80 text-gray-600">{product?.description}</h2>
+      <h1 className="text-4xl font-bold">{book?.name}</h1>
+      <h2 className="text-xl text-gray-600">by {book?.author}</h2>
+      <h2 className=" font-bold text-2xl">price {book?.price}$</h2>
+      <hr className="w-full h-2 bg-slate-600"/>
+      <h2 className="text-md w-full text-gray-600">{book?.description}</h2>
    {role !== "Admin" ?
-    <button className="bg-indigo-600 px-4 py-2 rounded-lg text-white active:animate-spin"
-    onClick={() => handleAddToCart(product)}>Add to Cart</button>:null
+    <button className="bg-indigo-600 px-4 py-2 w-full rounded-lg text-white active:animate-spin hover:bg-indigo-800"
+    onClick={() => handleAddToCart(book)}>Add to Cart</button>:null
   }
     </div>
 
@@ -79,7 +73,7 @@ const role = localStorage.getItem("role");
 
   </div>
 
-  </div>
+
 
   </div>
 )}
