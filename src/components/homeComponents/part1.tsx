@@ -52,17 +52,8 @@ function bookSlide() {
     alt="book"
     className="rounded-lg h-96 w-72 m-auto object-center"
   />
-  {/* الوصف يظهر عند hover */}
-  <div className="block sm:block md:hidden lg:hidden xl:hidden">
-  <div className="absolute inset-0 bottom-0  flex flex-col justify-end items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
   </div>
-  </div>
-  </div>
-
-
           </div>
-            
-
           </div>
 
 ))}

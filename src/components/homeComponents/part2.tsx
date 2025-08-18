@@ -11,7 +11,6 @@ function Category() {
   
   const settings = {
     dots: true,
-    infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false,
@@ -27,11 +26,10 @@ function Category() {
 
   return (
     <div className="py-20">
-      <div className="slider-container">
         <div className="m-4">
           <div className="flex gap-2">
             <GoArrowLeft size={25} color="#ff6347"/>
-            <h1 className="text-orange-600 font-bold text-2xl">Categories</h1>
+            <h1 className="text-primary font-bold text-2xl">Categories</h1>
           </div>
           <div>
           <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-indigo-800">Explore our Top Categories</h1>
@@ -48,7 +46,6 @@ function Category() {
 ))}
         </Slider>
       </div>
-    </div>
   );
 }
 
