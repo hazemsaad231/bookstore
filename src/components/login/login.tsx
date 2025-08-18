@@ -69,7 +69,9 @@ try{
     onSubmit={handleSubmit(onSubmit)}
     component="form"
     sx={{
-      '& > :not(style)': { m: 2, width: '25ch' , display: 'flex', flexDirection: 'column', gap: 2, justifyContent: 'center', alignItems: 'center' },
+      '& > :not(style)': { m: 2, width: '25ch' ,
+         display: 'flex', flexDirection: 'column',
+         gap: 2, justifyContent: 'center', alignItems: 'center' },
     }}
       noValidate
       autoComplete="off"
@@ -129,9 +131,11 @@ try{
 </div>
 
 <div className='flex flex-col gap-2'>
-<button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg mt-4' onClick={handleSubmit(onSubmit)}>{loading ? "Loading..." : "Login"}</button>
+<button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg mt-4'
+ onClick={handleSubmit(onSubmit)}>{loading ? "Loading..." : "Login"}</button>
 
-<button className='border border-indigo-700 p-3 rounded-lg  mt-4 text-indigo-700 hover:bg-indigo-100' onClick={()=>navigate("/register")}>Register</button>
+<button className='border border-indigo-700 p-3 rounded-lg  mt-4 text-indigo-700 hover:bg-indigo-100'
+ onClick={()=>navigate("/register")}>Register</button>
 </div>
      
 
@@ -147,4 +151,3 @@ try{
     </>
   );
 }
-

@@ -18,7 +18,9 @@ export default function Register() {
   const navigate = useNavigate()
 
 
-const {register,handleSubmit,formState:{errors}}=useForm({ defaultValues: {first_name:"" , last_name:"", email: "", password: "" , role:"Customer"} })
+const {register,handleSubmit,formState:{errors}}=useForm(
+  { defaultValues: {first_name:"" , last_name:"", email: "", password: "" , role:"Customer"} }
+)
 
 
 const onSubmit=async(data:any)=>{
@@ -153,8 +155,10 @@ try{
 
       
 
-    <div className='flex flex-col gap-2'> <button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg px-20 mt-4'>Register</button>
-    <button className='border border-indigo-700 p-3 rounded-lg px-20 mt-4 text-indigo-700 hover:bg-indigo-100' onClick={()=>navigate("/login")}>Login</button></div>
+    <div className='flex flex-col gap-2'> <button type="submit"
+     className='bg-indigo-700 text-white p-3 rounded-lg px-20 mt-4'>Register</button>
+    <button className='border border-indigo-700 p-3 rounded-lg px-20 mt-4 text-indigo-700 hover:bg-indigo-100'
+     onClick={()=>navigate("/login")}>Login</button></div>
     </Box>
     
     </div>

@@ -1,4 +1,3 @@
-
 import { Box, TextField } from "@mui/material";
 import axios from "axios";
 import { useForm } from "react-hook-form";
@@ -71,11 +70,12 @@ try{
       />
       </Tooltip>
     </Box>
-    <button type="submit" className="border-2 border-indigo-700 p-2 rounded-xl text-indigo-700 mt-4 px-8 text-center hover:bg-indigo-700 hover:text-white"
-    >send</button>
+    <button type="submit" 
+    className="border-2 border-indigo-700 p-2 rounded-xl text-indigo-700 mt-4 px-8 text-center hover:bg-indigo-700 hover:text-white">
+      send</button>
     </form>
        
-       </div>
+     </div>
         
        
    

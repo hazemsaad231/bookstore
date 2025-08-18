@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoLogoStencil } from "react-icons/io5";
 import { RESET_API } from '../Api/api';
+import { Box, Tooltip } from '@mui/material';
 
 
 
@@ -51,79 +51,72 @@ try{
             <h3 className='text-gray-500 text-lg text-start'>Welcome back!</h3>
             <h1 className='font-bold text-2xl mb-4'>Reset your Password Now!</h1>
         </div>
-    <form onSubmit={handleSubmit(onSubmit)}>
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
+       <Box
+    onSubmit={handleSubmit(onSubmit)}
+    component="form"
+    sx={{
+      '& > :not(style)': { m: 2 , display: 'flex', flexDirection: 'column', gap: 2, justifyContent: 'center', alignItems: 'center' },
+    }}
       noValidate
       autoComplete="off"
     >
-        <div>
-        <TextField
-        id="outlined-basic"
-        label="email"
-        variant="outlined"
-        {...register("email",{
-          required:true,
-           pattern:{
-            value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-            message:'email is valid'
-          }
-        })}
-        className='bg-slate-100'
-      />
-      {errors.email && <span className='text-red-400 text-start text-sm'>email is required</span>}
-      <div className='mt-4'> <TextField
+
+        <div className='flex flex-col gap-4'>
+       <Tooltip title={typeof errors.email?.message === "string" ? errors.email.message : ""} open={!!errors.email} arrow>
+              <TextField
+              id="email-basic"
+              label="email"
+              type="email"
+              variant="outlined"
+              {...register("email",{
+                required:"email is required",
+                 pattern:{
+                  value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                  message:'email is valid'
+                }
+              })}
+              error={!!errors.email}
+              fullWidth
+            />
+            </Tooltip>
+         <Tooltip title={typeof errors.otp?.message === "string" ? errors.otp.message : ""} open={!!errors.otp} arrow>
+       <TextField
         id="outlined-basic"
         label="OTP"
         variant="outlined"
         {...register("otp",{
-          required:true,
+          required:"otp is required",
         })}
-        className='bg-slate-100'
-      />
-      {errors.otp && <span className='text-red-400 text-start text-sm'>otp is required</span>}</div>
-      <div className='mt-6'>
+       error={!!errors.otp}
+         fullWidth
+         />
+      </Tooltip>
+
+      <Tooltip title={typeof errors.password?.message === "string" ? errors.password.message : ""} open={!!errors.password} arrow>
         <TextField
         id="outlined-basic"
         label="New Password"
         type="password"
         variant="outlined"
         {...register("password",{
-          required:true,
-         
-          
+          required:"password is required",
         })}
-        className='bg-slate-100'
+        error={!!errors.password}
+        fullWidth
       />
-      {errors.password && <span className='text-red-400 text-start text-sm '>password is required</span>}</div>
-
+      </Tooltip>
 
       </div>
-
-      </Box>
-
-      <div className='flex gap-12 text-sm mt-4'>
-
-    <div className='flex'>
-        <input type="checkbox"  className='mt-1'/>
-        <span className='ml-2 text-indigo-800'>Remember me</span>
-      </div>
-      </div>
-
- 
-    <div className='flex flex-col gap-2 mt-8'>
-    <button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg px-20 mt-4'>send</button>
-         <button type="submit" className='border border-indigo-700 text-indigo-700 p-3 rounded-lg px-20 hover:bg-indigo-100'
-         onClick={() => navigate('/login')}>Back to <span className='text-indigo-700'>Login</span></button>
+    </Box>
+    <div className='flex flex-col gap-2 mt-4'>
+    <button type="submit" className='bg-indigo-700 text-white p-3 rounded-lg mt-4'
+     onClick={handleSubmit(onSubmit)}>send</button>
+      <button type="submit" className='border border-indigo-700 text-indigo-700 p-3 rounded-lg hover:bg-indigo-100'
+     onClick={() => navigate('/login')}>Back to <span className='text-indigo-700'>Login</span></button>
    </div>
-   
 
-
-    </form></div>
-      </div>
+    </div>
+    </div>
    
 
           
