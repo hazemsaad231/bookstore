@@ -8,7 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
 import axios from "axios";
 import { Orders_API } from "../Api/api";
-import ConfirmDialog from "../Dialog/conformDialog";
+import ConfirmDialog from "../dialog/conformDialog";
 import InboxIcon from "@mui/icons-material/Inbox";
 import { Box, Typography } from "@mui/material";
 interface Order {

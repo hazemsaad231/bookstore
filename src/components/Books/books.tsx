@@ -12,7 +12,7 @@ import { useQuery } from "react-query";
 import { BOOKS_API } from "../Api/api";
 import { useSelector } from "react-redux";
 import { Book } from "@mui/icons-material";
-import ConfirmDialog from "../Dialog/conformDialog"
+import ConfirmDialog from "../dialog/conformDialog"
 
 
 
