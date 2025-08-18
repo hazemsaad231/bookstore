@@ -12,7 +12,7 @@ import { useQuery } from "react-query";
 import { BOOKS_API } from "../Api/api";
 import { useSelector } from "react-redux";
 import { Book } from "@mui/icons-material";
-import ConfirmDialog from "../dialog/conformDialog"
+import ConfirmDialog from "../dialog/ConfirmDialog";
 
 
 
@@ -338,8 +338,8 @@ console.log(favoriteItems)
   cancelText="Close"
   sx={{
     "& .MuiDialog-paper": {
-      boxShadow: "0px 8px 24px rgba(0,0,0,0.3)", // custom shadow
-      borderRadius: "12px", // ممكن تزود كمان لو عايز corners ناعمة
+      boxShadow: "0px 8px 24px rgba(0,0,0,0.3)",
+      borderRadius: "12px", 
     },
   }}
 />

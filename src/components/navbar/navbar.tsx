@@ -15,7 +15,7 @@ import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { CiLogin } from 'react-icons/ci'
 import { VscListFlat } from "react-icons/vsc";
 import { CiCircleRemove } from "react-icons/ci";
-import ConfirmDialog from "../dialog/conformDialog";
+import ConfirmDialog from "../dialog/ConfirmDialog";
 
 
 
