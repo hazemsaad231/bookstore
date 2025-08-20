@@ -1,18 +1,15 @@
 import axios from "axios";
 import { useCallback, useState } from "react";
-import { Box,Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, NativeSelect, TextField } from "@mui/material";
-import { FaArrowDown, FaArrowUp,FaShoppingCart } from "react-icons/fa";
-import { Link} from "react-router-dom";
+import { Pagination,} from "@mui/material";
 import Load from "../load/load";
-import { useDispatch } from "react-redux";
-import { addToCart, addToFavorite } from "../../redux/counter";
 import { toast, ToastContainer } from "react-toastify";
-import { MdFavoriteBorder } from "react-icons/md";
 import { useQuery } from "react-query";
 import { BOOKS_API } from "../Api/api";
 import { useSelector } from "react-redux";
 import { Book } from "@mui/icons-material";
 import ConfirmDialog from "../dialog/ConfirmDialog";
+import BookCard from "./BookCard";
+import FilterSidebar from "./FilterSidebar";
 
 
 
@@ -24,6 +21,8 @@ interface Book {
 
 
 const Books = () => {
+
+  {/* fliter*/ }
   const [showPrice, setShowPrice] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
   const [selectedDelete, setSelectedDelete] = useState(null);
@@ -31,7 +30,6 @@ const Books = () => {
   const [maxPrice, setMaxPrice] = useState('');
   const [sortOption, setSortOption] = useState("alphabetical");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const dispatch = useDispatch();
 
   
 
@@ -44,12 +42,10 @@ const Books = () => {
   };
 
   const handleClose = () => {
-
     setOpen(false);
   };
 
   const handleDelete = useCallback(  async () => {
-
     try {
 
       await axios.delete(`${BOOKS_API}/${selectedDelete}`);
@@ -63,19 +59,6 @@ const Books = () => {
   }, [selectedDelete]);
 
 
-
-
-
-
-  const handleAddToCart = (book: any) => {
-    dispatch(addToCart(book));
-  };
-
-  const handleAddMyFavorite = (book: any) => {
-    dispatch(addToFavorite(book));
-  };
-
-  const role = localStorage.getItem("role");
 
   const getBooks = async () => {
     
@@ -107,7 +90,7 @@ const Books = () => {
 
 const search = filteredBooks ;
 
-
+{/* Pagination */}
  const [current, setCurrent] = useState(1);
   const itemsPerPage = displayCount;
   const lastIndex = current * itemsPerPage;
@@ -115,15 +98,6 @@ const search = filteredBooks ;
  const totalPages = Math.ceil(search?.length / itemsPerPage)
  const currentBooks = search?.slice(startIndex, lastIndex).slice(0, displayCount);
 
- 
-  const togglePrice = () => setShowPrice(!showPrice);
-  const toggleCategory = () => setShowCategory(!showCategory);
-  
-
-  const handleCategoryChange = (event: any) => {
-    const { name, checked } = event.target;
-    setSelectedCategories((prev: any) => checked ? [...prev, name] : prev.filter((category: any) => category !== name));
-  };
 
  
   const favoriteItems = useSelector((state: any) => state.counter.favoriteItems);
@@ -131,237 +105,50 @@ const search = filteredBooks ;
  
 console.log(favoriteItems)
 
- const isFavorite = (book: any) => {
-    return favoriteItems.some((item: any) => item.id === book.id);
-  };
-
-  const filter = () => {
-    setShowPrice(!showPrice);
-    setShowCategory(!showCategory);
-  };
 
   return (
 
     <>
       <ToastContainer />
       {isLoading? <Load />:
-    <div className="flex flex-col h-full p-2">
-        <div className="flex gap-4">
-          <div className="hidden sm:hidden md:hidden lg:block xl:block">
-            <div className="flex flex-col gap-2 lg:w-60 xl:w-72 p-2">
-              <button className="bg-indigo-800 text-white p-2 rounded" onClick={filter}>{showPrice && showCategory ? "Clear Filter" : "Filter"}</button>
-              <ul>
-                <div className="flex justify-between m-4">
-                  <li className="text-indigo-800 font-bold">Price</li>
-                  <button onClick={togglePrice} className="ml-2">
-                    {showPrice ? <FaArrowUp color="indigo" /> : <FaArrowDown color="indigo" />}
-                  </button>
-                </div>
+    <div className="flex flex-col md:flex-row h-full p-2">
 
-                {showPrice && (
-                  <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '10ch' } }} noValidate autoComplete="off">
-                    <TextField
-                      id="min-price"
-                      label="Min $"
-                      variant="outlined"
-                      value={minPrice}
-                      onChange={(e) => setMinPrice(e.target.value)}
-                    />
-                    <TextField
-                      id="max-price"
-                      label="Max $"
-                      variant="outlined"
-                      value={maxPrice}
-                      onChange={(e) => setMaxPrice(e.target.value)}
-                    />
-                  </Box>
-                )}
+<FilterSidebar
+            showPrice={showPrice}
+            setShowPrice={setShowPrice}
+            showCategory={showCategory}
+            setShowCategory={setShowCategory}
+            minPrice={minPrice}
+            setMinPrice={setMinPrice}
+            maxPrice={maxPrice}
+            setMaxPrice={setMaxPrice}
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+            sortOption={sortOption}
+            setSortOption={setSortOption}
+            displayCount={displayCount}
+            setDisplayCount={setDisplayCount}
+            booksLength={books?.length || 0}
+          />
 
-                <div className="flex justify-between m-4">
-                  <li className="text-indigo-800 font-bold">Category</li>
-                  <button onClick={toggleCategory}>
-                    {showCategory ? <FaArrowUp color="indigo" /> : <FaArrowDown color="indigo" />}
-                  </button>
-                </div>
+        <div className="w-full flex flex-col gap-6 p-6">
 
-                {showCategory && (
-                  <FormGroup style={{ marginLeft: '18px' }}>
-                    <FormControlLabel control={<Checkbox name="love" onChange={handleCategoryChange} />} label="love" />
-                    <FormControlLabel control={<Checkbox name="sports" onChange={handleCategoryChange} />} label="sports" />
-                    <FormControlLabel control={<Checkbox name="self-help" onChange={handleCategoryChange} />} label="self-help" />
-                    <FormControlLabel control={<Checkbox name="food" onChange={handleCategoryChange} />} label="food" />
-                    <FormControlLabel control={<Checkbox name="kids" onChange={handleCategoryChange} />} label="kids" />
-                    <FormControlLabel control={<Checkbox name="history" onChange={handleCategoryChange} />} label="history" />
-                    <FormControlLabel control={<Checkbox name="other" onChange={handleCategoryChange} />} label="other" />
-                  </FormGroup>
-                )}
-              </ul>
-            </div>
+          <BookCard currentBooks={currentBooks} handleClickOpen={handleClickOpen} />
+<div>
+<Pagination
+    page={current}
+    onChange={(_, value) => setCurrent(value)}
+    count={totalPages}
+
+  />
+</div>
+
+
           </div>
 
-          <div className="flex flex-col gap-2 w-full">
-            <div className="flex justify-between items-center p-1">
-              <Box sx={{ minWidth: 80 }}>
-                <FormControl fullWidth>
-                  <InputLabel variant="standard" sx={{ color: 'indigo' }}>Sort by:</InputLabel>
-                  <NativeSelect
-                    value={sortOption}
-                    onChange={(e) => setSortOption(e.target.value)}
-                    sx={{ fontSize: { xs: '0.8rem', sm: '1rem' }, color: 'indigo.800' }}
-                  >
-                    <option value="alphabetical" className="text-indigo-800">Alphabetically, A-Z</option>
-                    <option value="priceLowToHigh" className="text-indigo-800">Price: Low to High</option>
-                    <option value="priceHighToLow" className="text-indigo-800">Price: High to Low</option>
-                  </NativeSelect>
-                </FormControl>
-              </Box>
-              
+  
 
-              <Box sx={{ minWidth: 80 }}>
-                <FormControl fullWidth>
-                  <InputLabel variant="standard" sx={{ color: 'indigo' }}>Show:</InputLabel>
-                  <NativeSelect
-                    value={displayCount}
-                    onChange={(e) => setDisplayCount(parseInt(e.target.value))}
-                    sx={{ fontSize: { xs: '0.8rem', sm: '1rem' }, color: 'indigo.800' }}
-                  >
-                    <option value={4}>4</option>
-                    <option value={8}>8</option>
-                    <option value={12}>12</option>
-                    <option value={books?.length}>all</option>
-                  </NativeSelect>
-                </FormControl>
-              </Box>
-            </div>
-<div className="md:hidden">
-            <div className="flex flex-col gap-2 lg:w-60 xl:w-72 p-2">
-              <button className="bg-indigo-800 text-white p-2 rounded" onClick={filter}>{showPrice && showCategory ? "Clear Filter" : "Filter"}</button>
-              <ul>
-                <div className="flex justify-between m-4">
-                  <li className="text-indigo-800 font-bold">Price</li>
-                  <button onClick={togglePrice} className="ml-2">
-                    {showPrice ? <FaArrowUp color="indigo" /> : <FaArrowDown color="indigo" />}
-                  </button>
-                </div>
-
-                {showPrice && (
-                  <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '10ch' } }} noValidate autoComplete="off">
-                    <TextField
-                      id="min-price"
-                      label="Min $"
-                      variant="outlined"
-                      value={minPrice}
-                      onChange={(e) => setMinPrice(e.target.value)}
-                    />
-                    <TextField
-                      id="max-price"
-                      label="Max $"
-                      variant="outlined"
-                      value={maxPrice}
-                      onChange={(e) => setMaxPrice(e.target.value)}
-                    />
-                  </Box>
-                )}
-
-                <div className="flex justify-between m-4">
-                  <li className="text-indigo-800 font-bold">Category</li>
-                  <button onClick={toggleCategory}>
-                    {showCategory ? <FaArrowUp color="indigo" /> : <FaArrowDown color="indigo" />}
-                  </button>
-                </div>
-
-                {showCategory && (
-                  <FormGroup style={{ marginLeft: '18px' }}>
-                    <FormControlLabel control={<Checkbox name="love" onChange={handleCategoryChange} />} label="love" />
-                    <FormControlLabel control={<Checkbox name="sports" onChange={handleCategoryChange} />} label="sports" />
-                    <FormControlLabel control={<Checkbox name="self-help" onChange={handleCategoryChange} />} label="self-help" />
-                    <FormControlLabel control={<Checkbox name="food" onChange={handleCategoryChange} />} label="food" />
-                    <FormControlLabel control={<Checkbox name="kids" onChange={handleCategoryChange} />} label="kids" />
-                    <FormControlLabel control={<Checkbox name="history" onChange={handleCategoryChange} />} label="history" />
-                    <FormControlLabel control={<Checkbox name="other" onChange={handleCategoryChange} />} label="other" />
-                  </FormGroup>
-                )}
-              </ul>
-            </div>
-          </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-2 py-6 ">
-              {currentBooks?.map((book: any) => (
-                <div key={book.id} className="text-center relative group">
-                  <div className="shadow-xl mx-2 sm:mx-8 md:mx-8 lg:mx-6 xl:mx-2 rounded-xl p-4  bg-slate-50 ">
-                  <div className="transform hover:scale-105 transition duration-300">
-                   
-                    <img
-                      src={book.image || 'default_image_url'} // إضافة صورة افتراضية إذا لم توجد صورة
-                      alt={book.name}
-                      className="w-full h-60 mb-4 m-auto rounded-xl shadow-lg object-center"
-                      loading="lazy"
-                    />
-
-<div className="absolute inset-0 flex flex-col justify-end mb-8 items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-           
-              
-           { role === 'Customer' ?
-           <button className=" bg-primary text-white w-full py-2">
-             <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>:
-             <button className=" bg-indigo-600 text-white w-full py-2">
-             <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>
-             }
-             { role === 'Admin' ?
-              <button className="bg-primary text-white w-full py-2">
-             <Link to={`/home/addBook/${book.id}`} className="text-white">Update</Link></button>:null
-             }
-
-           { role === 'Customer' ?
-           <button className="bg-indigo-600 text-white w-full  py-2">
-           <FaShoppingCart size={30} onClick={() => handleAddToCart(book)} className="m-auto" /></button>:
-           <button className="bg-indigo-600 text-white w-full  py-2"
-           onClick={() => handleClickOpen(book.id)
-
-           }
-           >
-            delete
-           </button>
-           
-          }
-        </div>
-
-
-
-
-       </div>
-                     <div className="mt-2 cursor-pointer">
-                 { role === 'Customer' ?
-                         <MdFavoriteBorder 
-                         size={24} 
-                         color={isFavorite(book) ? 'red' : 'gray'}
-                         onClick={() => {handleAddMyFavorite(book)}}
-                         
-                         className="cursor-pointer"
-                       />
-                          :
-                        <div></div>
-                         }
-                 </div>
-                     <div className="flex justify-between text-gray-600 font-semibold text-sm">
-                      <h3>Name</h3>
-                     <h3>{book.name}</h3>
-                     </div>
-                   <div className="flex justify-between text-gray-600 text-sm">
-                    <h4>Author</h4>
-                   <p>{book.author}</p>
-                   </div>
-                   <div className="flex justify-between text-gray-600 text-sm">
-                    <h4>Price</h4>
-                   <p>${book.price}</p>
-                   </div>
-               
-                  
-                 
-                   </div>
-
-
-                   <ConfirmDialog
+<ConfirmDialog
   open={open}
   title="Are you sure delete this book?"
   onClose={handleClose}
@@ -375,47 +162,14 @@ console.log(favoriteItems)
     },
   }}
 />
-                </div>
-                
-              ))}
-
-            </div>
-
-            <div className="m-auto py-8">
-            <button
-              onClick={() => setCurrent(current > 1 ? current - 1 : current)}
-              className="px-1 py-2 mx-1 text-white bg-primary rounded-full p-1"
-              disabled={current === 1}
-            >
-              Prev
-            </button>
-
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrent(index + 1)}
-                className={`px-1 py-2 mx-1 rounded ${current === index + 1 ? 'bg-primary text-white rounded-full' : 'bg-gray-300 rounded-full'}`}
-              >
-                {index + 1}
-              </button>
-            ))}
-
-            <button
-              onClick={() => setCurrent(current < totalPages ? current + 1 : current)}
-              className="px-1 py-2 mx-1 text-white bg-primary rounded-full p-1"
-              disabled={current === totalPages}
-            >
-              Next
-            </button>
-          </div>
 
 
 
           </div>
 
-          </div>
+          
 
-    </div>
+    
     }
     </>
   );
