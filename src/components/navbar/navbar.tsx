@@ -78,14 +78,14 @@ const handleClose = () => {
 
         {isNavbarVisible ? (
           <CiCircleRemove
-            size={25}
+            size={30}
             className="block sm:block md:block lg:hidden xl:hidden"
             color="white"
             onClick={toggleNavbar}
           />
         ):
         <VscListFlat
-          size={25}
+          size={30}
           className="block sm:block md:block lg:hidden xl:hidden"
           color="white"
           onClick={toggleNavbar}

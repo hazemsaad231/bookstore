@@ -155,21 +155,20 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 {
     isMobileFilterOpen ? (
       <TiDelete
-        size={40}
+        size={30}
         className="md:hidden cursor-pointer mb-1"
         onClick={toggleMobileFilter}
     />
   ):(
       
         <BsFilterLeft
-      size={40}
+      size={30}
       className="md:hidden cursor-pointer mb-1"
       onClick={toggleMobileFilter}
       />
     )
 }
     
-    <hr className="w-full h-1 bg-black md:hidden" />
 
     {isMobileFilterOpen && (
       <>
