@@ -77,7 +77,7 @@ function New() {
           {books.map((book: any, index: number) => (
             <div key={index}>
               <div className="text-center">
-                <div className="relative rounded-xl w-60 transform hover:scale-105 m-6 transition duration-300  group">
+                <div className="relative rounded-xl w-60 m-auto transform hover:scale-105 m-6 transition duration-300  group">
                   <img
                     src={book.image}
                     alt="img"
