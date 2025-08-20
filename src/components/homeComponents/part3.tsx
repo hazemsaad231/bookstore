@@ -77,11 +77,11 @@ function New() {
           {books.map((book: any, index: number) => (
             <div key={index}>
               <div className="text-center">
-                <div className="relative rounded-xl transform hover:scale-105 transition duration-300 m-6 group">
+                <div className="relative rounded-xl w-60 transform hover:scale-105 m-6 transition duration-300  group">
                   <img
                     src={book.image}
                     alt="img"
-                    className="h-80 w-60 m-auto object-center rounded-xl"
+                    className="h-80 w-full m-auto object-center rounded-xl"
                     loading="lazy"
                   />
                   {/* زرارين يظهران عند hover */}
