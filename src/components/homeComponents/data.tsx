@@ -3,9 +3,6 @@ import cate2 from '../../assets/img/cate2.webp';
 import cate5 from '../../assets/img/cate5.webp';
 import history from '../../assets/img/history.webp';
 import sports from '../../assets/img/sports.webp';
-import bg1 from '../../assets/img/bg1.png';
-import bg3 from '../../assets/img/bg3.png';
-import bg2 from '../../assets/img/bg2.png';
 import latest1 from "../../assets/img/latest1.png"
 import latest2 from "../../assets/img/latest2.png"
 import latest3 from "../../assets/img/latest3.png"
@@ -70,7 +67,7 @@ export {data,Ldata}
 const data1 = [
     
     {
-        image:bg1,
+        image:"https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755798565/bg1_t76sat.png",
         name:'Sample Way',
        description:'Sample Way is a novel by the American novelist and screenwriter Patrick Swayze.'
 
@@ -78,14 +75,14 @@ const data1 = [
     
     
     {
-        image:bg2,
+        image:"https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755798622/bg2_hycdb5.png",
         name:'Great travel',
         description:'Great travel is a novel by the American novelist and screenwriter Patrick Swayze.'
 
     },
    
     {
-        image:bg3,
+        image:"https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755798631/bg3_qka5dm.png",
         name:'The lady beautiful',
         description:'The lady beautiful is a novel by the American novelist and screenwriter Patrick Swayze.'
 

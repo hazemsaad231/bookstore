@@ -42,6 +42,7 @@ function BookSlide() {
                     src={book.image}
                     alt="book"
                     className="rounded-lg h-96 w-72 m-auto object-center"
+                    loading="eager"
                   />
                 </div>
               </div>
