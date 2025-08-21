@@ -14,6 +14,8 @@ body{
 }
 
 .swiper-pagination-bullet-active {
-    opacity: var(--swiper-pagination-bullet-opacity, 1);
-    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+    background-color: #ff6347 !important;
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 50% !important;
 }
