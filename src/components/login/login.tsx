@@ -120,7 +120,7 @@ try{
       </div>
       </Box>
 
-      <div className='flex gap-10 text-sm mt-4'>
+      <div className='flex justify-between text-sm mt-4'>
 
 <div className='flex'>
  <input type="checkbox"  className='mt-1'/>
