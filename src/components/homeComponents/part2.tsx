@@ -60,7 +60,7 @@ import { data } from "./data";
 
 function Category() {
   return (
-    <div className="py-20">
+    <div className="py-14">
       <div className="m-4">
         <div className="flex gap-2">
           <GoArrowLeft size={25} color="#ff6347" />
