@@ -1,14 +1,3 @@
-import cate1 from '../../assets/img/cate1.webp'; 
-import cate2 from '../../assets/img/cate2.webp';
-import cate5 from '../../assets/img/cate5.webp';
-import history from '../../assets/img/history.webp';
-import sports from '../../assets/img/sports.webp';
-import latest1 from "../../assets/img/latest1.png"
-import latest2 from "../../assets/img/latest2.png"
-import latest3 from "../../assets/img/latest3.png"
-
-
-
 
 
 
@@ -17,24 +6,24 @@ import latest3 from "../../assets/img/latest3.png"
 const data = [
     
     {
-        img:cate1,
+        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853046/cate1_augj60.webp',
         title:'fiction'
     },
     
     {
-        img:cate2,
+        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853067/cate2_lisjzi.webp',
         title:'Educational'
     },
     {
-        img:history,
+        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853108/history_th3rgt.webp',
         title:'history'
     },
     {
-        img:cate5,
+        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853089/cate5_tuidch.webp',
         title:'Science'
     },
     {
-        img:sports,
+        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853126/sports_jby9lt.webp',
         title:'sports'
     },
 ]
@@ -45,17 +34,17 @@ const data = [
 const Ldata = [
     
     {
-        img:latest1,
+        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853307/latest1_nif9sf.png',
         date:'2 Aug,2022',
         description:'Reading Books Always Makes The Moments Happy'
     },
     {
-        img:latest2,
+        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853328/latest2_iht7s1.png',
         date:'5 Aug,2022',
         description:'Reading Books Always Makes The Moments Happy'
     },
     {
-        img:latest3,
+        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853339/latest3_onkgyb.png',
         date:'6 Aug,2022',
         description:'Reading Books Always Makes The Moments Happy'
     },
