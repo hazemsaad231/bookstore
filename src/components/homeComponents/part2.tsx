@@ -1,6 +1,6 @@
 import { GoArrowLeft } from "react-icons/go";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { data } from "./data";
@@ -23,7 +23,7 @@ function Category() {
       </div>
 
       <Swiper
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
         spaceBetween={10}
         loop
@@ -38,6 +38,11 @@ function Category() {
             slidesPerView: 4,
           },
         }}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          speed={500}
         className="py-4"
       >
         {data.map((item, index) => (

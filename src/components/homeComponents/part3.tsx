@@ -41,7 +41,7 @@ function New() {
   const islogin = localStorage.getItem("token");
 
   return (
-    <div className="py-12 m-4 bg-secondary" id="new">
+    <div className="py-12 bg-secondary" id="new">
       <ToastContainer />
       <div className="slider flex flex-col gap-4 justify-center items-center">
         <div className="text-center">

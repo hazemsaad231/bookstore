@@ -10,21 +10,16 @@ function BookSlide() {
 
   const islogin = localStorage.getItem("token");
   return (
-    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-12 md:py-16">
+    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-28 md:py-12">
       <div className="slider-container w-full">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Navigation, Pagination]}
           navigation={{
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
           pagination={{ clickable: true}}
           loop
-          autoplay={{
-            delay: 3500,
-            disableOnInteraction: false,
-          }}
-          speed={500}
           slidesPerView={1}
 
         >
@@ -49,7 +44,7 @@ function BookSlide() {
                 </div>
 
  {/* Image Section */}
-                <div className="relative rounded-xl transform transition-transform duration-300 md:hover:scale-105 group w-64 sm:w-72
+                <div className="relative rounded-xl transform transition-transform duration-300 md:hover:scale-105 group w-72
                 p-3 bg-white shadow-lg">
                   <img
                     src={book.image}
