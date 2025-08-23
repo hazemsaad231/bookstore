@@ -40,6 +40,9 @@ const Navbar = () => {
 
   const orderItems = useSelector((state: RootState) => state.counter.items);
 
+
+  const islogin = localStorage.getItem("token");
+
   console.log(orderItems)
 
  const navigate = useNavigate();
@@ -101,7 +104,12 @@ const handleClose = () => {
         </div>
       </div>
 
+
+{/* القائمة الرئيسية للشاشات الكبيرة */}
+
+{islogin ? (
       <div className="flex justify-between items-center w-full border-2 px-2 pt-1">
+
         <div>
           <h1 className="text-md sm:text-md md:text-lg lg:text-xl xl:text-xl font-semibold text-indigo-900">
             <span className="text-indigo-700">Welcome </span>
@@ -116,11 +124,14 @@ const handleClose = () => {
 
 
 
-{role === 'Customer' ? (
+
+
+  <div className="flex items-center justify-between gap-6">
+ {role === 'Customer' ? (
   <ul className="hidden sm:hidden md:hidden lg:flex xl:flex gap-x-4 p-1 text-lg cursor-pointer">
     <li><Link to="/home">HOME</Link></li>
     <li className="border-x-2 border-gray-300 px-4"><Link to="book">BOOKS</Link></li>
-    <li className=" px-2"><Link to={`/home/myOrders/${userId}`} >my orders</Link></li>
+    <li className=" px-2"><Link to={`myOrders/${userId}`} >my orders</Link></li>
   </ul>
 ) : (
   <ul className="hidden sm:hidden md:hidden lg:flex xl:flex gap-x-4 p-1 text-lg cursor-pointer">
@@ -128,12 +139,10 @@ const handleClose = () => {
     <li className= "border-x-2 border-gray-300 px-4 "><Link to="book">BOOKS</Link></li>
     <li className=" px-2"><Link to="addBook">Add book</Link></li>
   </ul>
-)}
-       
-
-
-
-        <ul className="flex gap-x-4 pl-6 cursor-pointer relative top-3 ">
+)} 
+ </div>
+ <div>
+ <ul className="flex gap-x-4 pl-6 cursor-pointer relative top-3 ">
           <li><Link to="profile"><FaUser size={24} className="text-indigo-800"/></Link></li>
           {role === 'Customer' ? <li className="px-4"><Link to="all"><BiClipboard size={24} className="text-indigo-800"/></Link>
           <span className="text-white relative bottom-10 left-3 bg-red-600 rounded-full p-1 text-sm">
@@ -151,17 +160,54 @@ const handleClose = () => {
             </li>}
           <li onClick={() => setOpen(true)}><CiLogin size={25} className="text-indigo-800"/></li>
         </ul>
-      </div>
+ </div>
+</div>
+) : (
+  <ul className="hidden sm:hidden md:hidden lg:flex xl:flex gap-x-4 text-lg cursor-pointer p-3 px-4 felx justify-end">
+    <li className="border-2 border-indigo-800 px-4 py-1 rounded-xl text-indigo-800 hover:scale-105 duration-500"><Link to="/login">Login</Link></li>
+    <li className="bg-indigo-800 px-4 py-1 rounded-xl text-white hover:bg-indigo-900
+    hover:scale-105 duration-500"><Link to="login/register">Register</Link></li>
+  </ul>
+)}
+       
+      
+
+
+
 
       {/* القائمة المنسدلة للشاشات الصغيرة */}
-      {isNavbarVisible && (
+
+{islogin ? (
+
+<div>
+       {isNavbarVisible && (
         <ul className="flex border-x-[8px] border-indigo-800 rounded-xl gap-8 p-4 text-lg text-indigo-800 bg-white/50 justify-center  shadow-md">
           <li><Link to="home" onClick={toggleNavbar}>HOME</Link></li>
-          <li className=""><Link to="book" onClick={toggleNavbar}>BOOKS</Link></li>
-          {role === 'Customer' ? <li className=""><Link to={`/home/myOrders/${userId}`} onClick={toggleNavbar}>my orders</Link></li>: <li><Link to={"addBook"} onClick={toggleNavbar}>Add book</Link></li>}
+          <li><Link to="book" onClick={toggleNavbar}>BOOKS</Link></li>
+          {role === 'Customer' ? <li><Link to={`myOrders/${userId}`} onClick={toggleNavbar}>my orders</Link></li>: <li><Link to={"addBook"} onClick={toggleNavbar}>Add book</Link></li>}
           
         </ul>
-      )}
+      )} 
+</div>
+      ) : (
+        isNavbarVisible && (
+          <ul className="flex border-x-[8px] border-indigo-800 rounded-xl gap-2 p-4 text-lg text-indigo-800 bg-white/50 justify-center shadow-md">
+            <li className="border-2 border-indigo-800 px-4 py-1 rounded-xl hover:scale-105 duration-500"><Link to="/login" onClick={toggleNavbar}>LOGIN</Link></li>
+            <li className="bg-indigo-800 px-4 py-1 rounded-xl text-white hover:bg-indigo-900 hover:scale-105 duration-500"><Link to="login/register" onClick={toggleNavbar}>REGISTER</Link></li>
+          </ul>
+        )
+      )
+}
+
+
+
+
+
+
+
+
+
+
 <ConfirmDialog
   open={open}
   title="Are you sure you want to logout?"

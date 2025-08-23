@@ -30,22 +30,20 @@ function App() {
   const queryClient = new QueryClient()
 
 const route = createBrowserRouter([
-  {path: '/',
+  {path: '/login',
   element: <Master />,
   errorElement:<div>error</div>,
   children:[
     {index:true,element:<Login/>},
-    {path: 'login', element: <Login/>},
-    {path: 'register', element: <Register/>},
-    {path: 'forgot', element: <Forgot/>},
-    {path: 'reset', element: <Reset/>},
-
-
+    {path:'login', element: <Login/>},
+    {path:'register', element: <Register/>},
+    {path:'forgot', element: <Forgot/>},
+    {path:'reset', element: <Reset/>},
   ]
   },
   {
-    path: '/home',
-    element: <PrivateRoute><Master1 /></PrivateRoute>,
+    path: '/',
+    element: <Master1 />,
     errorElement:<div>error</div>,
     children:[
       {index:true, element: <Home/>},

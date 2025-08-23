@@ -127,7 +127,7 @@ try{
  <span className='ml-2 text-indigo-800'>Remember me</span>
 </div>
 
-<div className='text-right text-indigo-800 cursor-pointer'onClick={()=>navigate("/Forgot")}>Forgot Password?</div>
+<div className='text-right text-indigo-800 cursor-pointer'onClick={()=>navigate("forgot")}>Forgot Password?</div>
 </div>
 
 <div className='flex flex-col gap-2'>
@@ -135,7 +135,7 @@ try{
  onClick={handleSubmit(onSubmit)}>{loading ? "Loading..." : "Login"}</button>
 
 <button className='border border-indigo-700 p-3 rounded-lg  mt-4 text-indigo-700 hover:bg-indigo-100'
- onClick={()=>navigate("/register")}>Register</button>
+ onClick={()=>navigate("register")}>Register</button>
 </div>
      
 

@@ -126,7 +126,7 @@ const Orders = () => {
                       <td className="p-4">{totalPrice.toFixed(2)}$</td>
                       <td className="p-4">
                         <button className="bg-primary px-2 py-1 text-white rounded-full hover:bg-red-700">
-                          <Link to={`/home/orderDetails/${order.id}`}>View</Link>
+                          <Link to={`/orderDetails/${order.id}`}>View</Link>
                         </button>
                       </td>
                       <td className="p-4"><button className="py-1" onClick={() => handleClickOpen(order.id)}><FaDeleteLeft size={20} className="text-primary hover:text-red-700"/></button></td>

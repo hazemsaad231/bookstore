@@ -35,6 +35,8 @@ function Feature() {
     getData();
   }, []);
 
+  const islogin = localStorage.getItem("token");
+
   return (
     <div className="flex flex-col items-center py-4">
       <div className="w-full mb-2">
@@ -48,7 +50,7 @@ function Feature() {
           pagination={{ clickable: true }}
           spaceBetween={20}
           slidesPerView={1}
-          loop
+  
         >
           {books.map((book: any, index: number) => (
             <SwiperSlide key={index}>
@@ -63,9 +65,11 @@ function Feature() {
                   <h1 className="text-indigo-500 text-lg font-bold">
                     ${book.price}
                   </h1>
+                  {islogin&&
                   <div className="border border-indigo-800 py-2 px-2 text-indigo-800 rounded-lg w-max hover:bg-indigo-100 text-sm sm:text-sm md:text-md lg:text-lg xl:text-lg">
                     <Link to="/home/book">View More</Link>
                   </div>
+                  }
                 </div>
 
                 <div className="relative inset-0 p-2 bg-white shadow-lg rounded-lg transform hover:scale-105 transition duration-300">
@@ -75,14 +79,13 @@ function Feature() {
                     className="rounded-xl m-auto h-80 w-60 object-center"
                     loading="lazy"
                   />
-
-                  {/* زرارين يظهران عند hover */}
-                  <div className="absolute inset-0 flex flex-col justify-center items-center gap-2 opacity-0 hover:opacity-100 duration-500">
+ {islogin&&(    
+                   <div className="absolute inset-0 flex flex-col justify-center items-center gap-2 opacity-0 hover:opacity-100 duration-500">
                     {role === "Customer" ? (
                       <div className="flex flex-col gap-2 justify-center items-center w-full">
                         <button className="bg-primary text-white w-full py-3">
                           <Link
-                            to={`/home/details/${book.id}`}
+                            to={`/details/${book.id}`}
                             className="text-white"
                           >
                             View Details
@@ -99,18 +102,20 @@ function Feature() {
                     ) : (
                       <button className="bg-primary text-white w-full py-2">
                         <Link
-                          to={`/home/addBook/${book.id}`}
+                          to={`/addBook/${book.id}`}
                           className="text-white"
                         >
                           Update
                         </Link>
                       </button>
                     )}
-                  </div>
+                  </div> 
+                   )} 
                 </div>
               </div>
             </SwiperSlide>
           ))}
+
         </Swiper>
       </div>
     </div>

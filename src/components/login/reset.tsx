@@ -31,9 +31,9 @@ try{
  
 
 
-}catch(error){
+}catch(error:any){
   console.log(error)
-  toast.error(`Error: "Failed to reset password. Please try again."}`);
+  toast.error(error.response.data.message || `Failed to reset password. Please try again` );
 }
   
 }
@@ -42,7 +42,7 @@ try{
     <ToastContainer limit={1}/>
 
 
-    <div className='flex h-screen  w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 justify-center items-center'>
+    <div className='flex h-screen  w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 justify-center items-center p-4'>
       <div> 
          
            <div>
@@ -72,7 +72,7 @@ try{
                 required:"email is required",
                  pattern:{
                   value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                  message:'email is valid'
+                  message:'email is not valid'
                 }
               })}
               error={!!errors.email}

@@ -36,10 +36,10 @@ const Books = () => {
   
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = (id: any) => {
+  const handleClickOpen = useCallback((id: any) => {
     setOpen(true);
     setSelectedDelete(id);
-  };
+  }, []);
 
   const handleClose = () => {
     setOpen(false);

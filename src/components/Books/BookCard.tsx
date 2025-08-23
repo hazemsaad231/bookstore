@@ -49,13 +49,13 @@ const BookCard: React.FC<BookCardProps> = ({ currentBooks,handleClickOpen }) => 
               
            { role === 'Customer' ?
            <button className=" bg-primary text-white w-full py-2">
-             <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>:
+             <Link to={`/details/${book.id}`} className="text-white">View Details</Link> </button>:
              <button className=" bg-indigo-600 text-white w-full py-2">
-             <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>
+             <Link to={`/details/${book.id}`} className="text-white">View Details</Link> </button>
              }
              { role === 'Admin' ?
               <button className="bg-primary text-white w-full py-2">
-             <Link to={`/home/addBook/${book.id}`} className="text-white">Update</Link></button>:null
+             <Link to={`/addBook/${book.id}`} className="text-white">Update</Link></button>:null
              }
 
            { role === 'Customer' ?

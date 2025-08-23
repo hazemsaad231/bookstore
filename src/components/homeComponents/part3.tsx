@@ -14,6 +14,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 function New() {
+
   const [books, setBooks] = useState<any>([]);
   const dispatch = useDispatch();
 
@@ -37,8 +38,10 @@ function New() {
     getData();
   }, []);
 
+  const islogin = localStorage.getItem("token");
+
   return (
-    <div className="py-16" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
+    <div className="py-16 m-4" style={{ backgroundColor: "rgb(250, 245, 239)" }}>
       <ToastContainer />
       <div className="slider flex flex-col gap-4 justify-center items-center">
         <div className="text-center">
@@ -69,7 +72,7 @@ function New() {
             breakpoints={{
               1536: { slidesPerView: 5 },
               1024: { slidesPerView: 4 },
-              768: { slidesPerView: 2 },
+              768: { slidesPerView: 3 },
               480: { slidesPerView: 1 },
             }}
           >
@@ -84,12 +87,15 @@ function New() {
                       loading="lazy"
                     />
                     {/* زرارين يظهران عند hover */}
+                    {islogin&&(
+                      
+                    
                     <div className="absolute inset-0 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       {role === "Customer" ? (
                         <div className="flex flex-col gap-2 justify-center items-center w-full">
                           <button className="bg-primary text-white w-full py-3">
                             <Link
-                              to={`/home/details/${book.id}`}
+                              to={`/details/${book.id}`}
                               className="text-white"
                             >
                               View Details
@@ -106,7 +112,7 @@ function New() {
                       ) : (
                         <button className="bg-primary text-white w-full py-2">
                           <Link
-                            to={`/home/addBook/${book.id}`}
+                            to={`/addBook/${book.id}`}
                             className="text-white"
                           >
                             Update
@@ -114,6 +120,7 @@ function New() {
                         </button>
                       )}
                     </div>
+                    )}
                   </div>
                   <h1 className="mt-4 text-lg font-semibold">{book.name}</h1>
                   <h1 className="text-gray-500">{book.author}</h1>
@@ -125,10 +132,12 @@ function New() {
             ))}
           </Swiper>
         </div>
-
+{islogin&&(
         <div className="cursor-pointer text-right p-1 rounded-lg mt-12 text-primary text-xl font-semibold hover:bg-gray-100 w-max transition duration-300 ease-in-out">
-          <Link to="/home/book">View All Books</Link>
+          <Link to="/book">View All Books</Link>
         </div>
+)}
+
       </div>
     </div>
   );

@@ -16,9 +16,10 @@ function BookSlide() {
             prevEl: ".swiper-button-prev",
           }}
           pagination={{ clickable: true}}
-          loop={true}
+          loop
           speed={500}
           slidesPerView={1}
+
         >
           {data1?.map((book: any, index: any) => (
             <SwiperSlide key={index}>

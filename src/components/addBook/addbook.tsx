@@ -49,7 +49,7 @@ const AddBook = () => {
                 const response = await axios.put(`${BOOKS_API}/${id}`, data);
                 console.log(response,'updated');
                 setTimeout(() => {
-                    navigate("/home/book")
+                    navigate("/book")
                 },2000)
                
                 toast("Update is successful");
@@ -57,7 +57,7 @@ const AddBook = () => {
                 const response = await axios.post(BOOKS_API, data);
                 console.log(response);
                 setTimeout(() => {
-                    navigate("/home/book")
+                    navigate("/book")
                 },2000)
                
                 toast("Add is successful");

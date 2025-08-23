@@ -23,7 +23,7 @@ try{
     console.log(response)
     toast("email sent successfully")
     setTimeout(() => {
-        navigate("/Reset")
+        navigate("/login/reset")
     }, 2000);
 
 }catch(error){

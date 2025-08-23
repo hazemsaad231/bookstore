@@ -43,7 +43,7 @@ const dispatch = useDispatch();
             <button className="bg-primary w-full py-1  rounded"><MdDelete size={30} color="white" className="cursor-pointer m-auto" onClick={() => handleDelete(book.id)} />
               </button>   
               <button className=" bg-indigo-600 text-white w-full py-2 rounded">
-               <Link to={`/home/details/${book.id}`} className="text-white">View Details</Link> </button>
+               <Link to={`/details/${book.id}`} className="text-white">View Details</Link> </button>
                </div>
                </div>
               
