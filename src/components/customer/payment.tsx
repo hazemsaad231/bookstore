@@ -106,7 +106,7 @@ const theme = createTheme({
 
           toast.success("successful order");
           setTimeout(() => {
-            navigate('/home/order', { state: { orderNumber} });
+            navigate('/order', { state: { orderNumber} });
           },2000)
          localStorage.setItem("orders", `${JSON.stringify(cartItems)}`);
           basket();

@@ -91,12 +91,12 @@ const orders = data?.data?.filter((order: any) => order.userId === id);
                   <table className="w-full border-collapse text-sm sm:text-base md:text-md lg:text-md xl:text-md">
                     <thead>
                       <tr>
-                        <th className="px-4">Order ID</th>
-                        <th className="px-3">Product Name</th>
-                        <th className="px-3">Quantity</th>
-                        <th className="px-3">Price</th>
-                        <th className="px-3">Total Price</th>
-<th><button className="m-2"><FaDeleteLeft size={20} onClick={() => handleClickOpen(order.id)} className="text-primary hover:text-red-600"/></button></th>
+                        <th className="px-6">Order ID</th>
+                        <th className="px-6">Book Name</th>
+                        <th className="px-4">Quantity</th>
+                        <th className="px-6">Price</th>
+                        <th className="px-6">Total Price</th>
+<th><button className="mx-4"><FaDeleteLeft size={20} onClick={() => handleClickOpen(order.id)} className="text-primary hover:text-red-600"/></button></th>
                       </tr>
                     </thead>
                     <tbody className="text-center">
