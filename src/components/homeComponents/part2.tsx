@@ -7,7 +7,7 @@ import { data } from "./data";
 
 function Category() {
   return (
-    <div className="py-14">
+    <div className="py-4">
 
       
       <div className="m-4">
@@ -16,7 +16,7 @@ function Category() {
           <h1 className="text-primary font-bold text-2xl">Categories</h1>
         </div>
         <div>
-          <h1 className="text-[1.8rem] sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-indigo-800">
+          <h1 className="text-[1.6rem] sm:text-2xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-indigo-900">
             Explore our Top Categories
           </h1>
         </div>

@@ -163,7 +163,7 @@ const handleClose = () => {
  </div>
 </div>
 ) : (
-  <ul className="hidden sm:hidden md:hidden lg:flex xl:flex gap-x-4 text-lg cursor-pointer p-3 px-4 felx justify-end">
+  <ul className="hidden sm:hidden md:hidden lg:flex xl:flex gap-x-4 text-lg cursor-pointer p-2 px-4 felx justify-end shadow-xl">
     <li className="border-2 border-indigo-800 px-4 py-1 rounded-xl text-indigo-800 hover:scale-105 duration-500"><Link to="/login">Login</Link></li>
     <li className="bg-indigo-800 px-4 py-1 rounded-xl text-white hover:bg-indigo-900
     hover:scale-105 duration-500"><Link to="login/register">Register</Link></li>
@@ -192,8 +192,8 @@ const handleClose = () => {
       ) : (
         isNavbarVisible && (
           <ul className="flex border-x-[8px] border-indigo-800 rounded-xl gap-2 p-4 text-lg text-indigo-800 bg-white/50 justify-center shadow-md">
-            <li className="border-2 border-indigo-800 px-4 py-1 rounded-xl hover:scale-105 duration-500"><Link to="/login" onClick={toggleNavbar}>LOGIN</Link></li>
-            <li className="bg-indigo-800 px-4 py-1 rounded-xl text-white hover:bg-indigo-900 hover:scale-105 duration-500"><Link to="login/register" onClick={toggleNavbar}>REGISTER</Link></li>
+            <li className="border-2 border-indigo-800 px-4 py-1 rounded-xl hover:scale-105 duration-500"><Link to="/login" onClick={toggleNavbar}>Login</Link></li>
+            <li className="bg-indigo-800 px-4 py-1 rounded-xl text-white hover:bg-indigo-900 hover:scale-105 duration-500"><Link to="login/register" onClick={toggleNavbar}>Register</Link></li>
           </ul>
         )
       )
