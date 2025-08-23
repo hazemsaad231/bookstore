@@ -1,6 +1,6 @@
 import { ToastContainer } from "react-toastify"
 import Silde from "./part1"
-import Category from "./part2"
+// import Category from "./part2"
 import New from "./part3"
 import Feature from "./part4"
 import Offer from "./part5"
@@ -18,7 +18,7 @@ const home = () => {
         <ToastContainer/>
         <div>
         <Silde/>
-        <Category/>
+        {/* <Category/> */}
         <New/>
         <Feature/>
         <Offer/>

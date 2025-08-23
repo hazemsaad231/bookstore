@@ -47,11 +47,11 @@ function Category() {
       >
         {data.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col w-[95%] m-auto">
+            <div className="flex flex-col p-4 m-auto">
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-80 rounded-xl"
+                className="h-80 w-full object-cover rounded-xl"
                 loading="lazy"
               />
               <h1 className="text-center text-indigo-600">{item.title}</h1>
