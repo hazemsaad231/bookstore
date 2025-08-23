@@ -9,8 +9,10 @@ import { Link } from "react-router-dom";
 function BookSlide() {
 
   const islogin = localStorage.getItem("token");
+
+
   return (
-    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-28 md:py-12">
+    <div className="flex justify-center bg-gradient-to-r from-[#FFE5E5] via-[#F5FFFE] to-[#FFFFFF] py-20 md:py-12">
       <div className="slider-container w-full">
         <Swiper
           modules={[Navigation, Pagination]}
@@ -45,7 +47,7 @@ function BookSlide() {
 
  {/* Image Section */}
                 <div className="relative rounded-xl transform transition-transform duration-300 md:hover:scale-105 group w-72
-                p-3 bg-white shadow-lg">
+                p-2 bg-white shadow-lg">
                   <img
                     src={book.image}
                     alt={book.name}
