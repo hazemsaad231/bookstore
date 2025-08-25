@@ -69,6 +69,7 @@ function New() {
             modules={[Pagination]}
             pagination={{ clickable: true }}
             spaceBetween={20}
+            loop
             breakpoints={{
               1536: { slidesPerView: 5 },
               1024: { slidesPerView: 4 },

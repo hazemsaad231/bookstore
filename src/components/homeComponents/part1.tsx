@@ -46,23 +46,13 @@ function BookSlide() {
                 </div>
 
  {/* Image Section */}
-                <div className="relative rounded-xl transform transition-transform duration-300 md:hover:scale-105 group w-72
-                p-2 bg-white shadow-lg">
-                  <img
-                    src={book.image}
-                    alt={book.name}
-                    className="rounded-lg h-auto w-full object-contain"
-                    loading="eager"
-                  />
-
-                  {/* Mobile Text Section */}
-                  <div className="md:hidden flex flex-col gap-3 justify-center items-center text-center mt-4">
-                    <h2 className="text-[1.375rem] sm:text-2xl font-semibold text-indigo-900">
+                <div className="relative transform transition-transform duration-300 md:hover:scale-105 group w-72
+                p-2 pt-7 bg-white shadow-xl rounded-xl hover:transform hover:translate-y-5">
+     {/* Mobile Text Section */}
+                  <div className="md:hidden flex flex-col gap-3 justify-center items-center text-center">
+                    <h2 className="text-2xl sm:text-2xl font-semibold text-indigo-900 pb-3">
                       {book.name}
                     </h2>
-                    <p className="text-indigo-800 text-sm sm:text-base">
-                      {book.description}
-                    </p>
                    {islogin && (
                   <button className="bg-indigo-700 text-white px-2 py-2 rounded-lg w-max  transition-colors hover:scale-105 duration-700">
                     <Link to={`/book`}>
@@ -71,6 +61,16 @@ function BookSlide() {
                   </button>
                   )}
                 </div>
+
+
+                  <img
+                    src={book.image}
+                    alt={book.name}
+                    className="rounded-xl h-auto w-full object-contain"
+                    loading="eager"
+                  />
+
+             
                 </div>
 
 

@@ -48,6 +48,7 @@ function Feature() {
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
+          loop
           spaceBetween={20}
           slidesPerView={1}
   

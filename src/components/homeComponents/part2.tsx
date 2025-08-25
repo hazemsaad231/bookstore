@@ -25,6 +25,7 @@ function Category() {
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}
+        loop
         spaceBetween={10}
         breakpoints={{
           640: {
