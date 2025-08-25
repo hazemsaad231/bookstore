@@ -5,31 +5,32 @@
 
 const data = [
     
-    {
-        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853046/cate1_augj60.webp',
-        title:'fiction'
-    },
+  
     
     {
-        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853067/cate2_lisjzi.webp',
-        title:'Educational'
+        img:'https://media.istockphoto.com/id/157482029/photo/stack-of-books.jpg?s=612x612&w=0&k=20&c=ZxSsWKNcVpEzrJ3_kxAUuhBCT3P_dfnmJ81JegPD8eE=',
+        title:'educational'
     },
     {
-        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853108/history_th3rgt.webp',
+        img:'https://cdn.pixabay.com/photo/2020/01/12/13/29/learn-4759967_1280.png',
         title:'history'
     },
     {
-        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853089/cate5_tuidch.webp',
-        title:'Science'
-    },
-    {
-        img:'https://res.cloudinary.com/dpqfbrbxj/image/upload/v1755853126/sports_jby9lt.webp',
+        img:'https://media.istockphoto.com/id/538651087/photo/open-book-with-green-grass-soccer-stadium.jpg?s=612x612&w=0&k=20&c=mS9at67QUX4oztmJvM_iR1Opu1tusP3ORIC5fqpC6uQ=',
         title:'sports'
     },
+    {
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWqBecSEcafaUDlLDVMYrFX9bzduN2gAxrzA&s',
+        title:'literature'
+    },
+    {
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHALqAvy-COHx-EGa0HwTGz2UW2iitBIatDw&s',
+        title:'kids'
+    }
+ 
+
+
 ]
-
-
-
 
 const Ldata = [
     

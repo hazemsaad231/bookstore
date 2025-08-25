@@ -26,7 +26,7 @@ function Category() {
         modules={[Pagination]}
         pagination={{ clickable: true }}
         loop
-        spaceBetween={10}
+        spaceBetween={2}
         breakpoints={{
           640: {
             slidesPerView: 2,
@@ -46,7 +46,7 @@ function Category() {
               <img
                 src={item.img}
                 alt={item.title}
-                className="h-80 w-full object-cover rounded-xl"
+                className="h-64 w-64 rounded-xl m-auto"
                 loading="lazy"
               />
               <h1 className="text-center text-indigo-600">{item.title}</h1>
