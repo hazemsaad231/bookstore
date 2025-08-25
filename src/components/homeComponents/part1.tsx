@@ -47,19 +47,12 @@ function BookSlide() {
 
  {/* Image Section */}
                 <div className="relative transform transition-transform duration-300 md:hover:scale-105 group w-72
-                p-2 pt-7 bg-white shadow-xl rounded-xl hover:transform hover:translate-y-5">
+                p-2 pt-4 bg-white shadow-xl rounded-xl hover:transform hover:translate-y-5">
      {/* Mobile Text Section */}
                   <div className="md:hidden flex flex-col gap-3 justify-center items-center text-center">
-                    <h2 className="text-2xl sm:text-2xl font-semibold text-indigo-900 pb-3">
+                    <h2 className="text-2xl sm:text-2xl font-semibold text-indigo-900 pb-2">
                       {book.name}
                     </h2>
-                   {islogin && (
-                  <button className="bg-indigo-700 text-white px-2 py-2 rounded-lg w-max  transition-colors hover:scale-105 duration-700">
-                    <Link to={`/book`}>
-                     view more
-                    </Link>
-                  </button>
-                  )}
                 </div>
 
 
