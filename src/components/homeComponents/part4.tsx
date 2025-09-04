@@ -68,7 +68,7 @@ function Feature() {
                   </h1>
                   {islogin&&
                   <div className="border border-indigo-800 py-2 px-2 text-indigo-800 rounded-lg w-max hover:bg-indigo-100 text-sm sm:text-sm md:text-md lg:text-lg xl:text-lg">
-                    <Link to="/home/book">View More</Link>
+                    <Link to="/book">View More</Link>
                   </div>
                   }
                 </div>
