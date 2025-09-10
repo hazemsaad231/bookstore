@@ -40,7 +40,7 @@ const BookCard: React.FC<BookCardProps> = ({ currentBooks,handleClickOpen }) => 
                     <img
                       src={book.image || 'default_image_url'} // إضافة صورة افتراضية إذا لم توجد صورة
                       alt={book.name}
-                      className="w-full h-60 mb-4 m-auto rounded-xl shadow-lg object-center"
+                      className="w-full h-60 mb-4 m-auto rounded-xl shadow-lg"
                       loading="lazy"
                     />
 
@@ -99,7 +99,7 @@ const BookCard: React.FC<BookCardProps> = ({ currentBooks,handleClickOpen }) => 
                    </div>
                    <div className="flex justify-between text-gray-600 text-sm">
                     <h4>Price</h4>
-                   <p>${book.price}</p>
+                   <p>EGP {book.price}</p>
                    </div>
                
                   

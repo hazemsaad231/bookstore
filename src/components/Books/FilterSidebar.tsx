@@ -45,7 +45,20 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
   setDisplayCount,
   booksLength
 }) => {
-  const categories = ["sports", "food", "self-help", "history","kids", "other"];
+
+const categories = [
+  "Religion",          // كتب دينية
+  "Literature",        // روايات وأدب
+  "Self-Help",         // تطوير الذات
+  "Science & Tech",    // علوم وتكنولوجيا
+  "History",           // تاريخ
+  "Children",          // أطفال
+  "Business",          // أعمال واقتصاد
+  "Cooking",           // طبخ
+  "Sports",             // رياضة
+  "Romance",           // رومانس
+  "Other"              // أخرى
+];
 
 
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);

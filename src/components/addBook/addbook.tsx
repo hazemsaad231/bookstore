@@ -84,33 +84,45 @@ const AddBook = () => {
              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 xl:gap-10 place-items-center m-auto">
                  <div className="flex flex-col">
                     <label htmlFor="">Name</label>
-                     <input type="text" placeholder="Enter name" className="border w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("name", { required: true })} />
+                     <input type="text" placeholder="Enter name" className="border w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-4 shadow" {...register("name", { required: true })} />
                      {errors.name && <span className="text-red-500">Name is required</span>}
                 </div>
                 <div className="flex flex-col mt-2">
                      <label htmlFor="">Description</label>
-                     <input type="text" placeholder="Enter description" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("description", { required: true })} />
+                     <input type="text" placeholder="Enter description" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-4 shadow" {...register("description", { required: true })} />
                     {errors.description && <span className="text-red-500">Description is required</span>}
                 </div>
                  <div className="flex flex-col mt-2">
                      <label htmlFor="">Author</label>
-                     <input type="text" placeholder="Enter author" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("author", { required: true })} />
+                     <input type="text" placeholder="Enter author" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-4 shadow" {...register("author", { required: true })} />
                      {errors.author && <span className="text-red-500">Author is required</span>}
                 </div>
 
                  <div className="flex flex-col mt-2">
                      <label htmlFor="">Price</label>
-                    <input type="text" placeholder="Enter price" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("price", { required: true })} />
+                    <input type="text" placeholder="Enter price" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-4 shadow" {...register("price", { required: true })} />
                     {errors.price && <span className="text-red-500">Price is required</span>}
                  </div>
-                 <div className="flex flex-col mt-2">
+                      <div className="flex flex-col mt-2">
                     <label htmlFor="">Category</label>
-                     <input type="text" placeholder="Enter category" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("category", { required: true })} />
-                   {errors.category && <span className="text-red-500">Category is required</span>}
+                     <input list="categories" id="browser" autoComplete="off" placeholder="Enter category" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-4 shadow" {...register("category", { required: true })} />
+                     {errors.category && <span className="text-red-500">Category is required</span>}
+                     <datalist id="categories">
+  <option value="Religion"/>
+  <option value="Literature"/>
+  <option value="Self-Help"/>
+  <option value="History"/>
+  <option value="Children"/>
+  <option value="Business"/>
+  <option value="Cooking"/>
+  <option value="Sports"/>
+  <option value="ٌRomance"/>
+  <option value="ٌOther"/>
+</datalist>
                 </div>
                 <div className="flex flex-col mt-2">
                     <label htmlFor="">Image</label>
-                    <input type="text" className="border w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("image", { required: true,pattern:{
+                    <input type="text" className="border w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-4 shadow" {...register("image", { required: true,pattern:{
                           value:/(\.(jpg|jpeg|png|gif|bmp|webp|svg)$)|(^https?:\/\/[^\s]+)$/i,
                        message: 'Only JPG, JPEG, and PNG files are allowed',
                     } })} placeholder="Enter image" />
@@ -119,7 +131,7 @@ const AddBook = () => {
 
                 <div className="flex flex-col mt-2">
                     <label htmlFor="">featured book </label>
-                     <input list="browsers" id="browser" placeholder="Enter featured" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("featured", { required: false })} />
+                     <input list="browsers" id="browser" autoComplete="off" placeholder="Enter featured" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-4 shadow" {...register("featured", { required: false })} />
                      <datalist id="browsers">
   <option value="true"/>
   <option value="false"/>
@@ -127,7 +139,7 @@ const AddBook = () => {
                 </div>
                 <div className="flex flex-col mt-2">
                     <label htmlFor="">new Realease book</label>
-                     <input list="browsers" id="browser" placeholder="Enter new realease" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("new", { required: false })} />
+                     <input list="browsers" id="browser" autoComplete="off" placeholder="Enter new realease" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-4 shadow" {...register("new", { required: false })} />
                      <datalist id="browsers">
   <option value="true"/>
   <option value="false"/>

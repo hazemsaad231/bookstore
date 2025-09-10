@@ -126,18 +126,13 @@ function New() {
                   <h1 className="mt-4 text-lg font-semibold">{book.name}</h1>
                   <h1 className="text-gray-500">{book.author}</h1>
                   <h1 className="text-indigo-800 font-bold mb-4">
-                    ${book.price}
+                    EGP {book.price}
                   </h1>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-{islogin&&(
-        <div className="cursor-pointer text-right p-1 rounded-lg mt-12 text-primary text-xl font-semibold hover:bg-gray-100 w-max transition duration-300 ease-in-out">
-          <Link to="/book">View All Books</Link>
-        </div>
-)}
 
       </div>
     </div>

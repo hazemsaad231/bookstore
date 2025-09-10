@@ -40,9 +40,17 @@ function Feature() {
   return (
     <div className="flex flex-col items-center py-4">
       <div className="w-full mb-2">
-        <h1 className="border-b-2 border-l-2 rounded-full border-indigo-900 w-max m-auto px-5 text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-indigo-900 mb-4 text-center">
+        {/* <h1 className=" w-max m-auto px-5 text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-indigo-900 mb-4 text-center">
           Featured Books
-        </h1>
+        </h1> */}
+<div className="flex items-center justify-center mb-6 gap-4">
+  <hr className="hidden md:block w-24 border-t-4 border-orange-500" />
+  <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-extrabold text-indigo-900 text-center px-4">
+    Featured Books
+  </h1>
+  <hr className="hidden md:block w-24 border-t-8 border-orange-500" />
+</div>
+
 
         {/* Swiper بدل Slider */}
         <Swiper
@@ -64,7 +72,7 @@ function Feature() {
                     {book.author}
                   </h1>
                   <h1 className="text-indigo-500 text-lg font-bold">
-                    ${book.price}
+                    EGP {book.price}
                   </h1>
                   {islogin&&
                   <div className="border border-indigo-800 py-2 px-2 text-indigo-800 rounded-lg w-max hover:bg-indigo-100 text-sm sm:text-sm md:text-md lg:text-lg xl:text-lg">

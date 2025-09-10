@@ -15,8 +15,8 @@ body{
 
 .swiper-pagination-bullet-active {
     background-color: #ff6347 !important;
-    width: 15px !important;
-    height: 15px !important;
-    border-radius: 50% !important;
+    width: 25px !important;
+    height: 10px !important;
+    border-radius: 20% !important;
     margin: 3px !important;
 }

@@ -1,13 +1,10 @@
 
 
-
-
-
 const data = [
     
-  
     
     {
+
         img:'https://media.istockphoto.com/id/157482029/photo/stack-of-books.jpg?s=612x612&w=0&k=20&c=ZxSsWKNcVpEzrJ3_kxAUuhBCT3P_dfnmJ81JegPD8eE=',
         title:'educational'
     },
@@ -24,11 +21,9 @@ const data = [
         title:'literature'
     },
     {
-        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHALqAvy-COHx-EGa0HwTGz2UW2iitBIatDw&s',
+        img:'https://media.istockphoto.com/id/185226826/photo/book-isolated.jpg?s=612x612&w=0&k=20&c=jWLgsVvrJMaS0Q-V0QiWi4j3Uz7FU_QMUXHu3_myXtQ=',
         title:'kids'
     }
- 
-
 
 ]
 
