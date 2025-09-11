@@ -60,7 +60,7 @@ const role = localStorage.getItem("role");
 
       <h1 className="text-4xl font-bold">{book?.name}</h1>
       <h2 className="text-xl text-gray-600">by {book?.author}</h2>
-      <h2 className=" font-bold text-2xl">price {book?.price}$</h2>
+      <h2 className=" font-bold text-2xl">price {book?.price} EGP</h2>
       <hr className="w-full h-2 bg-slate-600"/>
       <h2 className="text-md w-full text-gray-600">{book?.description}</h2>
    {role !== "Admin" ?
