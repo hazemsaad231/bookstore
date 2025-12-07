@@ -135,7 +135,9 @@ const role = localStorage.getItem("role");
     console.log(data?.data)
     const book = data?.data;
 
+const discount = 0.60 * book?.price 
 
+console.log(discount)
 
 
   return (
@@ -177,9 +179,9 @@ const role = localStorage.getItem("role");
                 </div>
 
                 <div className="flex items-baseline gap-4 pb-6 border-b border-slate-200">
-                  <span className="text-4xl font-bold text-slate-900">{book?.price}</span>
-                  <span className="text-lg text-slate-400 line-through">$45.00</span>
-                  <span className="text-green-600 font-medium bg-green-50 px-2 py-1 rounded">-20%</span>
+                  <span className="text-4xl font-bold text-slate-900">{discount}</span>
+                  <span className="text-lg text-slate-400 line-through">{book?.price}</span>
+                  <span className="text-green-600 font-medium bg-green-50 px-2 py-1 rounded">-40%</span>
                 </div>
 
                 <div className="prose prose-slate max-w-none">

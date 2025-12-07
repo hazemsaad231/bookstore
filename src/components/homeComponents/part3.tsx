@@ -227,7 +227,6 @@ function New() {
               1024: { slidesPerView: 4, spaceBetween: 24 },
               1280: { slidesPerView: 5, spaceBetween: 28 },
             }}
-            className="!pb-16"
           >
             {books.map((book: any, index: number) => (
               <SwiperSlide key={index} className="pt-4 pb-4">
