@@ -93,7 +93,7 @@ import { motion } from "framer-motion";
 
 function BookSlide() {
   // Mock login state for demonstration
-  const islogin = true; 
+  const islogin = localStorage.getItem("token"); 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f8f9fa] overflow-hidden relative">
@@ -153,14 +153,14 @@ function BookSlide() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
-                          {islogin && (
+                          {islogin ? (
                             <Link to={`/book`}>
                               <button className="group bg-indigo-600 hover:bg-indigo-800 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 flex items-center gap-3 shadow-lg shadow-indigo-900/20 hover:shadow-indigo-700/30 hover:-translate-y-1 cursor-pointer">
                                 View More
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                               </button>
                             </Link>
-                          )}
+                          ):null}
                           <span className="text-2xl font-serif font-bold text-indigo-600 ml-4">{book.price}</span>
                         </div>
                       </motion.div>

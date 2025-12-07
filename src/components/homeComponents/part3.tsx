@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/counter";
 import { ToastContainer } from "react-toastify";
 import { BOOKS_API } from "../Api/api";
-
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
