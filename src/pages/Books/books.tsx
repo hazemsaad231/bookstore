@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useCallback, useState } from "react";
-import { Pagination,} from "@mui/material";
+import { Pagination} from "@mui/material";
 import { useQuery } from "react-query";
 import { BOOKS_API } from "@/Api/api";
 import { useSelector } from "react-redux";
 import { Book } from "@mui/icons-material";
-import ConfirmDialog from "@/ui/ConfirmDialog";
+// import ConfirmDialog from "@/ui/ConfirmDialog";
 import BookCard from "@/pages/Books/BookCard";
 import FilterSidebar from "@/pages/Books/FilterSidebar";
 import { success} from '@/ui/toasts';  
@@ -36,6 +36,8 @@ const Books = () => {
   
   const [open, setOpen] = useState(false);
 
+  console.log(open);
+
   const handleClickOpen = useCallback((id: any) => {
     setOpen(true);
     setSelectedDelete(id);
@@ -58,6 +60,7 @@ const Books = () => {
     }
   }, [selectedDelete]);
 
+  console.log(handleDelete);
 
 
   const getBooks = async () => {
@@ -146,7 +149,7 @@ console.log(favoriteItems)
           </div>
 
   
-
+{/* 
 <ConfirmDialog
   open={open}
   title="Are you sure delete this book?"
@@ -160,7 +163,7 @@ console.log(favoriteItems)
       borderRadius: "12px", 
     },
   }}
-/>
+/> */}
 
 
 
