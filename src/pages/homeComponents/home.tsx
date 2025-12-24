@@ -1,10 +1,10 @@
-import HeroSilde from "@/pages/homeComponents/hero"
-import Category from "@/pages/homeComponents/categories"
-import New from "@/pages/homeComponents/new"
-import Feature from "@/pages/homeComponents/Featured"
-import Offer from "@/pages/homeComponents/timer"
-import Subscribe from "@/pages/homeComponents/email"
-import Latest from "@/pages/homeComponents/articles"
+import HeroSilde from "./hero"
+import Category from "./categories"
+import New from "./new"
+import Feature from "./Featured"
+import Offer from "./timer"
+import Subscribe from "./email"
+import Latest from "./articles"
 
 const home = () => {
 

@@ -5,17 +5,17 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { FaUser } from "react-icons/fa";
 import { BiClipboard } from "react-icons/bi";
-import logo from '@/assets/img/logo.png'
+import logo from '../../assets/img/logo.png'
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { RootState } from "../../redux/store";
 import { ReactNode, useEffect, useState } from "react";
-import { setUserData } from "@/redux/counter";
+import { setUserData } from "../../redux/counter";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { CiLogin } from 'react-icons/ci'
 import { VscListFlat } from "react-icons/vsc";
 import { CiCircleRemove } from "react-icons/ci";
-import ConfirmDialog from "@/ui/ConfirmDialog";
+import ConfirmDialog from "../../ui/ConfirmDialog";
 
 
 

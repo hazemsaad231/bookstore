@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import  cartId  from '@/redux/counter' 
+import  cartId  from './counter' 
 
 export const store = configureStore({
   reducer: {

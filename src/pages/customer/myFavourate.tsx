@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { RootState } from "../../redux/store";
 import { MdDelete } from "react-icons/md";
-import { DeleteFromFavorite } from "@/redux/counter";
+import { DeleteFromFavorite } from "../../redux/counter";
 import { Link } from "react-router-dom";
 
 

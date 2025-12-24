@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Login_api, Register_api, Forgot_api, Reset_api } from '@/Api/api';
-import { success, Error as toastError } from '@/ui/toasts';
+import { Login_api, Register_api, Forgot_api, Reset_api } from '../Api/api';
+import { success, Error as toastError } from '../ui/toasts';
 
 export const useAuth = () => {
   const [loading, setLoading] = useState(false);

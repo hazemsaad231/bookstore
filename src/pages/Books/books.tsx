@@ -2,14 +2,16 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import { Pagination} from "@mui/material";
 import { useQuery } from "react-query";
-import { BOOKS_API } from "@/Api/api";
+import { BOOKS_API } from '../../Api/api';
 import { useSelector } from "react-redux";
 import { Book } from "@mui/icons-material";
-// import ConfirmDialog from "@/ui/ConfirmDialog";
-import BookCard from "@/pages/Books/BookCard";
-import FilterSidebar from "@/pages/Books/FilterSidebar";
-import { success} from '@/ui/toasts';  
-import Load from "@/ui/load";
+import BookCard from './BookCard';
+import FilterSidebar from './FilterSidebar';
+import { success } from '../../ui/toasts';
+import Load from '../../ui/load';
+import ConfirmDialog from '../../ui/ConfirmDialog';
+
+
 
 
 
@@ -36,7 +38,6 @@ const Books = () => {
   
   const [open, setOpen] = useState(false);
 
-  console.log(open);
 
   const handleClickOpen = useCallback((id: any) => {
     setOpen(true);
@@ -60,7 +61,7 @@ const Books = () => {
     }
   }, [selectedDelete]);
 
-  console.log(handleDelete);
+
 
 
   const getBooks = async () => {
@@ -106,7 +107,7 @@ const search = filteredBooks ;
   const favoriteItems = useSelector((state: any) => state.counter.favoriteItems);
 
  
-console.log(favoriteItems)
+  console.log(favoriteItems);
 
 
   return (
@@ -133,14 +134,13 @@ console.log(favoriteItems)
             booksLength={books?.length || 0}
           />
 
-        <div className="w-full flex flex-col gap-6 p-6">
-
-          <BookCard currentBooks={currentBooks} handleClickOpen={handleClickOpen} />
+  <div className="w-full flex flex-col gap-6 p-6">
+<BookCard currentBooks={currentBooks} handleClickOpen={handleClickOpen} />
 <div>
 <Pagination
-    page={current}
-    onChange={(_, value) => setCurrent(value)}
-    count={totalPages}
+  page={current}
+  onChange={(_, value) => setCurrent(value)}
+  count={totalPages}
 
   />
 </div>
@@ -149,7 +149,7 @@ console.log(favoriteItems)
           </div>
 
   
-{/* 
+
 <ConfirmDialog
   open={open}
   title="Are you sure delete this book?"
@@ -163,7 +163,7 @@ console.log(favoriteItems)
       borderRadius: "12px", 
     },
   }}
-/> */}
+/>
 
 
 

@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/redux/counter";
-import { BOOKS_API } from "@/Api/api";
+import { addToCart } from "../../redux/counter";
+import { BOOKS_API } from "../../Api/api";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";

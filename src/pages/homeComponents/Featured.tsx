@@ -1,11 +1,11 @@
 // export default Feature;
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BOOKS_API } from "@/Api/api";
+import { BOOKS_API } from '../../Api/api';
 import { FaShoppingCart, FaEye, FaBookOpen } from "react-icons/fa";
 // Mocking Redux for the UI demo
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/redux/counter";
+import { addToCart } from '../../redux/counter';
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";

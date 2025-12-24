@@ -1,7 +1,7 @@
 import { MdFavoriteBorder } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, addToFavorite } from "@/redux/counter";
+import { addToCart, addToFavorite } from '../../redux/counter';
 import React from "react";
 import { FaShoppingCart, FaEye, FaBookOpen } from "react-icons/fa";
 

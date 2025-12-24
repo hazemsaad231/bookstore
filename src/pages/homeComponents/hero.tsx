@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import data from "@/pages/homeComponents/data";
+import data from "../../pages/homeComponents/data";
 // import { Link } from "wouter";
 import { Link } from "react-router-dom";
 

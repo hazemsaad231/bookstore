@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import Load from '@/ui/load';
+import Load from '../../ui/load';
 import axios from 'axios';
-import { Orders_API } from '@/Api/api';
+import { Orders_API } from '../../Api/api';
 import { Package, User, DollarSign, MapPin, Phone, Globe } from 'lucide-react';
 
 

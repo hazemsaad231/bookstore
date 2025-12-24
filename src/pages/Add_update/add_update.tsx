@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { BOOKS_API } from "@/Api/api";
-import { success , Error } from '@/ui/toasts';  
+import { BOOKS_API } from '../../Api/api';
+import { success , Error } from '../../ui/toasts';  
 
 // Icon components
 const BookIcon = () => (

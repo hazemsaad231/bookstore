@@ -3,11 +3,11 @@ import { CardElement, AddressElement, useStripe, useElements } from '@stripe/rea
 import { Box, Button, Typography, Grid, createTheme , ThemeProvider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '@/redux/store';
-import { resetCart } from '@/redux/counter';
+import { RootState } from '../../redux/store';
+import { resetCart } from '../../redux/counter';
 import axios from 'axios';
-import { Orders_API } from '@/Api/api';
-import { success , Error } from '@/ui/toasts';  
+import { Orders_API } from '../../Api/api';
+import { success , Error } from '../../ui/toasts';  
 
 
 function Payment() {

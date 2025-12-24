@@ -1,5 +1,5 @@
-import Cart from "@/pages/customer/myCart"
-import Payment from "@/pages/customer/payment"
+import Cart from "../../pages/customer/myCart"
+import Payment from "../../pages/customer/payment"
 
 const All = () => {
   return (

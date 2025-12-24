@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/redux/counter";
+import { addToCart } from '../../redux/counter';
 import { useQuery } from "react-query";
-import { BOOKS_API } from "@/Api/api";
+import { BOOKS_API } from '../../Api/api';
 import { ShoppingBag, Star } from "lucide-react";
-import Load from "@/ui/load";
+import Load from '../../ui/load';
 
 
 

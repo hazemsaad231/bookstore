@@ -1,19 +1,19 @@
 import { useDispatch } from "react-redux";
-import { updateOrder } from "@/redux/counter";
+import { updateOrder } from '../../redux/counter';
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
-import Load from "@/ui/load";
+import Load from '../../ui/load';
 import { FaEnvelope, FaUser, FaCalendarAlt, FaDollarSign, FaShoppingCart } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { useState } from "react";
 import axios from "axios";
-import { Orders_API } from "@/Api/api";
-import ConfirmDialog from "@/ui/ConfirmDialog";
+import { Orders_API } from '../../Api/api';
+import ConfirmDialog from '../../ui/ConfirmDialog';
 import InboxIcon from "@mui/icons-material/Inbox";
 import { Box, Typography } from "@mui/material";
-import { Card, CardContent, CardHeader, CardTitle } from "@/ui/card";
-import { Button } from "@/ui/button";
-import { success } from '@/ui/toasts';  
+import { Card, CardContent, CardHeader, CardTitle } from '../../ui/card';
+import { Button } from '../../ui/button';
+import { success } from '../../ui/toasts';  
 
 
 interface Order {

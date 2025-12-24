@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import Load from "@/ui/load";
+import Load from "../../ui/load";
 import { useState } from "react";
 import { FaDeleteLeft, FaBook} from "react-icons/fa6";
 import axios from "axios";
-import { Orders_API } from "@/Api/api";
-import ConfirmDialog from "@/ui/ConfirmDialog";
+import { Orders_API } from "../../Api/api";
+import ConfirmDialog from "../../ui/ConfirmDialog";
 import { FaShoppingCart } from "react-icons/fa";
-import { success} from '@/ui/toasts';  
+import { success} from '../../ui/toasts';  
 
 
 const MyOrders = () => {

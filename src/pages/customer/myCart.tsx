@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/redux/store";
-import { decreaseCart, increaseCart, removeFromCart } from "@/redux/counter";
+import { RootState } from "../../redux/store";
+import { decreaseCart, increaseCart, removeFromCart } from "../../redux/counter";
 
 const Cart = () => {
   const cart = useSelector((state: RootState) => state.counter)
