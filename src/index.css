@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: 'sans-serif' !important;
+}
+
+
+.swiper-pagination {
+    position: relative;
+    text-align: center;
+   margin-top: 50px;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #ff6347 !important;
+    width: 25px !important;
+    height: 10px !important;
+    border-radius: 20% !important;
+    margin: 3px !important;
+}
