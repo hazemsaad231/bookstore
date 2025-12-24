@@ -1,9 +1,0 @@
-const API_BASE = "https://6921cacb512fb4140be15d0b.mockapi.io";
-const API_AUTH = "https://upskilling-egypt.com:3007/api/auth";
-export const BOOKS_API = `${API_BASE}/books`;
-export const Orders_API = `${API_BASE}/orders`;
-export const Reviews_API = `${API_BASE}/reviews`;
-export const Login_api = `${API_AUTH}/login`;
-export const Register_api = `${API_AUTH}/register`;
-export const Reset_api = `${API_AUTH}/reset-password`;
-export const Forgot_api = `${API_AUTH}/forgot-password`;
