@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { updateOrder } from "@/redux/counter";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
-import Load from "@/ui/load.tsx";
+import Load from "@/ui/load";
 import { FaEnvelope, FaUser, FaCalendarAlt, FaDollarSign, FaShoppingCart } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { useState } from "react";

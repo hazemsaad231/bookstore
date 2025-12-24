@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import Load from "@/ui/load.tsx";
+import Load from "@/ui/load";
 import { useState } from "react";
 import { FaDeleteLeft, FaBook} from "react-icons/fa6";
 import axios from "axios";
