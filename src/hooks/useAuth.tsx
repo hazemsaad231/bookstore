@@ -54,7 +54,8 @@ export const useAuth = () => {
     setLoading(true);
     try {
       await axios.post(Forgot_api, { email });
-      success("تم إرسال رابط استعادة كلمة المرور لبريدك الإلكتروني");
+      success("تم إرسال رابط استعادة كلمة المرور");
+      navigate("/login/reset");
     } catch (error) {
       handleError(error);
     } finally {

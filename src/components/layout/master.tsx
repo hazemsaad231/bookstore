@@ -4,9 +4,9 @@ import Image from "../../pages/Auth/image"
 
 const Master = () => {
     return (
-        <div className="flex ">
+        <div className="flex">
         <Image/>
-          <Outlet/>
+        <Outlet/>
         </div>
     )
 }

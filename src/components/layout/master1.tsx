@@ -5,9 +5,9 @@ import Footer from "../../components/footer/footer"
 const Master1 = () => {
     return (
         <div>
-            <Navbar/>
-          <Outlet/>
-          <Footer/>
+        <Navbar/>
+        <Outlet/>
+        <Footer/>
         </div>
     )
 }
