@@ -8,6 +8,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function Category() {
+
+  const islogin = localStorage.getItem("token");
+
   return (
     <div className="py-8 md:py-12 relative overflow-hidden">
       {/* Background Elements */}
@@ -37,6 +40,7 @@ function Category() {
             </motion.h1>
           </div>
           
+          {islogin && 
           <motion.button 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -46,6 +50,7 @@ function Category() {
             <Link to="/book">View All Categories</Link>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </motion.button>
+          }
         </div>
 
         <Swiper

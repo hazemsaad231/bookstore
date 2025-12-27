@@ -16,7 +16,7 @@ import { VscListFlat } from "react-icons/vsc";
 // Internal Imports
 import logo from '../../assets/img/logo.png';
 import { RootState } from "../../redux/store";
-import { setUserData } from "../../redux/counter";
+import { setUserData, logout } from "../../redux/counter";
 import ConfirmDialog from "../../ui/ConfirmDialog";
 
 const Navbar = () => {
@@ -52,7 +52,11 @@ const Navbar = () => {
 
   const toggleNavbar = () => setNavbarVisible(!isNavbarVisible);
   const handleLogout = () => {
-    localStorage.clear();
+    // remove only auth keys so cart/favorites remain in localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('data');
+    dispatch(logout());
     navigate("/login");
   };
 

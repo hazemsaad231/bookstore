@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { MdDelete } from "react-icons/md";
-import { DeleteFromFavorite } from "../../redux/counter";
+import { deleteFromFavorite } from "../../redux/counter";
 import { Link } from "react-router-dom";
 
 
@@ -10,7 +10,7 @@ const MyFavourate = () => {
   const dispatch = useDispatch();
 
   const handleDelete = (id: number) => {
-    dispatch(DeleteFromFavorite({ id }));
+    dispatch(deleteFromFavorite({ id }));
   };
 
   return (
