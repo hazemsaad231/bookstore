@@ -3,15 +3,17 @@ import TextField from '@mui/material/TextField';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { IoLogoStencil } from "react-icons/io5";
-import { Tooltip } from '@mui/material';
+import { Tooltip, InputAdornment, IconButton } from '@mui/material';
 import { useAuth } from '../../hooks/useAuth';
+import { useState } from 'react';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 
 
 
 export default function Login() {
 
-
+  const [showPassword, setShowPassword] = useState(false);
 
 
 const {register,handleSubmit,formState:{errors}}=useForm<{email:string,password:string}>() 
@@ -74,7 +76,7 @@ const navigate = useNavigate()
         <TextField
           id="outlined-basic"
           label="Password"
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           variant="outlined"
           {...register("password", {
             required: "Password is required",
@@ -85,6 +87,20 @@ const navigate = useNavigate()
           })}
           error={!!errors.password}
           fullWidth
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={() => setShowPassword(!showPassword)}
+                  onMouseDown={(e) => e.preventDefault()}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
       </Tooltip>
       

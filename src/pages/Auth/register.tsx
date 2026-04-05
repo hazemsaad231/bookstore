@@ -3,14 +3,16 @@ import TextField from '@mui/material/TextField';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { IoLogoStencil } from "react-icons/io5";
-import { Autocomplete, Tooltip } from '@mui/material';
+import { Autocomplete, Tooltip, InputAdornment, IconButton } from '@mui/material';
 import { useAuth } from '../../hooks/useAuth';
+import { useState } from 'react';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 
 const options = ["Customer", "Admin"]
 export default function Register() {
 
-
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate()
 
 
@@ -83,12 +85,26 @@ const onSubmit=async(data:any)=>{
       <TextField
         id="outlined-basic"
         label="Password"
-        type="password"
+        type={showPassword ? 'text' : 'password'}
         variant="outlined"
         {...register("password",{
           required:'password is required',
         })}
         error={!!errors.password}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={() => setShowPassword(!showPassword)}
+                onMouseDown={(e) => e.preventDefault()}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
       />
       </Tooltip>
       

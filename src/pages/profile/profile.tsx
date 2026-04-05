@@ -37,7 +37,7 @@ const Profile = () => {
 
           <div className="flex justify-between text-gray-700">
             <span className="font-medium">Shipping Addresses :</span>
-            <span>{userData?.shipping_addresses.length > 0 ? `${userData.shipping_addresses.length} address(es)` : 'No addresses'}</span>
+            <span>{userData?.shipping_addresses?.length > 0 ? `${userData.shipping_addresses.length} address(es)` : 'No addresses'}</span>
           </div>
         </div>
 
