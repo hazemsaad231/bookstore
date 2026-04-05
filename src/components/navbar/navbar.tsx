@@ -35,9 +35,7 @@ const Navbar = () => {
   
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
-  const userDataString = localStorage.getItem("data");
-  const user = userDataString ? JSON.parse(userDataString) : null;
-  const userId = user?._id;
+  const userId = counterState.userData?._id || localStorage.getItem("id");
 
   useEffect(() => {
     dispatch(setUserData());

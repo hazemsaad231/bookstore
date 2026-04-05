@@ -4,7 +4,12 @@ export const cartService = {
   // جلب بيانات المستخدم
   getUserFromStorage: () => {
     const data = localStorage.getItem('data');
-    return data ? JSON.parse(data) : null;
+    const id = localStorage.getItem('id'); // جلب ال id اللي حفظناه في useAuth
+    if (data && id) {
+      const parsedData = JSON.parse(data);
+      return { ...parsedData, _id: id }; // دمج الـ _id مع بيانات المستخدم
+    }
+    return null;
   },
 
   // حفظ العناصر (سواء سلة أو مفضلات)

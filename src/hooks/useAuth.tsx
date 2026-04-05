@@ -120,6 +120,7 @@ export const useAuth = () => {
       localStorage.setItem("token", session.access_token);
       localStorage.setItem("role", user.user_metadata.role || "Customer");
       localStorage.setItem("data", JSON.stringify(user.user_metadata));
+      localStorage.setItem("id", user.id);
 
       success("تم تسجيل الدخول بنجاح");
       setTimeout(() => navigate("/home"), 2000);
