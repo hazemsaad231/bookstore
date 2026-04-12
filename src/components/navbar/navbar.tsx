@@ -7,7 +7,6 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { FaUser } from "react-icons/fa";
 import { BiClipboard } from "react-icons/bi";
 import { MdFavoriteBorder, MdOutlineBookmarkBorder } from "react-icons/md";
 import { CiLogin, CiCircleRemove } from 'react-icons/ci';
@@ -153,17 +152,7 @@ const Navbar = () => {
 
                 {/* Action Icons */}
                 <div className="flex items-center gap-4 md:gap-5">
-                  {/* Profile */}
-                  <Link 
-                    to="/profile" 
-                    title="Profile"
-                    className="relative group"
-                  >
-                    <div className="p-2 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 group-hover:from-indigo-100 group-hover:to-purple-100 transition-all duration-300">
-                      <FaUser size={18} className="text-indigo-700 group-hover:scale-110 transition-transform duration-300" />
-                    </div>
-                  </Link>
-
+              
                   {role === 'Customer' ? (
                     <>
                       {/* Cart */}
