@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './App.css'
 import Login from './pages/Auth/login'
 import Master from './components/layout/master'
 import Master1 from './components/layout/master1'
@@ -21,9 +20,10 @@ import MyOrder from './pages/customer/myOrder'
 import MyFavourate from './pages/customer/myFavourate'
 import {QueryClientProvider, QueryClient} from 'react-query'
 import { Toaster } from 'react-hot-toast';
+import PrivateRoute from './pages/Auth/protected'
 function App() {
 
-  const Stripe = loadStripe("pk_test_51QFwLTBBBCgBrYZETIOQg6jU8b6FNOuHyjGPeIWliPqSeYXqTbJkV8QYxeNHqUMCyzf5m4meV3J3HX1m7mMEEWVj00Hz8287JJ")
+  const Stripe = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY)
 
   const queryClient = new QueryClient()
 
@@ -47,17 +47,20 @@ const route = createBrowserRouter([
       {index:true, element: <Home/>},
       {path: 'home', element: <Home/>},
       {path: 'book', element: <Books/>},
-      {path: 'all', element: <All/>},
-      {path: 'order', element: <Order/>},
-      {path: 'profile', element: <Profile/>},
-      {path:'addBook',element:<AddBook/>},
-      {path:'addBook/:id',element:<AddBook/>},
-      {path: 'all/:id', element: <All/>},
       {path: 'details/:id', element: <Details/>},
-      {path: 'orders', element: <Orders/>},
-      {path: 'orderDetails/:id', element: <OrderDetails/>},
-      {path: 'myOrders/:id', element: <MyOrder/>},
-      {path: 'favourite', element:<MyFavourate/>},
+
+      {path: 'profile', element: <PrivateRoute><Profile/></PrivateRoute>},
+
+      {path: 'all', element: <PrivateRoute role="Customer"><All/></PrivateRoute>},
+      {path: 'all/:id', element: <PrivateRoute role="Customer"><All/></PrivateRoute>},
+      {path: 'order', element: <PrivateRoute role="Customer"><Order/></PrivateRoute>},
+      {path: 'myOrders/:id', element: <PrivateRoute role="Customer"><MyOrder/></PrivateRoute>},
+      {path: 'favourite', element: <PrivateRoute role="Customer"><MyFavourate/></PrivateRoute>},
+
+      {path: 'addBook', element: <PrivateRoute role="Admin"><AddBook/></PrivateRoute>},
+      {path: 'addBook/:id', element: <PrivateRoute role="Admin"><AddBook/></PrivateRoute>},
+      {path: 'orders', element: <PrivateRoute role="Admin"><Orders/></PrivateRoute>},
+      {path: 'orderDetails/:id', element: <PrivateRoute role="Admin"><OrderDetails/></PrivateRoute>},
 
     ]
   }

@@ -3,25 +3,25 @@ import TextField from '@mui/material/TextField';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { IoLogoStencil } from "react-icons/io5";
-import { Autocomplete, Tooltip, InputAdornment, IconButton } from '@mui/material';
+import { Tooltip, InputAdornment, IconButton } from '@mui/material';
 import { useAuth } from '../../hooks/useAuth';
 import { useState } from 'react';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-
-const options = ["Customer", "Admin"];
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors } } = useForm({
-    defaultValues: { first_name: "", last_name: "", email: "", password: "", role: "Customer" }
+    defaultValues: { first_name: "", last_name: "", email: "", password: "" }
   });
 
   const { Register, loading } = useAuth();
-  
+
+  // الدور لا يُختار من الواجهة: كل حساب جديد Customer.
+  // ترقية أي مستخدم إلى Admin تتم من لوحة تحكم Supabase فقط.
   const onSubmit = async (data: any) => {
-    Register(data);
+    Register({ ...data, role: "Customer" });
   };
 
   const inputStyles = {
@@ -145,26 +145,7 @@ export default function Register() {
             />
           </Tooltip>
 
-          <Autocomplete
-            id="role-select"
-            options={options}
-            defaultValue={options[0]}
-            fullWidth
-            renderInput={(params) => (
-              <TextField 
-                {...params}
-                label="Role" 
-                variant="outlined"
-                {...register("role", {
-                  required: 'Role is required',
-                })}
-                error={!!errors.role}
-                sx={inputStyles}
-              />
-            )}
-          />
-
-          <button 
+          <button
             type="submit" 
             disabled={loading}
             className="w-full relative group overflow-hidden bg-indigo-600 hover:bg-indigo-700 text-white py-3.5 px-4 rounded-xl font-bold text-base transition-all duration-300 shadow-[0_10px_20px_-10px_rgba(79,70,229,0.5)] hover:shadow-[0_15px_25px_-10px_rgba(79,70,229,0.6)] active:scale-[0.98] mt-2 disabled:opacity-70 disabled:cursor-not-allowed"

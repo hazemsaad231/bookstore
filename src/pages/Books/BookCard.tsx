@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addToFavorite } from '../../redux/counter';
 import React from "react";
-import { FaShoppingCart, FaEye, FaBookOpen } from "react-icons/fa";
+import { FaShoppingCart, FaEye, FaBookOpen, FaTrash } from "react-icons/fa";
 
 interface BookCardProps {
   currentBooks: any[];
@@ -62,8 +62,7 @@ const BookCard: React.FC<BookCardProps> = ({ currentBooks, handleClickOpen }) =>
                                               onClick={() => handleAddToCart(book)}
                                               className="w-full bg-white text-slate-900 hover:bg-indigo-50 font-semibold py-2.5 px-4 rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2"
                                             >
-                                              <FaShoppingCart size={16}
-                                              onClick={(id: any)=>{handleClickOpen(id)}} />
+                                              <FaShoppingCart size={16} />
                                               <span>Add to Cart</span>
                                             </button>
                                             <Link to={`/details/${book.id}`} className="w-full">
@@ -74,12 +73,21 @@ const BookCard: React.FC<BookCardProps> = ({ currentBooks, handleClickOpen }) =>
                                             </Link>
                                           </>
                                         ) : (
-                                          <Link to={`/addBook/${book.id}`} className="w-full">
-                                            <button className="w-full bg-orange-500 text-white hover:bg-orange-600 font-semibold py-3 px-4 rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2">
-                                              <FaBookOpen size={18} />
-                                              <span>Update Book</span>
+                                          <>
+                                            <Link to={`/addBook/${book.id}`} className="w-full">
+                                              <button className="w-full bg-orange-500 text-white hover:bg-orange-600 font-semibold py-3 px-4 rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2">
+                                                <FaBookOpen size={18} />
+                                                <span>Update Book</span>
+                                              </button>
+                                            </Link>
+                                            <button
+                                              onClick={() => handleClickOpen(book.id)}
+                                              className="w-full bg-red-600 text-white hover:bg-red-700 font-semibold py-3 px-4 rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75 flex items-center justify-center gap-2"
+                                            >
+                                              <FaTrash size={16} />
+                                              <span>Delete Book</span>
                                             </button>
-                                          </Link>
+                                          </>
                                         )}
                                       </div>
                                   </div>

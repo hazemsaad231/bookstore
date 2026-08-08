@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useCallback, useState } from "react";
 import { Pagination} from "@mui/material";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { BOOKS_API } from '../../Api/api';
 import { useSelector } from "react-redux";
 import { Book } from "@mui/icons-material";
@@ -38,6 +38,7 @@ const Books = () => {
   
   const [open, setOpen] = useState(false);
 
+  const queryClient = useQueryClient();
 
   const handleClickOpen = useCallback((id: any) => {
     setOpen(true);
@@ -53,13 +54,14 @@ const Books = () => {
 
       await axios.delete(`${BOOKS_API}/${selectedDelete}`);
       success('Delete is successful!');
-      getBooks();
+      // تحديث الكاش بدل انتظار الـ polling
+      queryClient.invalidateQueries('allBooks');
       handleClose();
-    
+
     } catch (errors) {
       console.log(errors);
     }
-  }, [selectedDelete]);
+  }, [selectedDelete, queryClient]);
 
 
 
@@ -70,7 +72,7 @@ const Books = () => {
 
   }
  const {data,isLoading} = useQuery('allBooks',getBooks,{
-   refetchInterval: 500,
+   staleTime: 60_000,
    refetchOnWindowFocus: true
  });
  const books = data?.data;

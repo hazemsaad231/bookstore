@@ -43,7 +43,11 @@ export const cartSlice = createSlice({
 
     // 2. إضافة للسلة
     addToCart: (state, action: PayloadAction<any>) => {
-      if (!state.userData) return Error("Please log in first");
+      // لا نُرجع قيمة من الـ reducer: في Immer القيمة المُرجَعة تحل محل الـ state بالكامل
+      if (!state.userData) {
+        Error("Please log in first");
+        return;
+      }
 
       const index = state.cartItems.findIndex(item => item.id === action.payload.id);
       if (index >= 0) {
@@ -60,7 +64,10 @@ export const cartSlice = createSlice({
 
     // 3. إضافة للمفضلات (تطبيق التحسين الذي طلبته)
     addToFavorite: (state, action: PayloadAction<any>) => {
-      if (!state.userData) return Error("Log in to add favorites");
+      if (!state.userData) {
+        Error("Log in to add favorites");
+        return;
+      }
 
       const isExist = state.favoriteItems.some(item => item.id === action.payload.id);
       if (isExist) {

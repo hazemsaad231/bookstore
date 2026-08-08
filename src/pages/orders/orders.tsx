@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { updateOrder } from '../../redux/counter';
 import { Link } from "react-router-dom";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import Load from '../../ui/load';
 import { FaEnvelope, FaUser, FaCalendarAlt, FaDollarSign, FaShoppingCart } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
@@ -44,8 +44,11 @@ const Orders = () => {
   const fetchOrders = async () => {
     return await axios.get(Orders_API);
   };
+  const queryClient = useQueryClient();
+
   const { data , isLoading } = useQuery( "orders", fetchOrders,{
-    refetchInterval: 500,
+    staleTime: 60_000,
+    refetchOnWindowFocus: true,
   });
 
   const orders = data?.data;
@@ -74,7 +77,8 @@ const Orders = () => {
     try {
       await axios.delete(`${Orders_API}/${selectedDelete}`);
       success("Order deleted successfully.");
-      console.log("Order deleted successfully.");
+      // تحديث الكاش بدل انتظار الـ polling
+      queryClient.invalidateQueries("orders");
     } catch (error) {
       console.error("Error deleting order:", error);
     }
