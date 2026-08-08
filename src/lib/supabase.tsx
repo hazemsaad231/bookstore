@@ -9,11 +9,12 @@ if (!supabaseUrl || !supabaseKey) {
     !supabaseKey && 'VITE_SUPABASE_ANON_KEY',
   ]
     .filter(Boolean)
-    .join('، ')
+    .join(', ')
 
   throw new Error(
-    `متغيرات البيئة الناقصة: ${missing}. ` +
-      'أضفها في ملف .env محليًا (راجع .env.example) أو في إعدادات البيئة على منصة النشر، ثم أعد بناء المشروع.'
+    `Missing environment variables: ${missing}. ` +
+      'Add them to your local .env file (see .env.example) or to the environment variables ' +
+      'of your hosting platform, then rebuild the project.'
   )
 }
 
