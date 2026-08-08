@@ -48,15 +48,12 @@ const route = createBrowserRouter([
       {path: 'home', element: <Home/>},
       {path: 'book', element: <Books/>},
       {path: 'details/:id', element: <Details/>},
-
       {path: 'profile', element: <PrivateRoute><Profile/></PrivateRoute>},
-
       {path: 'all', element: <PrivateRoute role="Customer"><All/></PrivateRoute>},
       {path: 'all/:id', element: <PrivateRoute role="Customer"><All/></PrivateRoute>},
       {path: 'order', element: <PrivateRoute role="Customer"><Order/></PrivateRoute>},
       {path: 'myOrders/:id', element: <PrivateRoute role="Customer"><MyOrder/></PrivateRoute>},
       {path: 'favourite', element: <PrivateRoute role="Customer"><MyFavourate/></PrivateRoute>},
-
       {path: 'addBook', element: <PrivateRoute role="Admin"><AddBook/></PrivateRoute>},
       {path: 'addBook/:id', element: <PrivateRoute role="Admin"><AddBook/></PrivateRoute>},
       {path: 'orders', element: <PrivateRoute role="Admin"><Orders/></PrivateRoute>},
